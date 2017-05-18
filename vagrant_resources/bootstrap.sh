@@ -11,9 +11,11 @@ yum -y install http://dev.mysql.com/get/mysql-community-release-el6-5.noarch.rpm
 yum -y install mysql-community-server
 
 # PHP
-rpm -Uvh http://ftp.iij.ad.jp/pub/linux/fedora/epel/6/x86_64/epel-release-6-8.noarch.rpm
-rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
-yum -y install --skip-broken --enablerepo=remi --enablerepo=remi-php56 php php-mbstring php-mcrypt php-pear php-mysql php-mysqli
+# php-version: 5.6.30
+yum -y install epel-release
+rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+yum -y remove php-*
+yum -y install --enablerepo=remi,remi-php56 install mod_ssl httpd php php-devel php-common php-gd php-mbstring php-mysql php-pdo php-pear php-xml
 
 # Setup Appache and Mysql
 service httpd start
