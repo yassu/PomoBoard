@@ -22,12 +22,9 @@ service httpd start
 service mysqld start
 
 # CodeIgniter
-yum -y install unzip
-wget https://github.com/bcit-ci/CodeIgniter/archive/3.0.1.zip -P /tmp/
 unzip /tmp/3.0.1.zip -d /var/www/html/
-mv /var/www/html/CodeIgniter-3.0.1/ /var/www/html/code/
+ln -s /vagrant/codeigniter /var/www/html/code
 
-ln -s /vagrant /var/www/html
 
 # mysql
 mysqladmin -u root password password
