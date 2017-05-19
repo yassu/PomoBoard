@@ -23,7 +23,8 @@ service httpd start
 service mysqld start
 
 # CodeIgniter
-ln -s /vagrant/codeigniter /var/www/html/code
+rm -rf /var/www/html/
+ln -s /vagrant/codeigniter /var/www/html
 
 
 # mysql
