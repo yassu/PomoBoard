@@ -2,6 +2,7 @@
 
 
 yum -y update
+yum -y install yum install kernel-devel-2.6.32-431.el6.x86_64
 
 # Apache
 yum -y install httpd
@@ -22,7 +23,6 @@ service httpd start
 service mysqld start
 
 # CodeIgniter
-unzip /tmp/3.0.1.zip -d /var/www/html/
 ln -s /vagrant/codeigniter /var/www/html/code
 
 
