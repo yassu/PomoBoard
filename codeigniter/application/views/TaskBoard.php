@@ -12,15 +12,22 @@
 			padding: 14px 15px 10px 15px;
 		}
 
-		div.header {
+		.header {
 			background-color: #00ff00;
+		}
+		.header_cell {
 			font-size: 24px;
+			border: thin solid;
 		}
 	</style>
 </head>
 <body>
 <div class="header">
-Log in
+	<table>
+		<tr>
+			<td class="header_cell"> Log in </td>
+		</tr>
+	</table>
 </div>
 <h1>
 	Welcome to The TaskBoard Pages.
