@@ -17,7 +17,7 @@
 		}
 		.header_cell {
 			font-size: 24px;
-			border: thin solid;
+			border:  solid silver;
 		}
 	</style>
 </head>
