@@ -25,6 +25,7 @@
 <div class="header">
 	<table>
 		<tr>
+			<td class="header_cell"> タスク </td>
 			<td class="header_cell"> Log in </td>
 		</tr>
 	</table>
