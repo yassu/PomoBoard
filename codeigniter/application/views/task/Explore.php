@@ -26,14 +26,15 @@
 	<table>
 		<tr>
 			<td class="header_cell">
-				<a href="<?php echo site_url('/task/explore') ?>"> タスク </a>
+				<a href="<?php echo site_url('task/explore') ?>"> タスク </a>
 			</td>
 			<td class="header_cell"> Log in </td>
 		</tr>
 	</table>
 </div>
 <h1>
-	Welcome to The TaskBoard Pages.
+	Welcome to The TaskBoard Pages. <br>
+	This is a list page.
 </h1>
 </body>
 </html>
