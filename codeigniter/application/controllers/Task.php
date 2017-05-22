@@ -5,7 +5,9 @@ class Task extends CI_Controller {
         {
                 $this->load->helper('url');
 
-                $this->load->view('statics/header');
+                $header_data['page_title'] = 'Explore | TaskBoard';
+
+                $this->load->view('statics/header', $header_data);
                 $this->load->view('task/explore');
                 $this->load->view('statics/footer');
         }

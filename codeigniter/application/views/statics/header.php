@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Welcome to TaskBoard</title>
+	<title><?php echo $page_title; ?></title>
 	<style type="text/css">
 		h1 {
 			color: #444;
