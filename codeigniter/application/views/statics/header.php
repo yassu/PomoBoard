@@ -26,6 +26,9 @@
 	<table>
 		<tr>
 			<td class="header_cell">
+				<a href="/"> Home </a>
+			</td>
+			<td class="header_cell">
 				<a href="<?php echo site_url('/task/explore') ?>"> タスク </a>
 			</td>
 			<td class="header_cell"> Log in </td>
