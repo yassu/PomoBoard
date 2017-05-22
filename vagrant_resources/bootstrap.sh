@@ -2,7 +2,8 @@
 
 
 yum -y update
-yum -y install yum install kernel-devel-2.6.32-431.el6.x86_64
+sudo yum -y update kernel
+sudo yum -y install kernel-devel kernel-headers dkms gcc gcc-c++
 
 # Apache
 yum -y install httpd
