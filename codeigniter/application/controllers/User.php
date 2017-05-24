@@ -3,6 +3,7 @@ class User extends CI_Controller
 {
         public function sign_up()
         {
+                $this->load->helper('form');
                 $this->load->helper('url');
 
                 $header_data['page_title'] = 'SignUp | TaskBoard';
