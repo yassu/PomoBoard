@@ -31,6 +31,9 @@
 			<td class="header_cell">
 				<a href="<?php echo site_url('/task/explore') ?>"> Task </a>
 			</td>
+			<td class="header_cell">
+				<a href="/"> Sign Up </a>
+			</td>
 			<td class="header_cell"> Log in </td>
 		</tr>
 	</table>
