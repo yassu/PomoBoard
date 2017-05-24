@@ -1,0 +1,6 @@
+CREATE TABLE User (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    user_id VARCHAR(64) NOT NULL,
+    user_hashed_pass VARCHAR(256) NOT NULL,
+    created_date DATETIME NOT NULL DEFAULT NOW(),
+    updated_date DATETIME NOT NULL DEFAULT NOW());
