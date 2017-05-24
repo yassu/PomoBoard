@@ -32,7 +32,7 @@
 				<a href="<?php echo site_url('/task/explore') ?>"> Task </a>
 			</td>
 			<td class="header_cell">
-				<a href="<?php echo site_url('/task/explore') ?>"> Sign Up </a>
+				<a href="<?php echo site_url('/user/sign_up') ?>"> Sign Up </a>
 			</td>
 			<td class="header_cell"> Log in </td>
 		</tr>
