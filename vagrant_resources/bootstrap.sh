@@ -2,8 +2,6 @@
 
 
 yum -y update
-sudo yum -y update kernel
-sudo yum -y install kernel-devel kernel-headers dkms gcc gcc-c++
 
 # Apache
 yum -y install httpd
