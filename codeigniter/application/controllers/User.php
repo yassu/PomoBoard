@@ -17,14 +17,12 @@ class User extends CI_Controller
                 if ($this->form_validation->run() == False)
                 {
                         $this->load->view('statics/header', $header_data);
-                        echo "First Time or Error";
                         $this->load->view('user/sign_up');
                         $this->load->view('statics/footer');
                 }
                 else
                 {
                         $this->load->view('statics/header', $header_data);
-                        echo "Success";
                         $this->load->view('user/sign_up');
                         $this->load->view('statics/footer');
                 }
