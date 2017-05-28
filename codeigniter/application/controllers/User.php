@@ -22,8 +22,12 @@ class User extends CI_Controller
                 }
                 else
                 {
+                        $data = array(
+                                'name' => $_POST['name']
+                        );
+
                         $this->load->view('statics/header', $header_data);
-                        $this->load->view('user/sign_up_success');
+                        $this->load->view('user/sign_up_success', $data);
                         $this->load->view('statics/footer');
                 }
         }
