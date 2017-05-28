@@ -28,11 +28,17 @@ class User extends CI_Controller
                                 'name' => $name
                         );
 
-                        // nsert into User (user_id, user_hashed_pass) values('testtest', 'passpass')
+                        $this->insert_user($name, $hashed_password);
 
                         $this->load->view('statics/header', $header_data);
                         $this->load->view('user/sign_up_success', $data);
                         $this->load->view('statics/footer');
                 }
+        }
+
+        private function insert_user($name, $hashed_password)
+        {
+                $sql = sprintf("INSERT INTO `User` (`user_id`, `user_hashed_pass`) VALUES('%s', '%s');", $name, $hashed_password);
+                $this->db->query($sql);
         }
 }
