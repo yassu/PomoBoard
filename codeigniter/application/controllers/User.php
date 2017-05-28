@@ -10,9 +10,9 @@ class User extends CI_Controller
 
                 $header_data['page_title'] = 'SignUp | TaskBoard';
 
-                $this->form_validation->set_rules('name', 'Name', 'required');
-                $this->form_validation->set_rules('password', 'Password', 'required');
-                $this->form_validation->set_rules('confirmed_password', 'Confirmation password', 'required');
+                $this->form_validation->set_rules('name', 'Name', 'trim|required|min_length[6]|max_length[12]');
+                $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]|max_length[60]');
+                $this->form_validation->set_rules('confirmed_password', 'Confirmation password', 'trim|required|matches[password]');
 
                 if ($this->form_validation->run() == False)
                 {
