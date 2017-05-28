@@ -27,17 +27,4 @@ class User extends CI_Controller
                         $this->load->view('statics/footer');
                 }
         }
-
-
-        public function sign_up_success()
-        {
-                $this->load->helper('url');
-
-                $header_data['page_title'] = 'SignUpSuccessed | TaskBoard';
-
-                $this->load->view('statics/header', $header_data);
-                $this->load->view('user/sign_up_success');
-                $this->load->view('statics/footer');
-
-        }
 }
