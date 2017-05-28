@@ -14,7 +14,6 @@ yum -y install mysql-community-server
 # php-version: 5.6.30
 yum -y install epel-release
 rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
-yum -y remove php-*
 yum -y install --enablerepo=remi,remi-php56 install mod_ssl httpd php php-devel php-common php-gd php-mbstring php-mysql php-pdo php-pear php-xml
 
 # Setup Appache and Mysql
