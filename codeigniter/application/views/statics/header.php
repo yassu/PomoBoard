@@ -41,7 +41,7 @@
 				<a href="<?php echo site_url('/user/sign_up') ?>"> Sign Up </a>
 			</td>
 			<td class="header_cell">
-				<a href="<?php echo site_url('/user/login') ?>"> Log in </a>
+				<a href="<?php echo site_url('/user/login') ?>"> Login </a>
 			</td>
 			<?php if($this->User->logined())
 			{
