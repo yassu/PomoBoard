@@ -42,6 +42,7 @@ class User extends CI_Controller
                 $this->load->helper('form');
                 $this->load->helper('url');
                 $this->load->library('form_validation');
+                $this->load->model('MY_User', 'User');
 
 
                 $this->form_validation->set_rules('id', 'Id', 'trim|required|min_length[6]|max_length[12]');
