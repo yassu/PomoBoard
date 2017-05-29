@@ -37,7 +37,7 @@ class User extends CI_Controller
                 }
         }
 
-        public function sign_in()
+        public function login()
         {
                 $this->load->helper('form');
                 $this->load->helper('url');
@@ -52,7 +52,7 @@ class User extends CI_Controller
                 {
                         $header_data['page_title'] = 'SignIn | TaskBoard';
                         $this->load->view('statics/header', $header_data);
-                        $this->load->view('user/sign_in');
+                        $this->load->view('user/login');
                         $this->load->view('statics/footer');
                 }
                 else

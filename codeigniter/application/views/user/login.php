@@ -1,11 +1,11 @@
 <h1>
-	Sign In
+	Login
 </h1>
 
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('user/sign_in'); ?>
+<?php echo form_open('user/login'); ?>
     <fieldset>
         <table>
             <tbody>
