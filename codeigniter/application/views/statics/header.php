@@ -28,9 +28,15 @@
 			<td class="header_cell">
 				<a href="/"> Home </a>
 			</td>
-			<td class="header_cell">
-				<a href="<?php echo site_url('/task/explore') ?>"> Task </a>
-			</td>
+			<?php if($this->User->logined())
+			{
+			?>
+				<td class="header_cell">
+					<a href="<?php echo site_url('/task/explore') ?>"> Task </a>
+				</td>
+			<?php
+			}
+			?>
 			<td class="header_cell">
 				<a href="<?php echo site_url('/user/sign_up') ?>"> Sign Up </a>
 			</td>
