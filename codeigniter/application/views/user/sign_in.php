@@ -3,6 +3,8 @@
 </h1>
 
 
+<?php echo validation_errors(); ?>
+
 <?php echo form_open('user/sign_in'); ?>
     <fieldset>
         <table>

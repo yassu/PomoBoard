@@ -41,11 +41,26 @@ class User extends CI_Controller
         {
                 $this->load->helper('form');
                 $this->load->helper('url');
+                $this->load->library('form_validation');
 
-                $header_data['page_title'] = 'SignIn | TaskBoard';
 
-                $this->load->view('statics/header', $header_data);
-                $this->load->view('user/sign_in');
-                $this->load->view('statics/footer');
+                $this->form_validation->set_rules('id', 'Id', 'trim|required|min_length[6]|max_length[12]');
+                $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]|max_length[60]');
+
+                if ($this->form_validation->run() === FALSE)
+                {
+                        $header_data['page_title'] = 'SignIn | TaskBoard';
+                        $this->load->view('statics/header', $header_data);
+                        $this->load->view('user/sign_in');
+                        $this->load->view('statics/footer');
+                }
+                else
+                {
+                        // ユーザー情報をglobal sessionに保存する
+                        $header_data['page_title'] = 'Home | TaskBoard';
+                        $this->load->view('statics/header', $header_data);
+                        $this->load->view('taskboard');
+                        $this->load->view('statics/footer');
+                }
         }
 }
