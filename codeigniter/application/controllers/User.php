@@ -25,13 +25,11 @@ class User extends CI_Controller
                 {
                         $name = $_POST['name'];
                         $hashed_password = crypt($_POST['password'], "$6$");
-                        $this->User->set_user_id($name);
-                        $this->User->set_hashed_pass($hashed_password);
                         $data = array(
                                 'name' => $name
                         );
 
-                        $this->User->insert();
+                        $this->User->insert($name, $hashed_password);
 
                         $this->load->view('statics/header', $header_data);
                         $this->load->view('user/sign_up_success', $data);
