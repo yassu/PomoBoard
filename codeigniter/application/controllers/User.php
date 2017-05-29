@@ -56,7 +56,9 @@ class User extends CI_Controller
                 }
                 else
                 {
-                        // ユーザー情報をglobal sessionに保存する
+                        $this->session->user_id = $_POST['id'];
+                        $this->session->hashed_password = crypt($_POST['password'], "$6$");
+
                         $header_data['page_title'] = 'Home | TaskBoard';
                         $this->load->view('statics/header', $header_data);
                         $this->load->view('taskboard');
