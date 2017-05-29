@@ -40,7 +40,9 @@
 			<td class="header_cell">
 				<a href="<?php echo site_url('/user/sign_up') ?>"> Sign Up </a>
 			</td>
-			<td class="header_cell"> Log in </td>
+			<td class="header_cell">
+				<a href="<?php echo site_url('/user/login') ?>"> Log in </a>
+			</td>
 		</tr>
 	</table>
 </div>
