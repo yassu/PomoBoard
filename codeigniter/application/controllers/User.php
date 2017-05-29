@@ -36,4 +36,16 @@ class User extends CI_Controller
                         $this->load->view('statics/footer');
                 }
         }
+
+        public function sign_in()
+        {
+                $this->load->helper('form');
+                $this->load->helper('url');
+
+                $header_data['page_title'] = 'SignIn | TaskBoard';
+
+                $this->load->view('statics/header', $header_data);
+                $this->load->view('user/sign_in');
+                $this->load->view('statics/footer');
+        }
 }
