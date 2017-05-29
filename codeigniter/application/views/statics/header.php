@@ -43,6 +43,15 @@
 			<td class="header_cell">
 				<a href="<?php echo site_url('/user/login') ?>"> Log in </a>
 			</td>
+			<?php if($this->User->logined())
+			{
+			?>
+				<td class="header_cell">
+					<a href="<?php echo site_url('/user/logout') ?>"> Logout </a>
+				</td>
+			<?php
+			}
+			?>
 		</tr>
 	</table>
 </div>
