@@ -4,6 +4,7 @@ class Task extends CI_Controller {
         public function explore()
         {
                 $this->load->helper('url');
+                $this->load->model('MY_User', 'User');
 
                 $header_data['page_title'] = 'Explore | TaskBoard';
 
