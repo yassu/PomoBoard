@@ -25,21 +25,17 @@ class User extends CI_Controller
                 {
                         $name = $_POST['name'];
                         $hashed_password = crypt($_POST['password'], "$6$");
+                        $this->User->set_user_id($name);
+                        $this->User->set_hashed_pass($hashed_password);
                         $data = array(
                                 'name' => $name
                         );
 
-                        $this->insert_user($name, $hashed_password);
+                        $this->User->insert();
 
                         $this->load->view('statics/header', $header_data);
                         $this->load->view('user/sign_up_success', $data);
                         $this->load->view('statics/footer');
                 }
-        }
-
-        private function insert_user($name, $hashed_password)
-        {
-                $sql = sprintf("INSERT INTO `User` (`user_id`, `user_hashed_pass`) VALUES('%s', '%s');", $name, $hashed_password);
-                $this->db->query($sql);
         }
 }
