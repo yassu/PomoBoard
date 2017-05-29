@@ -28,4 +28,11 @@ class MY_user extends CI_Model
         $correct_hashed_pass = $this->db->query($sql)->result_array()[0]['user_hashed_pass'];
         return ($hashed_password === $correct_hashed_pass)? $user_id: False ;
     }
+
+    // Sessionの情報を用いて user_idを返す
+    // ログインしていればuser_id, ログインしていなければFalseを返す
+    public function logined()
+    {
+        return authorize($this->session->user_id, $this->session->hashed_password);
+    }
 }
