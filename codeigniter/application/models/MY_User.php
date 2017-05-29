@@ -25,7 +25,8 @@ class MY_user extends CI_Model
     public function authorize($user_id, $hashed_password)
     {
         $sql = sprintf("select `user_hashed_pass` from `User` where `user_id` = '%s'",$user_id);
-        $correct_hashed_pass = $this->db->query($sql)->result_array()[0]['user_hashed_pass'];
+        $results = $this->db->query($sql)->result_array();
+        $correct_hashed_pass = empty($results)? null: $results[0]['user_hashed_pass'];
         return ($hashed_password === $correct_hashed_pass)? $user_id: False ;
     }
 
@@ -33,6 +34,6 @@ class MY_user extends CI_Model
     // ログインしていればuser_id, ログインしていなければFalseを返す
     public function logined()
     {
-        return authorize($this->session->user_id, $this->session->hashed_password);
+        return $this->authorize($this->session->user_id, $this->session->hashed_password);
     }
 }

@@ -4,6 +4,7 @@ class TaskBoard extends CI_Controller {
         public function index()
         {
                 $this->load->helper('url');
+                $this->load->model('MY_User', 'User');
 
                 $header_data['page_title'] = 'Home | TaskBoard';
 
