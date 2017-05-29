@@ -36,4 +36,10 @@ class MY_user extends CI_Model
     {
         return $this->authorize($this->session->user_id, $this->session->hashed_password);
     }
+
+    public function logout()
+    {
+        $this->session->unset_userdata('user_id');
+        $this->session->unset_userdata('hashed_password');
+    }
 }

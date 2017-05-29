@@ -66,4 +66,15 @@ class User extends CI_Controller
                         $this->load->view('statics/footer');
                 }
         }
+
+
+        public function logout()
+        {
+                $this->load->helper('url');
+                $this->load->model('MY_User', 'User');
+
+                $this->User->logout();
+
+                redirect('');
+        }
 }
