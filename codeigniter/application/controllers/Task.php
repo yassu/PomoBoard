@@ -16,6 +16,7 @@ class Task extends CI_Controller {
         public function create()
         {
                 $this->load->helper('url');
+                $this->load->helper('form');
                 $this->load->model('MY_User', 'User');
 
                 $header_data['page_title'] = 'Create | TaskBoard';
