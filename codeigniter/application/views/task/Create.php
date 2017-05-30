@@ -2,6 +2,8 @@
     Create Task
 </h1>
 
+<?php echo validation_errors(); ?>
+
 <?php echo form_open('task/create'); ?>
     <fieldset>
         <table>
