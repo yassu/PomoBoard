@@ -32,3 +32,7 @@ CREATE DATABASE taskboard;
 GRANT ALL PRIVILEGES ON taskboard.* TO "root"@"localhost" IDENTIFIED BY "password";
     FLUSH PRIVILEGES;
 EOF
+
+
+# timezone
+timedatectl set-timezone Asia/Tokyo
