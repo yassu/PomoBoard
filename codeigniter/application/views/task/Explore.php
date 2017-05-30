@@ -4,6 +4,7 @@
 </h1>
 <br>
 
-<button type="button" name="submit" value="new">
-	<div style="font-size: 19px;"> New Task </divß>
+<?php $create_task_url = site_url('task/create'); ?>
+<button type="button" name="submit" value="create" onClick="return redirect('<?php echo $create_task_url;?>');">
+	<div style="font-size: 19px;"> New Task </div>
 </button>
