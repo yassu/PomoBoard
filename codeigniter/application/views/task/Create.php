@@ -9,8 +9,8 @@
         <table>
             <tbody>
                 <tr>
-                    <th style='text-align: left'>Task Name</th>
-                        <td><input type="text" id="task_name" name="task_name" value="" /></td>
+                    <th style='text-align: left'>Task Title</th>
+                        <td><input type="text" id="task_title" name="task_title" value="" /></td>
                 </tr>
                 <tr>
                     <th style='text-align: left'>Task Memo</th>

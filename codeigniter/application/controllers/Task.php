@@ -20,7 +20,7 @@ class Task extends CI_Controller {
                 $this->load->model('MY_User', 'User');
                 $this->load->library('form_validation');
 
-                $this->form_validation->set_rules('task_name', 'Task Name', 'trim|required');
+                $this->form_validation->set_rules('task_title', 'Task Title', 'trim|required');
                 $this->form_validation->set_rules('task_memo', 'Task Name', 'trim');
 
                 if ($this->form_validation->run() == False)
@@ -33,12 +33,15 @@ class Task extends CI_Controller {
                 }
                 else
                 {
+                        $this->load->model('MY_Task', 'Task');
+
                         $header_data['page_title'] = 'Create | TaskBoard';
 
-                        $name = $_POST['task_name'];
+                        $user_id = $this->User->logined();
+                        $title = $_POST['task_title'];
                         $memo = $_POST['task_memo'];
 
-                        $this->Task->insert($name, $memo);
+                        $this->Task->insert($user_id, $title, $memo);
 
                         $this->load->view('statics/header', $header_data);
                         $this->load->view('task/explore');
