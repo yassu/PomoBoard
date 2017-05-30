@@ -4,3 +4,13 @@ CREATE TABLE User (
     user_hashed_pass VARCHAR(256) NOT NULL,
     created_date DATETIME NOT NULL DEFAULT NOW(),
     updated_date DATETIME NOT NULL DEFAULT NOW());
+
+CREATE TABLE Task (
+    task_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    user_id VARCHAR(64) NOT NULL,
+    title TEXT NOT NULL,
+    memo TEXT NOT NULL,
+    created_date DATETIME NOT NULL DEFAULT NOW(),
+    updated_date DATETIME NOT NULL DEFAULT NOW(),
+    is_deleted TINYINT(1) NOT NULL DEFAULT 0
+);
