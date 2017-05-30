@@ -20,14 +20,29 @@ class Task extends CI_Controller {
                 $this->load->model('MY_User', 'User');
                 $this->load->library('form_validation');
 
-                $header_data['page_title'] = 'Create | TaskBoard';
-
                 $this->form_validation->set_rules('task_name', 'Task Name', 'trim|required');
                 $this->form_validation->set_rules('task_memo', 'Task Name', 'trim');
-                $this->form_validation->run();
 
-                $this->load->view('statics/header', $header_data);
-                $this->load->view('task/create');
-                $this->load->view('statics/footer');
+                if ($this->form_validation->run() == False)
+                {
+                        $header_data['page_title'] = 'Create | TaskBoard';
+                        
+                        $this->load->view('statics/header', $header_data);
+                        $this->load->view('task/create');
+                        $this->load->view('statics/footer');
+                }
+                else
+                {
+                        $header_data['page_title'] = 'Create | TaskBoard';
+
+                        $name = $_POST['task_name'];
+                        $memo = $_POST['task_memo'];
+
+                        $this->Task->insert($name, $memo);
+
+                        $this->load->view('statics/header', $header_data);
+                        $this->load->view('task/explore');
+                        $this->load->view('statics/footer');
+                }
         }
 }
