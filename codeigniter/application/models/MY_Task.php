@@ -21,4 +21,24 @@ class MY_Task extends CI_Model
         $sql = sprintf("INSERT INTO `Task` (`user_id`, `title`, `memo`) VALUES('%s', '%s', '%s');", $user_id, $title, $memo);
         $this->db->query($sql);
     }
+
+    public function explore($user_id, $title, $memo, $keyword)
+    {
+        if (! $user_id)
+        {
+            return array();
+        }
+
+        if ($title)
+        {
+            $this->db->like('title', $title);
+        }
+
+        if ($memo)
+        {
+            $this->db->like('memo', $memo);
+        }
+
+        return $this->db->get('Task');
+    }
 }

@@ -5,8 +5,9 @@
 
 <?php $create_task_url = site_url('task/create'); ?>
 
-<?php echo form_open('user/login'); ?>
+<?php echo form_open(site_url('task/explore')); ?>
 <table border="1">
+<fieldset>
 	<tr>
 		<th colspan="6" algin="center"> Search </th>
 	</tr>
@@ -18,6 +19,7 @@
 		<td> KeyWord </td>
 		<td> <input type="text" id="keyword" name="keyword" value="" width="100%" /> </td>
 	</tr>
+</fieldset>
 </table>
 
 <button type="button" name="submit" value="submit">

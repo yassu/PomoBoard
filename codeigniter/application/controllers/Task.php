@@ -6,11 +6,19 @@ class Task extends CI_Controller {
                 $this->load->helper('url');
                 $this->load->helper('form');
                 $this->load->model('MY_User', 'User');
+                $this->load->model('MY_Task', 'Task');
 
                 $header_data['page_title'] = 'Explore | TaskBoard';
 
+                if (array_key_exists('title', $_POST))
+                {
+                        $list = $this->Task->explore($this->User->logined(), $_POST['title'], $_POST['memo'], $_POST['keyword']);
+                }
+
                 $this->load->view('statics/header', $header_data);
                 $this->load->view('task/explore');
+                echo var_dump($_POST);
+                echo var_dump($_GET);
                 $this->load->view('statics/footer');
         }
 
