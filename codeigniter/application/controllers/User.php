@@ -57,13 +57,26 @@ class User extends CI_Controller
                 }
                 else
                 {
-                        $this->session->user_id = $_POST['id'];
-                        $this->session->hashed_password = crypt($_POST['password'], "$6$");
+                        $user_id = $_POST['id'];
+                        $password = crypt($_POST['password'], "$6$");
 
-                        $header_data['page_title'] = 'Home | TaskBoard';
-                        $this->load->view('statics/header', $header_data);
-                        $this->load->view('taskboard');
-                        $this->load->view('statics/footer');
+                        if($this->User->authorize($user_id, $password))      // case: correct user_id and password is entered
+                        {
+                                $this->session->user_id = $_POST['id'];
+                                $this->session->hashed_password = crypt($_POST['password'], "$6$");
+
+                                $header_data['page_title'] = 'Home | TaskBoard';
+                                $this->load->view('statics/header', $header_data);
+                                $this->load->view('taskboard');
+                                $this->load->view('statics/footer');
+                        }
+                        else
+                        {
+                                $header_data['page_title'] = 'SignIn | TaskBoard';
+                                $this->load->view('statics/header', $header_data);
+                                $this->load->view('user/login');
+                                $this->load->view('statics/footer');
+                        }
                 }
         }
 
