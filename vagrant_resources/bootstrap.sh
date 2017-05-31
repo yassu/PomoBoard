@@ -21,9 +21,10 @@ service httpd start
 service mysqld start
 
 # CodeIgniter
-rm -rf /var/www/html/
-ln -s /vagrant/codeigniter /var/www/html
-
+if [ ! -L /var/www/html ]; then
+    rm -rf /var/www/html/
+    ln -s /vagrant/codeigniter /var/www/html
+fi
 
 # mysql
 mysqladmin -u root password password
