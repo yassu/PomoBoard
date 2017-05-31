@@ -28,7 +28,7 @@ ln -s /vagrant/codeigniter /var/www/html
 # mysql
 mysqladmin -u root password password
 mysql -uroot -ppassword <<EOF
-CREATE DATABASE taskboard;
+CREATE DATABASE IF NOT EXISTS taskboard;
 GRANT ALL PRIVILEGES ON taskboard.* TO "root"@"localhost" IDENTIFIED BY "password";
     FLUSH PRIVILEGES;
 EOF
