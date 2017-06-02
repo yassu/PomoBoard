@@ -13,12 +13,11 @@ class Task extends CI_Controller {
                 if (array_key_exists('title', $_POST))
                 {
                         $list = $this->Task->explore($this->User->logined(), $_POST['title'], $_POST['memo'], $_POST['keyword']);
+                        echo var_dump($list->result_array());
                 }
 
                 $this->load->view('statics/header', $header_data);
                 $this->load->view('task/explore');
-                echo var_dump($_POST);
-                echo var_dump($_GET);
                 $this->load->view('statics/footer');
         }
 
