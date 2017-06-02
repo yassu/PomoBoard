@@ -32,7 +32,8 @@ class MY_Task extends CI_Model
             return array();
         }
 
-        $this->db->where('user_id', $user_id);
+        $this->db->where('user_id', $user_id)
+                  ->where('is_deleted', 0);
 
         if ($title !== "")
         {
