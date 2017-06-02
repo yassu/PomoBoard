@@ -36,7 +36,8 @@ class MY_Task extends CI_Model
 
         if ($title !== "")
         {
-            $this->db->or_like('title', $title);
+            echo "title";
+            $this->db->like('title', $title);
         }
 
         if ($memo !== "")

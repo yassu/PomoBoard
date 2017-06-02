@@ -30,3 +30,31 @@
 		</button>
     </fieldset>
 </form>
+
+<?php
+if (!empty($list))
+{ ?>
+	<table border="1">
+		<tr>
+			<td> Title </td>
+			<td> Memo </td>
+			<td> Created Date </td>
+			<td> Updated Date </td>
+		</tr>
+		<?php
+		foreach($list as $task)
+		{
+		?>
+			<tr>
+				<td> <?php echo $task['title']; ?> </td>
+				<td> <?php echo $task['memo']; ?> </td>
+				<td> <?php echo $task['created_date']; ?> </td>
+				<td> <?php echo $task['updated_date']; ?> </td>
+			</tr>
+		<?php
+		}
+		?>
+	</table>
+<?php
+}
+?>

@@ -12,10 +12,9 @@ class Task extends CI_Controller {
 
                 $data['list'] = array_key_exists('title', $_POST)?
                         $this->Task->get_list($this->User->logined(), $_POST['title'], $_POST['memo'], $_POST['keyword']): array();
-                echo var_dump($data['list']);
 
                 $this->load->view('statics/header', $header_data);
-                $this->load->view('task/explore');
+                $this->load->view('task/explore', $data);
                 $this->load->view('statics/footer');
         }
 
