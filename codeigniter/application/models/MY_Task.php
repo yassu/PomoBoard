@@ -29,6 +29,7 @@ class MY_Task extends CI_Model
             return array();
         }
 
+        /*
         if ($title)
         {
             $this->db->like('title', $title);
@@ -38,6 +39,7 @@ class MY_Task extends CI_Model
         {
             $this->db->like('memo', $memo);
         }
+        */
 
         return $this->db->get('Task');
     }
