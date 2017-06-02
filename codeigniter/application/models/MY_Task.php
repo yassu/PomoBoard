@@ -22,24 +22,24 @@ class MY_Task extends CI_Model
         $this->db->query($sql);
     }
 
-    public function explore($user_id, $title, $memo, $keyword)
+    public function get_list($user_id, $title, $memo, $keyword)
     {
         if (! $user_id)
         {
             return array();
         }
 
-        /*
-        if ($title)
+        $this->db->where('user_id', $user_id);
+
+        if ($title !== "")
         {
-            $this->db->like('title', $title);
+            $this->db->or_like('title', $title);
         }
 
-        if ($memo)
+        if ($memo !== "")
         {
             $this->db->like('memo', $memo);
         }
-        */
 
         return $this->db->get('Task');
     }

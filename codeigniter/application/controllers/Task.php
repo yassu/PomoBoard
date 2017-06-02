@@ -12,7 +12,7 @@ class Task extends CI_Controller {
 
                 if (array_key_exists('title', $_POST))
                 {
-                        $list = $this->Task->explore($this->User->logined(), $_POST['title'], $_POST['memo'], $_POST['keyword']);
+                        $list = $this->Task->get_list($this->User->logined(), $_POST['title'], $_POST['memo'], $_POST['keyword']);
                         echo var_dump($list->result_array());
                 }
 
