@@ -10,11 +10,9 @@ class Task extends CI_Controller {
 
                 $header_data['page_title'] = 'Explore | TaskBoard';
 
-                if (array_key_exists('title', $_POST))
-                {
-                        $list = $this->Task->get_list($this->User->logined(), $_POST['title'], $_POST['memo'], $_POST['keyword']);
-                        echo var_dump($list->result_array());
-                }
+                $data['list'] = array_key_exists('title', $_POST)?
+                        $this->Task->get_list($this->User->logined(), $_POST['title'], $_POST['memo'], $_POST['keyword']): array();
+                echo var_dump($data['list']);
 
                 $this->load->view('statics/header', $header_data);
                 $this->load->view('task/explore');

@@ -44,6 +44,6 @@ class MY_Task extends CI_Model
             $this->db->like('memo', $memo);
         }
 
-        return $this->db->get('Task');
+        return $this->db->get('Task')->result_array();
     }
 }
