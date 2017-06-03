@@ -1,3 +1,3 @@
 <h1>
-	Welcome to The PomoBoard Pages.
+	PomoBoard
 </h1>
