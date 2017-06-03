@@ -15,8 +15,11 @@ class MY_user extends CI_Model
 
     public function insert($user_id, $hashed_password)
     {
-        $sql = sprintf("INSERT INTO `User` (`user_id`, `user_hashed_pass`) VALUES('%s', '%s');", $user_id, $hashed_password);
-        $this->db->query($sql);
+        $this->db->insert('User', array(
+                'user_id' => $user_id,
+                'user_hashed_pass' => $hashed_password
+                )
+            );
     }
 
 
