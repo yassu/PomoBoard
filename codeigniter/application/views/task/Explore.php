@@ -1,6 +1,5 @@
 <h1>
-	Welcome to The TaskBoard Pages. <br>
-	This is a list page.
+	Task Board
 </h1>
 
 <?php $create_task_url = site_url('task/create'); ?>
@@ -10,7 +9,7 @@
         <table border="1">
             <tbody>
                 <tr>
-                    <th style='text-align: left'>Search</th>
+                    <th style='text-align: center' colspan="6">Search</th>
                 </tr>
                 <tr>
                     <th style='text-align: left'> Title </th>
