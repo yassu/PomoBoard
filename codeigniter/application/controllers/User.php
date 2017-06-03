@@ -9,7 +9,7 @@ class User extends CI_Controller
                 $this->load->library('form_validation');
 
 
-                $header_data['page_title'] = 'SignUp | TaskBoard';
+                $header_data['page_title'] = 'SignUp | PomoBoard';
 
                 $this->form_validation->set_rules('name', 'Name', 'trim|required|min_length[6]|max_length[12]');
                 $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]|max_length[60]');
@@ -50,7 +50,7 @@ class User extends CI_Controller
 
                 if ($this->form_validation->run() === FALSE)
                 {
-                        $header_data['page_title'] = 'SignIn | TaskBoard';
+                        $header_data['page_title'] = 'SignIn | PomoBoard';
                         $this->load->view('statics/header', $header_data);
                         $this->load->view('user/login');
                         $this->load->view('statics/footer');
@@ -65,14 +65,14 @@ class User extends CI_Controller
                                 $this->session->user_id = $_POST['id'];
                                 $this->session->hashed_password = crypt($_POST['password'], "$6$");
 
-                                $header_data['page_title'] = 'Home | TaskBoard';
+                                $header_data['page_title'] = 'Home | PomoBoard';
                                 $this->load->view('statics/header', $header_data);
-                                $this->load->view('taskboard');
+                                $this->load->view('pomoboard');
                                 $this->load->view('statics/footer');
                         }
                         else
                         {
-                                $header_data['page_title'] = 'SignIn | TaskBoard';
+                                $header_data['page_title'] = 'SignIn | PomoBoard';
                                 $this->load->view('statics/header', $header_data);
                                 $this->load->view('user/login');
                                 $this->load->view('statics/footer');

@@ -9,7 +9,7 @@ $ plugin install vagrant-vbguest
 最初にvagrant upした直後にデータを設定するために
 
 ```
-$ mysql -uroot -ppassword taskboard < /vagrant/vagrant_resources/set_schema.sql
+$ mysql -uroot -ppassword pomoboard < /vagrant/vagrant_resources/set_schema.sql
 ```
 
 を実行すること.

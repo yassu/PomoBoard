@@ -8,7 +8,7 @@ class Task extends CI_Controller {
                 $this->load->model('MY_User', 'User');
                 $this->load->model('MY_Task', 'Task');
 
-                $header_data['page_title'] = 'Explore | TaskBoard';
+                $header_data['page_title'] = 'Explore | PomoBoard';
 
                 $data['list'] = array_key_exists('title', $_POST)?
                         $this->Task->get_list($this->User->logined(), $_POST['title'], $_POST['memo'], $_POST['keyword']): array();
@@ -30,7 +30,7 @@ class Task extends CI_Controller {
 
                 if ($this->form_validation->run() == False)
                 {
-                        $header_data['page_title'] = 'Create | TaskBoard';
+                        $header_data['page_title'] = 'Create | PomoBoard';
                         
                         $this->load->view('statics/header', $header_data);
                         $this->load->view('task/create');
@@ -40,7 +40,7 @@ class Task extends CI_Controller {
                 {
                         $this->load->model('MY_Task', 'Task');
 
-                        $header_data['page_title'] = 'Create | TaskBoard';
+                        $header_data['page_title'] = 'Create | PomoBoard';
 
                         $user_id = $this->User->logined();
                         $title = $_POST['task_title'];
