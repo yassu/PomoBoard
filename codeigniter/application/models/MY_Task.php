@@ -26,12 +26,12 @@ class MY_Task extends CI_Model
         }
         else
         {
-            $task = array(
-                    'user_id' => $user_id,
-                    'title' => $title,
-                    'memo' => $memo
-                );
-            $this->db->insert('Task', $task);
+            $this->db->insert('Task', array(
+                'user_id' => $user_id,
+                'title' => $title,
+                'memo' => $memo
+                )
+            );
             return true;
         }
     }
