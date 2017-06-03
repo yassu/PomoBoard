@@ -20,8 +20,20 @@ class MY_Task extends CI_Model
 
     public function insert($user_id, $title, $memo)
     {
-        $sql = sprintf("INSERT INTO `Task` (`user_id`, `title`, `memo`) VALUES('%s', '%s', '%s');", $user_id, $title, $memo);
-        $this->db->query($sql);
+        if ($user_id === null || $user_id === "")
+        {
+            return false;
+        }
+        else
+        {
+            $task = array(
+                    'user_id' => $user_id,
+                    'title' => $title,
+                    'memo' => $memo
+                );
+            $this->db->insert('Task', $task);
+            return true;
+        }
     }
 
 
