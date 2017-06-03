@@ -37,13 +37,21 @@ class MY_Task extends CI_Model
 
         if ($title !== "")
         {
-            echo "title";
             $this->db->like('title', $title);
         }
 
         if ($memo !== "")
         {
             $this->db->like('memo', $memo);
+        }
+
+        if ($keyword !== "")
+        {
+            $this->db
+                ->group_start()
+                    ->like('title', $keyword)
+                    ->or_like('memo', $keyword)
+                ->group_end();
         }
 
         return $this->db->get('Task')->result_array();
