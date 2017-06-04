@@ -10,7 +10,7 @@ $ plugin install vagrant-vbguest
 
 ```
 $ mysql -uroot -ppassword pomoboard < /vagrant/vagrant_resources/set_schema.sql
-$ mysql migrate current
+$ php index.php migrate current
 ```
 
 を実行すること.
