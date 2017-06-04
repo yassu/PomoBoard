@@ -9,7 +9,6 @@ class Migration_Add_is_deleted_to_user extends CI_Migration {
     // アップデート処理
     public function up()
     {
-        echo "migration.up";
         $fields = array(
             'is_deleted' => array (
                 'type' => 'TINYINT',
