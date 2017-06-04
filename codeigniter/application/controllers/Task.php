@@ -5,6 +5,7 @@ class Task extends CI_Controller {
         {
                 $this->load->helper('url');
                 $this->load->helper('form');
+                $this->load->helper('common');
                 $this->load->model('MY_User', 'User');
                 $this->load->model('MY_Task', 'Task');
 
