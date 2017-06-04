@@ -16,6 +16,12 @@ yum -y install epel-release
 rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
 yum -y install --enablerepo=remi,remi-php56 install mod_ssl httpd php php-devel php-common php-gd php-mbstring php-mysql php-pdo php-pear php-xml
 
+# php.ini
+if [ ! -L /etc/php.ini ]; then
+    rm -f /etc/php.ini
+    ln -s /vagrant/vagrant_resources/php.ini /etc/php.ini
+fi
+
 # composer
 if [ ! -e /usr/local/bin/composer.phar ]; then
     php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
