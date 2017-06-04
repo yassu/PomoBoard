@@ -27,9 +27,21 @@ class MY_user extends CI_Model
     // そうでなければ False を返す
     public function authorize($user_id, $hashed_password)
     {
-        $sql = sprintf("select `user_hashed_pass` from `User` where `user_id` = '%s'",$user_id);
-        $results = $this->db->query($sql)->result_array();
-        $correct_hashed_pass = empty($results)? null: $results[0]['user_hashed_pass'];
+        if ($user_id === "" || $user_id === null)
+        {
+            return False;
+        }
+
+        $this->db->where('user_id', $user_id)
+                  ->where('is_deleted', 0);
+        $results = $this->db->get('User')->result_array();
+
+        if (empty($results))
+        {
+            return False;
+        }
+
+        $correct_hashed_pass = $results[0]['user_hashed_pass'];
         return ($hashed_password === $correct_hashed_pass)? $user_id: False ;
     }
 
