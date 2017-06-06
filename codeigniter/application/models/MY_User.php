@@ -17,7 +17,9 @@ class MY_user extends CI_Model
     {
         $this->db->insert('User', array(
             'user_id' => $user_id,
-            'user_hashed_pass' => $hashed_password
+            'user_hashed_pass' => $hashed_password,
+            'created_date' => (new DateTime())->format('Y-m-d H:i:s'),
+            'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
             )
         );
     }
