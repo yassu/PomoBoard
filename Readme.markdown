@@ -9,7 +9,6 @@ $ plugin install vagrant-vbguest
 最初にvagrant upした直後にデータを設定するために/var/www/htmlで
 
 ```
-$ mysql -uroot -ppassword pomoboard < /vagrant/vagrant_resources/set_schema.sql
 $ php index.php migrate current
 ```
 
