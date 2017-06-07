@@ -69,6 +69,7 @@ class Task extends CI_Controller {
                 $this->load->model('MY_User', 'User');
                 $this->load->model('MY_Task', 'Task');
 
+                // TODO: removeするのに失敗したときのエラー処理
                 $this->Task->remove($this->User->logined(), $task_id);
 
                 redirect(site_url('task/explore'));
