@@ -61,4 +61,16 @@ class Task extends CI_Controller {
                         $this->load->view('statics/footer');
                 }
         }
+
+
+        public function remove($task_id)
+        {
+                $this->load->helper('url');
+                $this->load->model('MY_User', 'User');
+                $this->load->model('MY_Task', 'Task');
+
+                $this->Task->remove($this->User->logined(), $task_id);
+
+                redirect(site_url('task/explore'));
+        }
 }
