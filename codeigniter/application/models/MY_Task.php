@@ -67,7 +67,7 @@ class MY_Task extends CI_Model
                 'task_id' => $task_id
             ))
             ->get('Task')
-            ->result_array();
+            ->result_array()[0];
     }
 
 
