@@ -78,7 +78,7 @@ class Task extends CI_Controller {
                 if ($this->form_validation->run() == False)
                 {
                         $data = array(
-                                'task_id' => $task_id
+                                'task' => $task
                         );
                         $header_data['page_title'] = 'Edit | PomoBoard';
 
