@@ -49,8 +49,7 @@ class MY_Task extends CI_Model
                 'Task',
                 array(
                     'is_deleted' => 1
-                )
-            );
+            ));
     }
 
 
