@@ -66,10 +66,11 @@ class Task extends CI_Controller {
         public function edit($task_id)
         {
                 $this->load->helper('url');
+                $this->load->library('form_validation');
                 $this->load->model('MY_User', 'User');
                 $this->load->model('MY_Task', 'Task');
 
-                $task = $this->Task->get_list($user_id, $task_id);
+                $task = $this->Task->get_task_from_task_id($this->User->logined(), $task_id);
 
                 $this->load->view('task/edit');
         }

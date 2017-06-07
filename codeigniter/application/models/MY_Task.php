@@ -56,7 +56,18 @@ class MY_Task extends CI_Model
 
     public function get_task_from_task_id($user_id, $task_id)
     {
-        
+        if (! $user_id)
+        {
+            return array();
+        }
+
+        return $this->db
+            ->where(array(
+                'user_id' => $user_id,
+                'task_id' => $task_id
+            ))
+            ->get('Task')
+            ->result_array();
     }
 
 
