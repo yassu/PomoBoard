@@ -46,7 +46,7 @@ if (!empty($list))
 		{
 		?>
 			<tr>
-				<td> <?php echo $task['title']; ?> </td>
+				<td> <a href="<?php echo site_url('task/edit'); ?>/<?php echo $task['task_id']; ?>"> <?php echo $task['title']; ?> </a></td>
 				<td> <?php echo $task['memo']; ?> </td>
 				<td> <?php echo display_date_str($task['created_date']); ?> </td>
 				<td> <?php echo display_date_str($task['updated_date']); ?> </td>

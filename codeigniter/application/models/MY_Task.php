@@ -54,6 +54,12 @@ class MY_Task extends CI_Model
     }
 
 
+    public function get_task_from_task_id($user_id, $task_id)
+    {
+        
+    }
+
+
     public function get_list($user_id, $title, $memo, $keyword)
     {
         if (! $user_id)

@@ -62,6 +62,18 @@ class Task extends CI_Controller {
                 }
         }
 
+        
+        public function edit($task_id)
+        {
+                $this->load->helper('url');
+                $this->load->model('MY_User', 'User');
+                $this->load->model('MY_Task', 'Task');
+
+                $task = $this->Task->get_list($user_id, $task_id);
+
+                $this->load->view('task/edit');
+        }
+
 
         public function remove($task_id)
         {
@@ -69,7 +81,6 @@ class Task extends CI_Controller {
                 $this->load->model('MY_User', 'User');
                 $this->load->model('MY_Task', 'Task');
 
-                // TODO: removeするのに失敗したときのエラー処理
                 $this->Task->remove($this->User->logined(), $task_id);
 
                 redirect(site_url('task/explore'));
