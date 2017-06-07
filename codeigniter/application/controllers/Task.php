@@ -70,9 +70,26 @@ class Task extends CI_Controller {
                 $this->load->model('MY_User', 'User');
                 $this->load->model('MY_Task', 'Task');
 
+                $this->form_validation->set_rules('task_title', 'Task Title', 'trim|required');
+                $this->form_validation->set_rules('task_memo', 'Task Name', 'trim');
+
                 $task = $this->Task->get_task_from_task_id($this->User->logined(), $task_id);
 
-                $this->load->view('task/edit');
+                if ($this->form_validation->run() == False)
+                {
+                        $data = array(
+                                'task_id' => $task_id
+                        );
+                        $header_data['page_title'] = 'Edit | PomoBoard';
+
+                        $this->load->view('statics/header', $header_data);
+                        $this->load->view('task/edit', $data);
+                        $this->load->view('statics/footer');
+                }
+                else
+                {
+                        redirect('task/explore');
+                }
         }
 
 

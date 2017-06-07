@@ -4,7 +4,7 @@
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('task/edit'); ?>
+<?php echo form_open("task/edit/".$task_id); ?>
     <fieldset>
         <table>
             <tbody>
