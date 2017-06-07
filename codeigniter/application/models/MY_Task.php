@@ -38,6 +38,21 @@ class MY_Task extends CI_Model
         }
     }
 
+    public function remove($user_id, $task_id)
+    {
+        $this->db
+            ->where(array(
+                'user_id' => $user_id,
+                'task_id' => $task_id
+            ))
+            ->update(
+                'Task',
+                array(
+                    'is_deleted' => 1
+                )
+            );
+    }
+
 
     public function get_list($user_id, $title, $memo, $keyword)
     {

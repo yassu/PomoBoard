@@ -11,6 +11,13 @@ class Task extends CI_Controller {
 
                 $header_data['page_title'] = 'Explore | PomoBoard';
 
+                // echo var_dump($_REQUEST);
+                if (array_key_exists('task_id', $_REQUEST))
+                {
+                        $this->Task->remove($this->User->logined(), intval($_REQUEST['task_id']));
+                        echo "Deleted Task";
+                }
+
                 $data['list'] = array_key_exists('title', $_POST)?
                         $this->Task->get_list($this->User->logined(), $_POST['title'], $_POST['memo'], $_POST['keyword']): array();
 
