@@ -48,7 +48,8 @@ class MY_Task extends CI_Model
             ->update(
                 'Task',
                 array(
-                    'is_deleted' => 1
+                    'is_deleted' => 1,
+                    'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
             ));
     }
 
