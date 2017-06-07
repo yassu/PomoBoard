@@ -29,7 +29,9 @@ class MY_Task extends CI_Model
             $this->db->insert('Task', array(
                 'user_id' => $user_id,
                 'title' => $title,
-                'memo' => $memo
+                'memo' => $memo,
+                'created_date' => (new DateTime())->format('Y-m-d H:i:s'),
+                'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
                 )
             );
             return true;
