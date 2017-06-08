@@ -43,12 +43,22 @@ class Project extends CI_Controller {
                     $header_data['page_title'] = 'NewProject | PomoBoard';
                     
                     $this->load->view('statics/header', $header_data);
-                    $this->load->view('project/edit');
+                    $data = array(
+                            'project_id' => $project_id
+                    );
+                    $this->load->view('project/edit', $data);
                     $this->load->view('statics/footer');
             }
             else
             {
-                $this->Project->insert($this->User->logined(), $_POST['project_name']);
+                if ( $project_id === "new" )
+                {
+                        $this->Project->insert($this->User->logined(), $_POST['project_name']);
+                }
+                else
+                {
+                        $this->Project->update($this->User->logined(), intval($project_id), $_POST['project_name']);
+                }
                 redirect('project/explore');
             }
         }

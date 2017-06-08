@@ -45,4 +45,23 @@ class MY_Project extends CI_Model
             )
         );
     }
+
+
+    public function update($user_id, $project_id, $project_name)
+    {
+        if ($user_id === null || $user_id === "")
+        {
+            return false;
+        }
+
+        $this->db
+            ->where('user_id', $user_id)
+            ->where('project_id', $project_id)
+            ->update('Project', array(
+                'project_name' => $project_name,
+                'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
+            ));
+
+        return true;
+    }
 }

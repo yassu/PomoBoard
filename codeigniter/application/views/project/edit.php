@@ -4,7 +4,7 @@
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open("project/edit/new"); ?>
+<?php echo form_open("project/edit/".$project_id); ?>
     <fieldset>
         <table>
             <tbody>
