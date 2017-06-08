@@ -75,7 +75,7 @@ class Task extends CI_Controller {
                 $this->form_validation->set_rules('task_memo', 'Task Name', 'trim');
                 $this->form_validation->set_rules('project_id', 'Project Id', 'trim|required');
 
-                $task = $this->Task->get_task_from_task_id($this->User->logined(), $task_id);
+                $task = ($task_id === 'new')? null: $this->Task->get_task_from_task_id($this->User->logined(), $task_id);
 
                 if ($this->form_validation->run() == False)
                 {
@@ -91,7 +91,15 @@ class Task extends CI_Controller {
                 }
                 else
                 {
-                        $this->Task->update($this->User->logined(), intval($task['task_id']), $_POST['task_title'], $_POST['task_memo'], $_POST['project_id']);
+                        if ($task_id === 'new')
+                        {
+                                // echo var_dump($_POST);
+                                $this->Task->insert($this->User->logined(), $_POST['task_title'], $_POST['task_memo'], $_POST['project_id']);
+                        }
+                        else
+                        {
+                                $this->Task->update($this->User->logined(), intval($task['task_id']), $_POST['task_title'], $_POST['task_memo'], $_POST['project_id']);
+                        }
                         redirect('task/explore');
                 }
         }

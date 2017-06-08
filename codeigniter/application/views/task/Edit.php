@@ -4,7 +4,7 @@
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open("task/edit/".$task["task_id"]); ?>
+<?php echo form_open("task/edit/".(($task === null)? "new": $task["task_id"])); ?>
     <fieldset>
         <table>
             <tbody>

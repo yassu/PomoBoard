@@ -24,7 +24,7 @@
 		<button type="submit" name="submit" value="submit">
 			<div style="font-size: 19px;"> Execution </div>
 		</button>
-		<button type="button" name="submit" value="create" onClick="location.href = '<?php echo $create_task_url;?>';">
+		<button type="button" name="submit" value="create" onClick="location.href = '<?php echo site_url('task/edit').'/new';?>';">
 			<div style="font-size: 19px;"> New Task </div>
 		</button>
     </fieldset>
