@@ -88,6 +88,7 @@ class Task extends CI_Controller {
                 }
                 else
                 {
+                        $this->Task->update($this->User->logined(), intval($task['task_id']), $_POST['task_title'], $_POST['task_memo']);
                         redirect('task/explore');
                 }
         }
