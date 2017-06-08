@@ -42,7 +42,7 @@ class Project extends CI_Controller {
                     
                     $this->load->view('statics/header', $header_data);
                     $data = array(
-                            'project_id' => $project_id
+                            'project' => $this->Project->get_project($this->User->logined(), $project_id)
                     );
                     $this->load->view('project/edit', $data);
                     $this->load->view('statics/footer');
