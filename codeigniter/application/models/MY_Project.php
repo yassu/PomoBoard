@@ -45,7 +45,7 @@ class MY_Project extends CI_Model
 
         if ($name !== "")
         {
-            $this->db->like('project_name', $project_name);
+            $this->db->like('project_name', $name);
         }
 
         return $this->db->get('Project')->result_array();
