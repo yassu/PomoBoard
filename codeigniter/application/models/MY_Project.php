@@ -117,4 +117,22 @@ class MY_Project extends CI_Model
                 )
             );
     }
+
+    // array(project_id1 => project_name1, ... project_idn => project_namen) の形式
+    public function get_dropdown_array($user_id)
+    {
+        if ($user_id === null || $user_id === "")
+        {
+            return array();
+        }
+
+        $dropdown_array = array(
+            '' => '--'
+        );
+        foreach ($this->get_all($user_id) as $project)
+        {
+            $dropdown_array[$project['project_id']] = $project['project_name'];
+        }
+        return $dropdown_array;
+    }
 }

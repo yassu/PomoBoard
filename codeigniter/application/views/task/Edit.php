@@ -19,18 +19,8 @@
                 <tr>
                     <th style='text-align: left'>Project</th>
                     <td>
-                        <select name="project_id">
-                            <option value=""> -- </option>
-                            <?php
-                            foreach ($projects as $project):
-                            ?>
-                            <option value="<?php echo $project['project_id']; echo set_select('project_id', strval($project['project_id'])); ?>">
-                                <?php echo $project['project_name']; ?>
-                            </option>
-                            <?php
-                            endforeach;
-                            ?>
-                        </select>
+                        <?php echo form_dropdown('project_id',
+                            $this->Project->get_dropdown_array($this->User->logined()),$task['project_id']); ?>
                     </td>
                 </tr>
             </tbody>
