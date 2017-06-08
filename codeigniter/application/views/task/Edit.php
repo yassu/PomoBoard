@@ -1,5 +1,5 @@
 <h1>
-    Edit Task
+    <?php echo ($task === null)? "New": "Edit"; ?> Task
 </h1>
 
 <?php echo validation_errors(); ?>
