@@ -37,7 +37,7 @@ class MY_Project extends CI_Model
     {
         if (! $user_id)
         {
-            return $array();
+            return array();
         }
 
         return $this->db
