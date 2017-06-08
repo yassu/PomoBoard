@@ -64,4 +64,26 @@ class MY_Project extends CI_Model
 
         return true;
     }
+
+
+    public function delete($user_id, $project_id)
+    {
+        if ($user_id === null || $user_id === "")
+        {
+            return false;
+        }
+
+        $this->db
+            ->where(array(
+                'user_id' => $user_id,
+                'project_id' => $project_id
+            ))
+            ->update(
+                'Project',
+                array(
+                    'is_deleted' => 1,
+                    'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
+                )
+            );
+    }
 }

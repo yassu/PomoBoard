@@ -62,4 +62,17 @@ class Project extends CI_Controller {
                 redirect('project/explore');
             }
         }
+
+        public function delete($project_id)
+        {
+                $this->load->helper('url');
+                $this->load->model('MY_User', 'User');
+                $this->load->model('MY_Task', 'Task');
+                $this->load->model('MY_Project', 'Project');
+
+
+                $this->Project->delete($this->User->logined(), $project_id);
+
+                redirect('project/explore');
+        }
 }

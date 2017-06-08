@@ -43,7 +43,7 @@ if (!empty($list))
 				<td> <a href="<?php echo site_url('project/edit'); ?>/<?php echo $project['project_id']; ?>"> <?php echo $project['project_name']; ?> </a></td>
 				<td> <?php echo display_date_str($project['created_date']); ?> </td>
 				<td> <?php echo display_date_str($project['updated_date']); ?> </td>
-				<td> <a href="<?php echo ''; ?>/<?php echo ''; ?>"> Delete </a> </td>
+				<td> <a href="<?php echo site_url('project/delete').'/'.$project['project_id']; ?>/<?php echo ''; ?>"> Delete </a> </td>
 			</tr>
 		<?php
 		}
