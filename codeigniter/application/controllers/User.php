@@ -12,6 +12,7 @@ class User extends CI_Controller
                 $header_data['page_title'] = 'SignUp | PomoBoard';
 
                 $this->form_validation->set_rules('name', 'Name', 'trim|required|min_length[6]|max_length[12]');
+                $this->form_validation->set_rules('name', 'Name', 'callback_duplication_user_id_check');
                 $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]|max_length[60]');
                 $this->form_validation->set_rules('confirmed_password', 'Confirmation password', 'trim|required|matches[password]');
 
@@ -34,6 +35,20 @@ class User extends CI_Controller
                         $this->load->view('statics/header', $header_data);
                         $this->load->view('user/sign_up_success', $data);
                         $this->load->view('statics/footer');
+                }
+        }
+
+        public function duplication_user_id_check($user_id)
+        {
+                if ($this->User->exists($user_id))
+                {
+                        $this->form_validation->set_message('duplication_user_id_check',
+                                sprintf('There is a User whose id is %s. Please select other id.', $user_id));
+                        return False;
+                }
+                else
+                {
+                        return True;
                 }
         }
 

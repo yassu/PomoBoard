@@ -47,6 +47,21 @@ class MY_user extends CI_Model
         return ($hashed_password === $correct_hashed_pass)? $user_id: False ;
     }
 
+
+    public function exists($user_id)
+    {
+        if ($user_id === "" || $user_id == null)
+        {
+            return false;
+        }
+
+        $result = $this->db->where('user_id', $user_id)
+                            ->get('User')->result_array();
+
+        return !empty($result);
+    }
+
+
     // Sessionの情報を用いて user_idを返す
     // ログインしていればuser_id, ログインしていなければFalseを返す
     public function logined()
