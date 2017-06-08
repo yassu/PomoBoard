@@ -36,8 +36,6 @@ class Project extends CI_Controller {
 
             // echo var_dump($_POST);
 
-            // とりあえず New Projectの場合
-
             if ($this->form_validation->run() == False)
             {
                     $header_data['page_title'] = 'NewProject | PomoBoard';
