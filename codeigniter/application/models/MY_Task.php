@@ -18,7 +18,7 @@ class MY_Task extends CI_Model
     }
 
 
-    public function insert($user_id, $title, $memo)
+    public function insert($user_id, $title, $memo, $project_id)
     {
         if ($user_id === null || $user_id === "")
         {
@@ -31,14 +31,15 @@ class MY_Task extends CI_Model
                 'title' => $title,
                 'memo' => $memo,
                 'created_date' => (new DateTime())->format('Y-m-d H:i:s'),
-                'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
+                'updated_date' => (new DateTime())->format('Y-m-d H:i:s'),
+                'project_id' => $project_id
                 )
             );
             return true;
         }
     }
 
-    public function update($user_id, $task_id, $title, $memo)
+    public function update($user_id, $task_id, $title, $memo, $project_id)
     {
         if ($user_id === null || $user_id === "")
         {
@@ -50,7 +51,8 @@ class MY_Task extends CI_Model
             ->update('Task', array(
                 'title' => $title,
                 'memo' => $memo,
-                'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
+                'updated_date' => (new DateTime())->format('Y-m-d H:i:s'),
+                'project_id' => intval($project_id)
         ));
 
         return true;

@@ -33,6 +33,20 @@ class MY_Project extends CI_Model
     }
 
 
+    public function get_all($user_id)
+    {
+        if (! $user_id)
+        {
+            return $array();
+        }
+
+        return $this->db
+            ->where('user_id', $user_id)
+            ->where('is_deleted', 0)
+            ->get('Project')->result_array();
+    }
+
+
     public function get_list($user_id, $name)
     {
         if (! $user_id)
@@ -102,5 +116,23 @@ class MY_Project extends CI_Model
                     'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
                 )
             );
+    }
+
+    // array(project_id1 => project_name1, ... project_idn => project_namen) の形式
+    public function get_dropdown_array($user_id)
+    {
+        if ($user_id === null || $user_id === "")
+        {
+            return array();
+        }
+
+        $dropdown_array = array(
+            '' => '--'
+        );
+        foreach ($this->get_all($user_id) as $project)
+        {
+            $dropdown_array[$project['project_id']] = $project['project_name'];
+        }
+        return $dropdown_array;
     }
 }

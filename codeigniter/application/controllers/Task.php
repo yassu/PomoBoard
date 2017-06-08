@@ -7,7 +7,7 @@ class Task extends CI_Controller {
                 $this->load->helper('form');
                 $this->load->helper('common');
                 $this->load->model('MY_User', 'User');
-                $this->load->model('MY_Task', 'Task');
+                $this->load->model('MY_Task', 'Task');                
 
                 $header_data['page_title'] = 'Explore | PomoBoard';
 
@@ -26,61 +26,30 @@ class Task extends CI_Controller {
                 $this->load->view('statics/footer');
         }
 
-        public function create()
-        {
-                $this->load->helper('url');
-                $this->load->helper('form');
-                $this->load->model('MY_User', 'User');
-                $this->load->library('form_validation');
 
-                $this->form_validation->set_rules('task_title', 'Task Title', 'trim|required');
-                $this->form_validation->set_rules('task_memo', 'Task Name', 'trim');
-
-                if ($this->form_validation->run() == False)
-                {
-                        $header_data['page_title'] = 'Create | PomoBoard';
-                        
-                        $this->load->view('statics/header', $header_data);
-                        $this->load->view('task/create');
-                        $this->load->view('statics/footer');
-                }
-                else
-                {
-                        $this->load->model('MY_Task', 'Task');
-
-                        $header_data['page_title'] = 'Create | PomoBoard';
-
-                        $user_id = $this->User->logined();
-                        $title = $_POST['task_title'];
-                        $memo = $_POST['task_memo'];
-
-                        $this->Task->insert($user_id, $title, $memo);
-
-                        $this->load->view('statics/header', $header_data);
-                        $this->load->view('task/explore');
-                        $this->load->view('statics/footer');
-                }
-        }
-
-        
         public function edit($task_id)
         {
                 $this->load->helper('url');
                 $this->load->library('form_validation');
                 $this->load->model('MY_User', 'User');
                 $this->load->model('MY_Task', 'Task');
+                $this->load->model('MY_Project', 'Project');
 
                 $this->form_validation->set_rules('task_title', 'Task Title', 'trim|required');
                 $this->form_validation->set_rules('task_memo', 'Task Name', 'trim');
+                $this->form_validation->set_rules('project_id', 'Project Id', 'trim|required');
 
-                $task = $this->Task->get_task_from_task_id($this->User->logined(), $task_id);
+                $task = ($task_id === 'new')? null: $this->Task->get_task_from_task_id($this->User->logined(), $task_id);
 
                 if ($this->form_validation->run() == False)
                 {
                         $data = array(
-                                'task' => $task
+                                'task' => $task,
+                                'projects' => $this->Project->get_all($this->User->logined())
                         );
-                        $header_data['page_title'] = 'Edit | PomoBoard';
+
+                        $type = ($task_id === 'new')? 'New': 'Edit';
+                        $header_data['page_title'] = $type.' Task | PomoBoard';
 
                         $this->load->view('statics/header', $header_data);
                         $this->load->view('task/edit', $data);
@@ -88,7 +57,15 @@ class Task extends CI_Controller {
                 }
                 else
                 {
-                        $this->Task->update($this->User->logined(), intval($task['task_id']), $_POST['task_title'], $_POST['task_memo']);
+                        if ($task_id === 'new')
+                        {
+                                // echo var_dump($_POST);
+                                $this->Task->insert($this->User->logined(), $_POST['task_title'], $_POST['task_memo'], $_POST['project_id']);
+                        }
+                        else
+                        {
+                                $this->Task->update($this->User->logined(), intval($task['task_id']), $_POST['task_title'], $_POST['task_memo'], $_POST['project_id']);
+                        }
                         redirect('task/explore');
                 }
         }
