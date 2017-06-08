@@ -7,7 +7,7 @@ class Task extends CI_Controller {
                 $this->load->helper('form');
                 $this->load->helper('common');
                 $this->load->model('MY_User', 'User');
-                $this->load->model('MY_Task', 'Task');
+                $this->load->model('MY_Task', 'Task');                
 
                 $header_data['page_title'] = 'Explore | PomoBoard';
 
@@ -69,16 +69,19 @@ class Task extends CI_Controller {
                 $this->load->library('form_validation');
                 $this->load->model('MY_User', 'User');
                 $this->load->model('MY_Task', 'Task');
+                $this->load->model('MY_Project', 'Project');
 
                 $this->form_validation->set_rules('task_title', 'Task Title', 'trim|required');
                 $this->form_validation->set_rules('task_memo', 'Task Name', 'trim');
+                $this->form_validation->set_rules('project_id', 'Project Id', 'trim|required');
 
                 $task = $this->Task->get_task_from_task_id($this->User->logined(), $task_id);
 
                 if ($this->form_validation->run() == False)
                 {
                         $data = array(
-                                'task' => $task
+                                'task' => $task,
+                                'projects' => $this->Project->get_all($this->User->logined())
                         );
                         $header_data['page_title'] = 'Edit | PomoBoard';
 
@@ -89,7 +92,8 @@ class Task extends CI_Controller {
                 else
                 {
                         $this->Task->update($this->User->logined(), intval($task['task_id']), $_POST['task_title'], $_POST['task_memo']);
-                        redirect('task/explore');
+                        echo var_dump($_POST);
+                        // redirect('task/explore');
                 }
         }
 

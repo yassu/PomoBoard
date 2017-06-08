@@ -16,6 +16,23 @@
                     <th style='text-align: left'>Task Memo</th>
                     <td><textarea id="task_memo" name="task_memo"><?php echo $task['memo']; ?></textarea></td>
                 </tr>
+                <tr>
+                    <th style='text-align: left'>Project</th>
+                    <td>
+                        <select name="project_id">
+                            <option value=""> -- </option>
+                            <?php
+                            foreach ($projects as $project):
+                            ?>
+                            <option value="<?php echo $project['project_id']; echo set_select('project_id', strval($project['project_id'])); ?>">
+                                <?php echo $project['project_name']; ?>
+                            </option>
+                            <?php
+                            endforeach;
+                            ?>
+                        </select>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </fieldset>

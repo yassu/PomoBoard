@@ -33,6 +33,20 @@ class MY_Project extends CI_Model
     }
 
 
+    public function get_all($user_id)
+    {
+        if (! $user_id)
+        {
+            return $array();
+        }
+
+        return $this->db
+            ->where('user_id', $user_id)
+            ->where('is_deleted', 0)
+            ->get('Project')->result_array();
+    }
+
+
     public function get_list($user_id, $name)
     {
         if (! $user_id)
