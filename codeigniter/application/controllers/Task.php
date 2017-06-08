@@ -61,4 +61,47 @@ class Task extends CI_Controller {
                         $this->load->view('statics/footer');
                 }
         }
+
+        
+        public function edit($task_id)
+        {
+                $this->load->helper('url');
+                $this->load->library('form_validation');
+                $this->load->model('MY_User', 'User');
+                $this->load->model('MY_Task', 'Task');
+
+                $this->form_validation->set_rules('task_title', 'Task Title', 'trim|required');
+                $this->form_validation->set_rules('task_memo', 'Task Name', 'trim');
+
+                $task = $this->Task->get_task_from_task_id($this->User->logined(), $task_id);
+
+                if ($this->form_validation->run() == False)
+                {
+                        $data = array(
+                                'task' => $task
+                        );
+                        $header_data['page_title'] = 'Edit | PomoBoard';
+
+                        $this->load->view('statics/header', $header_data);
+                        $this->load->view('task/edit', $data);
+                        $this->load->view('statics/footer');
+                }
+                else
+                {
+                        $this->Task->update($this->User->logined(), intval($task['task_id']), $_POST['task_title'], $_POST['task_memo']);
+                        redirect('task/explore');
+                }
+        }
+
+
+        public function remove($task_id)
+        {
+                $this->load->helper('url');
+                $this->load->model('MY_User', 'User');
+                $this->load->model('MY_Task', 'Task');
+
+                $this->Task->remove($this->User->logined(), $task_id);
+
+                redirect(site_url('task/explore'));
+        }
 }

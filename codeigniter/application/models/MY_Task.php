@@ -38,6 +38,24 @@ class MY_Task extends CI_Model
         }
     }
 
+    public function update($user_id, $task_id, $title, $memo)
+    {
+        if ($user_id === null || $user_id === "")
+        {
+            return false;
+        }
+
+        $this->db
+            ->where('task_id', $task_id)
+            ->update('Task', array(
+                'title' => $title,
+                'memo' => $memo,
+                'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
+        ));
+
+        return true;
+    }
+
     public function remove($user_id, $task_id)
     {
         $this->db
@@ -51,6 +69,23 @@ class MY_Task extends CI_Model
                     'is_deleted' => 1,
                     'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
             ));
+    }
+
+
+    public function get_task_from_task_id($user_id, $task_id)
+    {
+        if (! $user_id)
+        {
+            return array();
+        }
+
+        return $this->db
+            ->where(array(
+                'user_id' => $user_id,
+                'task_id' => $task_id
+            ))
+            ->get('Task')
+            ->result_array()[0];
     }
 
 
