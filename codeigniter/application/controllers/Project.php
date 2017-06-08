@@ -8,11 +8,16 @@ class Project extends CI_Controller {
                 $this->load->helper('common');
                 $this->load->model('MY_User', 'User');
                 $this->load->model('MY_Task', 'Task');
+                $this->load->model('MY_Project', 'Project');
+
+                $data = array();
+                $data['list'] = (array_key_exists('submit', $_POST) && $_POST['submit'] === 'explore')?
+                                                        $this->Project->get_list($this->User->logined(), $_POST['name']): array();
 
                 $header_data['page_title'] = 'ProjectExplore | PomoBoard';
 
                 $this->load->view('statics/header', $header_data);
-                $this->load->view('project/explore');
+                $this->load->view('project/explore', $data);
                 $this->load->view('statics/footer');
         }
 
@@ -29,7 +34,7 @@ class Project extends CI_Controller {
 
             $this->form_validation->set_rules('project_name', 'Project name', 'trim|required');
 
-            echo var_dump($_POST);
+            // echo var_dump($_POST);
 
             // とりあえず New Projectの場合
 

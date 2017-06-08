@@ -15,6 +15,26 @@ class MY_Project extends CI_Model
         parent::__construct();
     }
 
+
+    public function get_list($user_id, $name)
+    {
+        if (! $user_id)
+        {
+            return array();
+        }
+
+        $this->db->where('user_id', $user_id)
+                  ->where('is_deleted', 0);
+
+        if ($name !== "")
+        {
+            $this->db->like('project_name', $project_name);
+        }
+
+        return $this->db->get('Project')->result_array();
+    }
+
+
     public function insert($user_id, $project_name)
     {
         $this->db->insert('Project', array(

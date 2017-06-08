@@ -12,14 +12,10 @@
                 <tr>
                     <th style='text-align: left'> Name </th>
                     <td><input type="text" id="name" name="name" value="" /></td>
-					<th style='text-align: left'> Created Date </th>
-					<td><input type="text" id="created_date" name="created_date" value=""> </td>
-					<th style='text-align: left'> Updated Date </th>
-					<td><input type="text" id="updated_date" name="updated_date" value=""></td>
                 </tr>
             </tbody>
         </table>
-		<button type="submit" name="submit" value="submit">
+		<button type="submit" name="submit" value="explore">
 			<div style="font-size: 19px;"> Execution </div>
 		</button>
 		<button type="button" name="submit" value="create" onClick="location.href = '<?php echo site_url('project/edit'); ?>/new'">
@@ -27,3 +23,32 @@
 		</button>
     </fieldset>
 </form>
+
+
+<?php
+if (!empty($list))
+{ ?>
+	<table border="1">
+		<tr>
+			<td> Name </td>
+            <td> Created Date </td>
+            <td> Updated Date </td>
+            <td> Delete </td>
+		</tr>
+		<?php
+		foreach($list as $project)
+		{
+		?>
+			<tr>
+				<td> <a href="<?php echo ""; ?>/<?php echo ""; ?>"> <?php echo $project['project_name']; ?> </a></td>
+				<td> <?php echo display_date_str($project['created_date']); ?> </td>
+				<td> <?php echo display_date_str($project['updated_date']); ?> </td>
+				<td> <a href="<?php echo ''; ?>/<?php echo ''; ?>"> Delete </a> </td>
+			</tr>
+		<?php
+		}
+		?>
+	</table>
+<?php
+}
+?>
