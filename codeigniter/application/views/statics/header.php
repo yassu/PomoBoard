@@ -28,6 +28,11 @@
 			<td class="header_cell">
 				<a href="/"> Home </a>
 			</td>
+			<?php if($this->User->logined()): ?>
+				<td class="header_cell">
+					<a href="<?php echo site_url('project/explore') ?>"> Project </a>
+				</td>
+			<?php endif; ?>
 			<?php if($this->User->logined())
 			{
 			?>
