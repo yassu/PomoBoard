@@ -32,6 +32,8 @@ class User extends CI_Controller
 
                         $this->User->insert($name, $hashed_password);
 
+                        set_flash_message($this, 'Success in signing up');
+
                         $this->load->view('statics/header', $header_data);
                         $this->load->view('user/sign_up_success', $data);
                         $this->load->view('statics/footer');

@@ -2,6 +2,8 @@
 	Task Board
 </h1>
 
+<?php echo pop_flash_message($this); ?>
+
 <?php $create_task_url = site_url('task/create'); ?>
 
 <?php echo form_open(site_url('task/explore')); ?>
