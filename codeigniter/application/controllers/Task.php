@@ -61,6 +61,7 @@ class Task extends CI_Controller {
                         {
                                 // echo var_dump($_POST);
                                 $this->Task->insert($this->User->logined(), $_POST['task_title'], $_POST['task_memo'], $_POST['project_id']);
+                                set_flash_message($this, 'Inserted new task.');
                         }
                         else
                         {

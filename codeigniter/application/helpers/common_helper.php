@@ -12,7 +12,7 @@ function set_flash_message($instance, $str)
 }
 
 
-function pop_flash_message($instance, $str)
+function pop_flash_message($instance)
 {
-    return $instance->session->message;
+    return isset($_SESSION['message'])? $instance->session->message: '';
 }
