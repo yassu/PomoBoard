@@ -55,6 +55,7 @@ class Task extends CI_Controller {
                         else
                         {
                                 $this->Task->update($this->User->logined(), intval($task['task_id']), $_POST['task_title'], $_POST['task_memo'], $_POST['project_id']);
+                                set_flash_message($this, 'Updated the task.');
                         }
                         redirect('task/explore');
                 }
@@ -64,6 +65,7 @@ class Task extends CI_Controller {
         public function remove($task_id)
         {
                 $this->Task->remove($this->User->logined(), $task_id);
+                set_flash_message($this, 'Deleted the task.');
 
                 redirect(site_url('task/explore'));
         }

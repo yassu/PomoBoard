@@ -72,10 +72,12 @@ class User extends CI_Controller
                         {
                                 $this->session->user_id = $_POST['id'];
                                 $this->session->hashed_password = crypt($_POST['password'], "$6$");
+                                set_flash_message($this, 'Login is successed.');
                                 redirect('pomoboard');
                         }
                         else
                         {
+                                set_flash_message($this, 'User id and password combination is invalid.');
                                 redirect('user/login');
                         }
                 }

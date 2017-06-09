@@ -41,10 +41,12 @@ class Project extends CI_Controller {
                 if ( $project_id === "new" )
                 {
                         $this->Project->insert($this->User->logined(), $_POST['project_name']);
+                        set_flash_message($this, 'Inserted new Project.');
                 }
                 else
                 {
                         $this->Project->update($this->User->logined(), intval($project_id), $_POST['project_name']);
+                        set_flash_message($this, 'Updated the Project.');
                 }
                 redirect('project/explore');
             }
@@ -53,6 +55,7 @@ class Project extends CI_Controller {
         public function delete($project_id)
         {
                 $this->Project->delete($this->User->logined(), $project_id);
+                set_flash_message($this, 'Deleted the Project.');
 
                 redirect('project/explore');
         }
