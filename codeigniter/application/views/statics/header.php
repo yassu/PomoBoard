@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title><?php echo isset($page_title)? $page_title: "task board"; ?></title>
+	<title><?php echo isset($page_title)? $page_title: "pomo board"; ?></title>
 	<link href="/css/style.css" rel="stylesheet" type="text/css">
 	<style type="text/css">
 		h1 {
