@@ -1,9 +1,3 @@
-<h1>
-    <?php echo ($task === null)? "New": "Edit"; ?> Task
-</h1>
-
-<?php echo validation_errors(); ?>
-
 <?php echo form_open("task/edit/".(($task === null)? "new": $task["task_id"])); ?>
     <fieldset>
         <table>

@@ -3,19 +3,13 @@ class Task extends CI_Controller {
 
         public function explore()
         {
-                $this->load->helper('url');
-                $this->load->helper('form');
-                $this->load->helper('common');
-                $this->load->model('MY_User', 'User');
-                $this->load->model('MY_Task', 'Task');                
-
                 $header_data['page_title'] = 'Explore | PomoBoard';
+                $header_data['headline'] = 'Task Board';
 
                 // echo var_dump($_REQUEST);
                 if (array_key_exists('task_id', $_REQUEST))
                 {
                         $this->Task->remove($this->User->logined(), intval($_REQUEST['task_id']));
-                        echo "Deleted Task";
                 }
 
                 $data['list'] = array_key_exists('title', $_POST)?
@@ -29,12 +23,6 @@ class Task extends CI_Controller {
 
         public function edit($task_id)
         {
-                $this->load->helper('url');
-                $this->load->library('form_validation');
-                $this->load->model('MY_User', 'User');
-                $this->load->model('MY_Task', 'Task');
-                $this->load->model('MY_Project', 'Project');
-
                 $this->form_validation->set_rules('task_title', 'Task Title', 'trim|required');
                 $this->form_validation->set_rules('task_memo', 'Task Name', 'trim');
                 $this->form_validation->set_rules('project_id', 'Project Id', 'trim|required');
@@ -50,6 +38,7 @@ class Task extends CI_Controller {
 
                         $type = ($task_id === 'new')? 'New': 'Edit';
                         $header_data['page_title'] = $type.' Task | PomoBoard';
+                        $header_data['headline'] = ($task === null)? "New Task": "Edit Task";
 
                         $this->load->view('statics/header', $header_data);
                         $this->load->view('task/edit', $data);
@@ -74,10 +63,6 @@ class Task extends CI_Controller {
 
         public function remove($task_id)
         {
-                $this->load->helper('url');
-                $this->load->model('MY_User', 'User');
-                $this->load->model('MY_Task', 'Task');
-
                 $this->Task->remove($this->User->logined(), $task_id);
 
                 redirect(site_url('task/explore'));

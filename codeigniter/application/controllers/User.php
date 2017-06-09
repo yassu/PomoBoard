@@ -3,12 +3,6 @@ class User extends CI_Controller
 {
         public function sign_up()
         {
-                $this->load->helper('form');
-                $this->load->helper('url');
-                $this->load->model('MY_User', 'User');
-                $this->load->library('form_validation');
-
-
                 $header_data['page_title'] = 'SignUp | PomoBoard';
 
                 $this->form_validation->set_rules('name', 'Name', 'trim|required|min_length[6]|max_length[12]');
@@ -18,6 +12,7 @@ class User extends CI_Controller
 
                 if ($this->form_validation->run() == False)
                 {
+                        $header_data['headline'] = 'Sign Up';
                         $this->load->view('statics/header', $header_data);
                         $this->load->view('user/sign_up');
                         $this->load->view('statics/footer');
@@ -29,6 +24,7 @@ class User extends CI_Controller
                         $data = array(
                                 'name' => $name
                         );
+                        $header_data['headline'] = 'Sign Up is successed.';
 
                         $this->User->insert($name, $hashed_password);
 
@@ -56,18 +52,13 @@ class User extends CI_Controller
 
         public function login()
         {
-                $this->load->helper('form');
-                $this->load->helper('url');
-                $this->load->library('form_validation');
-                $this->load->model('MY_User', 'User');
-
-
                 $this->form_validation->set_rules('id', 'Id', 'trim|required|min_length[6]|max_length[12]');
                 $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]|max_length[60]');
 
                 if ($this->form_validation->run() === FALSE)
                 {
                         $header_data['page_title'] = 'SignIn | PomoBoard';
+                        $header_data['headline'] = 'Login';
                         $this->load->view('statics/header', $header_data);
                         $this->load->view('user/login');
                         $this->load->view('statics/footer');
@@ -81,18 +72,11 @@ class User extends CI_Controller
                         {
                                 $this->session->user_id = $_POST['id'];
                                 $this->session->hashed_password = crypt($_POST['password'], "$6$");
-
-                                $header_data['page_title'] = 'Home | PomoBoard';
-                                $this->load->view('statics/header', $header_data);
-                                $this->load->view('pomoboard');
-                                $this->load->view('statics/footer');
+                                redirect('pomoboard');
                         }
                         else
                         {
-                                $header_data['page_title'] = 'SignIn | PomoBoard';
-                                $this->load->view('statics/header', $header_data);
-                                $this->load->view('user/login');
-                                $this->load->view('statics/footer');
+                                redirect('user/login');
                         }
                 }
         }
@@ -100,9 +84,6 @@ class User extends CI_Controller
 
         public function logout()
         {
-                $this->load->helper('url');
-                $this->load->model('MY_User', 'User');
-
                 $this->User->logout();
 
                 redirect('');

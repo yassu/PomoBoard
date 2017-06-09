@@ -67,3 +67,11 @@
 		</tr>
 	</table>
 </div>
+
+<h1>
+	<?php echo isset($headline)? $headline: "Headline is not setted"; ?>
+</h1>
+
+<?php echo pop_flash_message($this); ?>
+
+<?php echo validation_errors(); ?>

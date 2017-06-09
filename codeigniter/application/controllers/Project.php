@@ -3,18 +3,12 @@ class Project extends CI_Controller {
 
         public function explore()
         {
-                $this->load->helper('url');
-                $this->load->helper('form');
-                $this->load->helper('common');
-                $this->load->model('MY_User', 'User');
-                $this->load->model('MY_Task', 'Task');
-                $this->load->model('MY_Project', 'Project');
-
                 $data = array();
                 $data['list'] = (array_key_exists('submit', $_POST) && $_POST['submit'] === 'explore')?
                                                         $this->Project->get_list($this->User->logined(), $_POST['name']): array();
 
                 $header_data['page_title'] = 'ProjectExplore | PomoBoard';
+                $header_data['headline'] = 'Project Explore';
 
                 $this->load->view('statics/header', $header_data);
                 $this->load->view('project/explore', $data);
@@ -26,12 +20,6 @@ class Project extends CI_Controller {
         // number of Project.project_id or "new"
         public function edit($project_id)
         {
-            $this->load->helper('url');
-            $this->load->helper('form');
-            $this->load->library('form_validation');
-            $this->load->model('MY_User', 'User');
-            $this->load->model('MY_Project', 'Project');
-
             $this->form_validation->set_rules('project_name', 'Project name', 'trim|required');
 
             // echo var_dump($_POST);
@@ -39,6 +27,7 @@ class Project extends CI_Controller {
             if ($this->form_validation->run() == False)
             {
                     $header_data['page_title'] = 'NewProject | PomoBoard';
+                    $header_data['headline'] = 'Edit Project';
                     
                     $this->load->view('statics/header', $header_data);
                     $data = array(
@@ -63,12 +52,6 @@ class Project extends CI_Controller {
 
         public function delete($project_id)
         {
-                $this->load->helper('url');
-                $this->load->model('MY_User', 'User');
-                $this->load->model('MY_Task', 'Task');
-                $this->load->model('MY_Project', 'Project');
-
-
                 $this->Project->delete($this->User->logined(), $project_id);
 
                 redirect('project/explore');

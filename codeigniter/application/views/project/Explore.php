@@ -1,7 +1,3 @@
-<h1>
-	Project Explore
-</h1>
-
 <?php echo form_open(site_url('project/explore')); ?>
     <fieldset>
         <table border="1">

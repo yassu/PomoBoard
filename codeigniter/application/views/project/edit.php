@@ -1,9 +1,3 @@
-<h1>
-    Edit Project
-</h1>
-
-<?php echo validation_errors(); ?>
-
 <?php echo form_open("project/edit/".(($project === null)? "new": $project["project_id"])); ?>
     <fieldset>
         <table>

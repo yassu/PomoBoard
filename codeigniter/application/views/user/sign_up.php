@@ -1,9 +1,3 @@
-<h1>
-	Sign Up
-</h1>
-
-<?php echo validation_errors(); ?>
-
 <?php echo form_open('user/sign_up'); ?>
     <fieldset>
         <table>

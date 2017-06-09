@@ -1,10 +1,3 @@
-<h1>
-	Login
-</h1>
-
-
-<?php echo validation_errors(); ?>
-
 <?php echo form_open('user/login'); ?>
     <fieldset>
         <table>
