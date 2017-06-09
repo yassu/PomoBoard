@@ -22,6 +22,12 @@ if [ ! -L /etc/php.ini ]; then
     ln -s /vagrant/vagrant_resources/php.ini /etc/php.ini
 fi
 
+# httpd.conf
+if [ ! -L /etc/httpd/conf/httpd.conf ]; then
+    rm /etc/httpd/conf/httpd.conf
+    ln -s /vagrant/vagrant_resources/httpd.conf /etc/httpd/conf/httpd.conf
+fi
+
 # composer
 if [ ! -e /usr/local/bin/composer.phar ]; then
     php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
