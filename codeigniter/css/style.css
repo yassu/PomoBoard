@@ -1,3 +1,5 @@
-body {
-    width: 100%;
+p.danger {
+    line-height: 3px;
+    font-weight: bold;
+    color: #ff0000;
 }

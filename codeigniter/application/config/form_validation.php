@@ -1,5 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$config['error_prefix'] = '<div class="danger">';
-$config['error_suffix'] = '</div>';
+$config['error_prefix'] = '<p class="danger">';
+$config['error_suffix'] = '</p>';
