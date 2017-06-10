@@ -11,5 +11,4 @@ This repository provides features for task development with [Pomodoro Technique]
 ## How to start use
 
 1. In the root directory of this project, enter `plugin install vagrant-vbguest` if you didn't installed `vagrant-vbguest` plugin.
-
-2. Enter `vagrant up` command at the root directory of this project.
+2. Enter `vagrant up` command at the root directory of this project. This command will take a long time if you didn't a box "bento/centos-7.3"
