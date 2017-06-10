@@ -53,3 +53,6 @@ CREATE DATABASE IF NOT EXISTS pomoboard;
 GRANT ALL PRIVILEGES ON pomoboard.* TO "root"@"localhost" IDENTIFIED BY "password";
     FLUSH PRIVILEGES;
 EOF
+
+# migration
+(cd /var/www/html && php index.php migrate current)
