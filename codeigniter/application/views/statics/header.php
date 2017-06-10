@@ -2,6 +2,8 @@
 <head>
 	<title><?php echo isset($page_title)? $page_title: "pomo board"; ?></title>
 	<link href="/css/style.css" rel="stylesheet" type="text/css">
+	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<style type="text/css">
 		h1 {
 			color: #444;
@@ -31,7 +33,11 @@
 			</td>
 			<?php if($this->User->logined()): ?>
 				<td class="header_cell">
-					<a href="<?php echo site_url('project/explore') ?>"> Project </a>
+					<select class="selectpicker" style="color: black">
+					  	<option>Project</option>
+						<option>Project Tag</option>
+					</select>
+					<!-- a href="<?php echo site_url('project/explore') ?>"> Project </a> -->
 				</td>
 			<?php endif; ?>
 			<?php if($this->User->logined())
