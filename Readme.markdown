@@ -1,15 +1,15 @@
-vagrant upする前に
+<center>
+<img src="https://raw.githubusercontent.com/yassu/PomoBoard/symbol/symbol/pomoboard.png" alt="PomoBoard" width="25%">
+</center>
 
-```
-$ plugin install vagrant-vbguest
-```
+Status: Work In Progress
 
-を実行すること. (virtual box guestをいい感じにいれるため)
+## Feature
 
-最初にvagrant upした直後にデータを設定するために/var/www/htmlで
+This repository provides features for task development with [Pomodoro Technique](https://cirillocompany.de/pages/pomodoro-technique).
 
-```
-$ php index.php migrate current
-```
+## How to start use
 
-を実行すること.
+1. In the root directory of this project, enter `plugin install vagrant-vbguest` if you didn't installed `vagrant-vbguest` plugin.
+
+2. Enter `vagrant up` command at the root directory of this project.
