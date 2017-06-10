@@ -1,5 +1,5 @@
 <center>
-<img src="https://raw.githubusercontent.com/yassu/PomoBoard/symbol/symbol/pomoboard.png" alt="PomoBoard" width="25%">
+<img src="https://raw.githubusercontent.com/yassu/PomoBoard/master/symbol/pomoboard.png" alt="PomoBoard" width="25%">
 </center>
 
 Status: Work In Progress
