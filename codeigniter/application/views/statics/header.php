@@ -33,11 +33,7 @@
 			</td>
 			<?php if($this->User->logined()): ?>
 				<td class="header_cell">
-					<select class="selectpicker" style="color: black">
-					  	<option>Project</option>
-						<option>Project Tag</option>
-					</select>
-					<!-- a href="<?php echo site_url('project/explore') ?>"> Project </a> -->
+					<a href="<?php echo site_url('project/explore') ?>"> Project </a>
 				</td>
 			<?php endif; ?>
 			<?php if($this->User->logined())
