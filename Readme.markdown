@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/yassu/PomoBoard/master/symbol/pomoboard.png" alt="PomoBoard" width="25%">
+<img src="https://raw.githubusercontent.com/yassu/PomoBoard/master/home/pomoboard_100px.png" alt="PomoBoard">
 
 Status: Work In Progress
 
