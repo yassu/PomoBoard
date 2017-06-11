@@ -1,4 +1,5 @@
-<img src="https://raw.githubusercontent.com/yassu/PomoBoard/master/home/pomoboard_100px.png" alt="PomoBoard">
+![PomoBoard](https://raw.githubusercontent.com/yassu/PomoBoard/home/symbol/pomoboard_100px.png)
+
 
 Status: Work In Progress
 
