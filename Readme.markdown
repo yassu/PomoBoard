@@ -1,4 +1,4 @@
-![PomoBoard](https://raw.githubusercontent.com/yassu/PomoBoard/home/symbol/pomoboard_100px.png)
+![PomoBoard](https://raw.githubusercontent.com/yassu/PomoBoard/master/symbol/pomoboard_100px.png)
 
 
 Status: Work In Progress
@@ -6,7 +6,7 @@ Status: Work In Progress
 
 ## Feature
 
-This repository provides features for task development with [Pomodoro Technique](https://cirillocompany.de/pages/pomodoro-technique).
+This project provides features for task development with [Pomodoro Technique](https://cirillocompany.de/pages/pomodoro-technique).
 
 
 ## Getting started
