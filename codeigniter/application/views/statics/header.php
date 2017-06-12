@@ -2,6 +2,8 @@
 <head>
 	<title><?php echo isset($page_title)? $page_title: "pomo board"; ?></title>
 	<link href="/css/style.css" rel="stylesheet" type="text/css">
+	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<style type="text/css">
 		h1 {
 			color: #444;
