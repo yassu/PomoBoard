@@ -12,8 +12,11 @@ class Task extends CI_Controller {
                         $this->Task->remove($this->User->logined(), intval($_REQUEST['task_id']));
                 }
 
-                $data['list'] = array_key_exists('title', $_POST)?
-                        $this->Task->get_list($this->User->logined(), $_POST['title'], $_POST['memo'], $_POST['keyword']): array();
+                $data['list'] = (array_key_exists('submit', $_POST) && $_POST['submit'] === 'explore')?
+                        $this->Task->get_list($this->User->logined(), $_POST['title'], $_POST['memo'], $_POST['keyword'],
+                                $_POST['begin_created_date'], $_POST['end_created_date'],
+                                $_POST['begin_updated_date'], $_POST['end_updated_date'])
+                                        : array();
 
                 $this->load->view('statics/header', $header_data);
                 $this->load->view('task/explore', $data);

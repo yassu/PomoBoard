@@ -91,7 +91,8 @@ class MY_Task extends CI_Model
     }
 
 
-    public function get_list($user_id, $title, $memo, $keyword)
+    public function get_list($user_id, $title, $memo, $keyword,
+        $begin_created_date, $end_created_date, $begin_updated_date, $end_updated_date)
     {
         if (! $user_id)
         {
@@ -118,6 +119,26 @@ class MY_Task extends CI_Model
                     ->like('title', $keyword)
                     ->or_like('memo', $keyword)
                 ->group_end();
+        }
+
+        if ($begin_created_date !== "")
+        {
+            $this->db->where('created_date >= ', $begin_created_date);
+        }
+
+        if ($end_created_date !== "")
+        {
+            $this->db->where('created_date < ', get_next_date_str($end_created_date));
+        }
+
+        if ($begin_updated_date !== "")
+        {
+            $this->db->where('updated_date >= ', $begin_updated_date);
+        }
+
+        if ($end_updated_date !== "")
+        {
+            $this->db->where('updated_date < ', get_next_date_str($end_updated_date));
         }
 
         return $this->db->get('Task')->result_array();
