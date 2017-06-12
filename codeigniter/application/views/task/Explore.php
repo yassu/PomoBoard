@@ -5,7 +5,7 @@
         <table border="1">
             <tbody>
                 <tr>
-                    <th style='text-align: center' colspan="10">Search</th>
+                    <th style='text-align: center' colspan="14">Search</th>
                 </tr>
                 <tr>
                     <th style='text-align: left'> Title </th>
