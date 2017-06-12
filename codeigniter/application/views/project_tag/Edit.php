@@ -1,4 +1,4 @@
-<?php echo form_open("project_tag/edit/".$project_tag['project_tag_id']); ?>
+<?php echo form_open("project_tag/edit/".(is_null($project_tag)? "new": $project_tag['project_tag_id'])); ?>
     <fieldset>
         <table>
             <tbody>
