@@ -1,6 +1,4 @@
-<?php $create_task_url = site_url('task/create'); ?>
-
-<?php echo form_open(site_url('task/explore')); ?>
+<?php echo form_open(site_url('project_tag/explore')); ?>
     <fieldset>
         <table border="1">
             <tbody>
@@ -28,7 +26,7 @@
 		<button type="submit" name="submit" value="explore">
 			<div style="font-size: 19px;"> Execution </div>
 		</button>
-		<button type="button" name="submit" value="create" onClick="location.href = '<?php echo site_url('task/edit').'/new';?>';">
+		<button type="button" name="submit" value="create" onClick="location.href = '<?php echo site_url('project_tag/edit').'/new';?>';">
 			<div style="font-size: 19px;"> New Task </div>
 		</button>
     </fieldset>
