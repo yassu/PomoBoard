@@ -59,6 +59,20 @@ class MY_ProjectTag extends CI_Model
     }
 
 
+    public function get_all($user_id)
+    {
+        if (! $user_id)
+        {
+            return array();
+        }
+
+        return $this->db
+            ->where('user_id', $user_id)
+            ->where('is_deleted', 0)
+            ->get('ProjectTag')->result_array();
+    }
+
+
     public function get_list($user_id, $project_tag_name, $begin_created_date, $end_created_date, $begin_updated_date, $end_updated_date)
     {
         if (! $user_id)
@@ -111,5 +125,22 @@ class MY_ProjectTag extends CI_Model
                     'is_deleted' => 1,
                     'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
                 ));
+    }
+
+
+    public function get_dropdown_array($user_id)
+    {
+        if ($user_id === null || $user_id === "")
+        {
+            return array();
+        }
+
+        $dropdown_array = array();
+        foreach ($this->get_all($user_id) as $project_tag)
+        {
+            $dropdown_array[$project_tag['project_tag_id']] = $project_tag['project_tag_name'];
+        }
+
+        return $dropdown_array;
     }
 }

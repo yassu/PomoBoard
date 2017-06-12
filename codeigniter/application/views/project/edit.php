@@ -6,6 +6,15 @@
                     <th style='text-align: left'>Project Title</th>
                         <td><input type="text" id="project_name" name="project_name" value="<?php echo ($project === null)? '': $project['project_name']; ?>" /></td>
                 </tr>
+                <tr>
+                    <th style='text-align: left'>Project Tag</th>
+                    <td>
+                        <?php
+                            echo form_multiselect("project_tag_ids",
+                                $this->ProjectTag->get_dropdown_array($this->User->logined()));
+                        ?>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </fieldset>
