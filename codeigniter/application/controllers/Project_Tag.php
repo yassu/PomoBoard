@@ -25,8 +25,9 @@ class Project_Tag extends CI_Controller {
 
                 if ($this->form_validation->run() == False)
                 {
-                        $header_data['page_title'] = 'Edit Project Tag | Pomodoro';
-                        $header_data['headline'] = "New Project Tag";
+                        $type = ($project_tag_id === "new")? "New": "Edit";
+                        $header_data['page_title'] = $type . ' Project Tag | Pomodoro';
+                        $header_data['headline'] = $type . " Project Tag";
 
                         $this->load->view('statics/header', $header_data);
                         $this->load->view('project_tag/edit');
