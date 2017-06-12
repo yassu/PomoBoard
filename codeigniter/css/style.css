@@ -3,3 +3,7 @@ p.danger {
     font-weight: bold;
     color: #ff0000;
 }
+
+input.project_explore_date {
+    width: 105px;
+}

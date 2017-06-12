@@ -3,11 +3,19 @@
         <table border="1">
             <tbody>
                 <tr>
-                    <th style='text-align: center' colspan="6">Search</th>
+                    <th style='text-align: center' colspan="10">Search</th>
                 </tr>
                 <tr>
                     <th style='text-align: left'> Name </th>
                     <td><input type="text" id="name" name="name" value="" /></td>
+					<th style='text-align: left'> Created Date </th>
+					<td> <input type="date" id="begin_created_date" name="begin_created_date" class="project_explore_date"> </td>
+					<td> 〜 </td>
+					<td> <input type="date" id="end_created_date" name="end_created_date" class="project_explore_date"></td>
+					<th style='text-align: left'> Updated Date </th>
+					<td> <input type="date" id="begin_updated_date" name="begin_updated_date" class="project_explore_date"> </td>
+					<td> 〜 </td>
+					<td> <input type="date" id="end_updated_date" name="end_updated_date" class="project_explore_date"> </td>
                 </tr>
             </tbody>
         </table>

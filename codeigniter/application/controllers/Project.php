@@ -5,7 +5,10 @@ class Project extends CI_Controller {
         {
                 $data = array();
                 $data['list'] = (array_key_exists('submit', $_POST) && $_POST['submit'] === 'explore')?
-                                                        $this->Project->get_list($this->User->logined(), $_POST['name']): array();
+                                                        $this->Project->get_list($this->User->logined(), $_POST['name'],
+                                                        $_POST['begin_created_date'], $_POST['end_created_date'],
+                                                        $_POST['begin_updated_date'], $_POST['end_updated_date'])
+                                                                : array();
 
                 $header_data['page_title'] = 'ProjectExplore | PomoBoard';
                 $header_data['headline'] = 'Project Explore';
