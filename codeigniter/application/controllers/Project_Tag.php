@@ -6,8 +6,14 @@ class Project_Tag extends CI_Controller {
                 $header_data['page_title'] = 'ProjectTagExplore | PomoBoard';
                 $header_data['headline'] = 'ProjectTag Explore';
 
+                $data['list'] = (array_key_exists('submit', $_POST ) && $_POST['submit'] === 'explore')?
+                        $this->ProjectTag->get_list(
+                                $this->User->logined(), $_POST['project_tag_name'], $_POST['begin_created_date'], $_POST['end_created_date'],
+                                $_POST['begin_updated_date'], $_POST['end_updated_date'])
+                                : array();
+
                 $this->load->view('statics/header', $header_data);
-                $this->load->view('project_tag/explore');
+                $this->load->view('project_tag/explore', $data);
                 $this->load->view('statics/footer');
         }
 

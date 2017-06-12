@@ -7,7 +7,7 @@
                 </tr>
                 <tr>
                     <th style='text-align: left'> Name </th>
-                    <td><input type="text" id="tag_name" name="tag_name" value="" /></td>
+                    <td><input type="text" id="project_tag_name" name="project_tag_name" value="" /></td>
 					<th style='text-align: left'> Created Date </th>
 					<td> <input type="date" id="begin_created_date" name="begin_created_date" class="project_explore_date"> </td>
 					<td> 〜 </td>
