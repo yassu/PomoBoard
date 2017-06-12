@@ -43,7 +43,7 @@ if (! empty($list)):
 		?>
 			<td> #<?php echo $project_tag['project_tag_id']; ?> </td>
 			<td> <?php echo $project_tag['project_tag_name']; ?> </td>
-			<td> Delete </td>
+			<td> <a href="<?php echo site_url('project_tag/delete') . '/' . $project_tag['project_tag_id']; ?>">Delete</a> </td>
 		<?php
 		endforeach;
 		?>

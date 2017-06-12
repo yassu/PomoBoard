@@ -64,4 +64,20 @@ class MY_ProjectTag extends CI_Model
 
         return $this->db->get('ProjectTag')->result_array();
     }
+
+
+    public function delete($user_id, $project_tag_id)
+    {
+        $this->db
+            ->where(array(
+                'user_id' => $user_id,
+                'project_tag_id' => $project_tag_id
+            ))
+            ->update(
+                'ProjectTag',
+                array(
+                    'is_deleted' => 1,
+                    'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
+                ));
+    }
 }

@@ -40,4 +40,13 @@ class Project_Tag extends CI_Controller {
                         redirect('project_tag/explore');
                 }
         }
+
+
+        public function delete($project_tag_id)
+        {
+                $this->ProjectTag->delete($this->User->logined(), $project_tag_id);
+                set_flash_message($this, 'Deleted the project tag.');
+
+                redirect(site_url('project_tag/explore'));
+        }
 }
