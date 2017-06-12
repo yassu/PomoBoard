@@ -29,8 +29,14 @@ class Project_Tag extends CI_Controller {
                         $header_data['page_title'] = $type . ' Project Tag | Pomodoro';
                         $header_data['headline'] = $type . " Project Tag";
 
+                        $project_tag = ($project_tag_id === "new")?
+                                null: $this->ProjectTag->get_project_tag_from_project_tag_id($this->User->logined(), $project_tag_id);
+                        $data = array(
+                                'project_tag' => $project_tag
+                        );
+
                         $this->load->view('statics/header', $header_data);
-                        $this->load->view('project_tag/edit');
+                        $this->load->view('project_tag/edit', $data);
                         $this->load->view('statics/footer');
                 }
                 else

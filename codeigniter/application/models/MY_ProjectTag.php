@@ -27,6 +27,22 @@ class MY_ProjectTag extends CI_Model
     }
 
 
+    public function get_project_tag_from_project_tag_id($user_id, $project_tag_id)
+    {
+        if (! $user_id)
+        {
+            return null;
+        }
+
+        $res = $this->db->where('user_id', $user_id)
+                  ->where('is_deleted', 0)
+                  ->where('project_tag_id', $project_tag_id)
+                  ->get('ProjectTag')->result_array();
+
+        return empty($res)? null: $res[0];
+    }
+
+
     public function get_list($user_id, $project_tag_name, $begin_created_date, $end_created_date, $begin_updated_date, $end_updated_date)
     {
         if (! $user_id)
