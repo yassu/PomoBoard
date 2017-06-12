@@ -5,7 +5,7 @@
                 <tr>
                     <th style='text-align: left'>Project Tag Name</th>
                         <td><input type="text" id="project_tag_name" name="project_tag_name"
-                            value="<?php echo is_null($project_tag)? '1': $project_tag['project_tag_name']; ?>" /></td>
+                            value="<?php echo is_null($project_tag)? '': $project_tag['project_tag_name']; ?>" /></td>
                 </tr>
             </tbody>
         </table>
