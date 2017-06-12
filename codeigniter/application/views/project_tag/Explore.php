@@ -27,3 +27,27 @@
 		</button>
     </fieldset>
 </form>
+
+
+<?php
+if (! empty($list)):
+?>
+	<table border="1">
+		<tr>
+			<td> ID </td>
+			<td> Name </td>
+			<td> Delete </td>
+		</tr>
+		<?php
+		foreach ($list as $project_tag):
+		?>
+			<td> #<?php echo $project_tag['project_tag_id']; ?> </td>
+			<td> <?php echo $project_tag['project_tag_name']; ?> </td>
+			<td> Delete </td>
+		<?php
+		endforeach;
+		?>
+	</table>
+<?php
+endif;
+?>
