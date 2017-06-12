@@ -35,6 +35,9 @@
 				<td class="header_cell">
 					<a href="<?php echo site_url('project/explore') ?>"> Project </a>
 				</td>
+				<td class="header_cell">
+					<a href="<?php echo site_url('project_tag/explore') ?>"> Project Tag </a>
+				</td>
 			<?php endif; ?>
 			<?php if($this->User->logined())
 			{

@@ -15,10 +15,6 @@ class Migration_Add_project_tag_table extends CI_Migration {
                     'constraint' => 10,
                     'auto_increment' => TRUE
                 ),
-                'project_id' => array(
-                    'type' => 'INT',
-                    'constraint' => 10
-                ),
                 'project_tag_name' => array(
                     'type' => 'TEXT'
                 ),
