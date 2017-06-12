@@ -1,3 +1,7 @@
 RewriteEngine on
+
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R]
+
 RewriteCond $1 !^(index\.php|images|bootstrap|.+\.css$|.+\.js$|.+\.png$|.+\.jpg$|robots\.txt)
 RewriteRule ^(.*)$ /index.php/$1 [L]
