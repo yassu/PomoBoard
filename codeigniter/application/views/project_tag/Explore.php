@@ -23,7 +23,7 @@
 			<div style="font-size: 19px;"> Execution </div>
 		</button>
 		<button type="button" name="submit" value="create" onClick="location.href = '<?php echo site_url('project_tag/edit').'/new';?>';">
-			<div style="font-size: 19px;"> New Task </div>
+			<div style="font-size: 19px;"> New Project Tag </div>
 		</button>
     </fieldset>
 </form>
