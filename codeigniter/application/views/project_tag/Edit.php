@@ -1,5 +1,3 @@
-<?php echo var_dump($project_tag); ?>
-
 <?php echo form_open("project_tag/edit/".$project_tag['project_tag_id']); ?>
     <fieldset>
         <table>

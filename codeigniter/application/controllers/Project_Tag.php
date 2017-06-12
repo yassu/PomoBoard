@@ -41,9 +41,16 @@ class Project_Tag extends CI_Controller {
                 }
                 else
                 {
-                        $this->ProjectTag->insert($this->User->logined(), $_POST['project_tag_name']);
-                        set_flash_message($this, 'Inserted new project tag.');
-                        echo var_dump($_POST);
+                        if ($project_tag_id === "new")
+                        {
+                                $this->ProjectTag->insert($this->User->logined(), $_POST['project_tag_name']);
+                                set_flash_message($this, 'Inserted new project tag.');
+                        }
+                        else
+                        {
+                                $this->ProjectTag->update($this->User->logined(), intval($project_tag_id), $_POST['project_tag_name']);
+                                set_flash_message($this, 'Updated new project tag.');
+                        }
                         redirect('project_tag/explore');
                 }
         }

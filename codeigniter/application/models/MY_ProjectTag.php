@@ -27,6 +27,22 @@ class MY_ProjectTag extends CI_Model
     }
 
 
+    public function update($user_id, $project_tag_id, $project_tag_name)
+    {
+        $this->db
+            -> where(array(
+                'user_id' => $user_id,
+                'project_tag_id' => $project_tag_id
+            ))
+            ->update(
+                'ProjectTag',
+                array(
+                    'project_tag_name' => $project_tag_name,
+                    'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
+                ));
+    }
+
+
     public function get_project_tag_from_project_tag_id($user_id, $project_tag_id)
     {
         if (! $user_id)
