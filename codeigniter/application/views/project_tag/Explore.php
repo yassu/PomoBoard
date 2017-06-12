@@ -6,12 +6,8 @@
                     <th style='text-align: center' colspan="14">Search</th>
                 </tr>
                 <tr>
-                    <th style='text-align: left'> Title </th>
-                    <td><input type="text" id="title" name="title" value="" /></td>
-					<th style='text-align: left'> Memo </th>
-					<td><input type="text" id="memo" name="memo" value=""> </td>
-					<th style='text-align: left'> Keyword </th>
-					<td><input type="text" id="keyword" name="keyword" value=""></td>
+                    <th style='text-align: left'> Name </th>
+                    <td><input type="text" id="tag_name" name="tag_name" value="" /></td>
 					<th style='text-align: left'> Created Date </th>
 					<td> <input type="date" id="begin_created_date" name="begin_created_date" class="project_explore_date"> </td>
 					<td> 〜 </td>
