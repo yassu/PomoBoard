@@ -29,5 +29,5 @@ function append_project_tag(e, appended_project_tag, $project_tags)
     a_elem.appendChild(img_elem);
     p_elem.appendChild(a_elem);
 
-    parent_elem.appendChild(p_elem);    
+    parent_elem.appendChild(p_elem);
 }
