@@ -4,6 +4,7 @@
 	<link href="/css/style.css" rel="stylesheet" type="text/css">
 	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<script type="text/javascript" src="/js/common.js"></script>
 	<style type="text/css">
 		h1 {
 			color: #444;

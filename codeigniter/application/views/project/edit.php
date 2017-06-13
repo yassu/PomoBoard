@@ -8,12 +8,18 @@
                 </tr>
                 <tr>
                     <th style='text-align: left'>Project Tag</th>
-                    <td>
+                    <td class="project_tag_board">
+                        <p>
                         <?php
                             echo form_dropdown("project_tag_id1",
                                 $this->ProjectTag->get_dropdown_array($this->User->logined()));
-                            echo img('/images/plus.png');
                         ?>
+                        <a href="#" onClick="append_project_tag(this, 2)">
+                            <?php
+                                echo img('/images/plus.png');
+                            ?>
+                        </a>
+                        </p>
                     </td>
                 </tr>
             </tbody>
