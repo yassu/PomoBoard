@@ -135,7 +135,9 @@ class MY_ProjectTag extends CI_Model
             return array();
         }
 
-        $dropdown_array = array();
+        $dropdown_array = array(
+            '' => '--'
+        );
         foreach ($this->get_all($user_id) as $project_tag)
         {
             $dropdown_array[$project_tag['project_tag_id']] = $project_tag['project_tag_name'];
