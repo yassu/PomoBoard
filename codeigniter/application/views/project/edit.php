@@ -14,7 +14,8 @@
                             echo form_dropdown("project_tag_id1",
                                 $this->ProjectTag->get_dropdown_array($this->User->logined()));
                         ?>
-                        <a href="#" onClick="append_project_tag(this, 2)">
+                        <!-- <a href="#" onClick="append_project_tag(this, 1, " + <?php echo json_safe_encode($this->ProjectTag->get_dropdown_array($this->User->logined())); ?> + ")"> -->
+                        <a href="#" onClick='append_project_tag(this, 1, <?php echo json_safe_encode($this->ProjectTag->get_dropdown_array($this->User->logined())); ?>)' >
                             <?php
                                 echo img('/images/plus.png');
                             ?>

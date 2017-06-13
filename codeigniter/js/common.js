@@ -1,6 +1,6 @@
-function append_project_tag(e, appended_project_tag, $project_tags)
+function append_project_tag(e, appended_project_tag, project_tags)
 {
-    alert($project_tags);
+    alert(project_tags);
     // dropdown
     var parent_elem = e.parentElement;
     while (parent_elem.className != "project_tag_board")
