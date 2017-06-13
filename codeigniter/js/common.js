@@ -1,4 +1,4 @@
-function append_project_tag(e, appended_project_tag, project_tags)
+function append_project_tag(e, project_tag_id, project_tags)
 {
     alert(project_tags);
     // dropdown
@@ -7,11 +7,18 @@ function append_project_tag(e, appended_project_tag, project_tags)
     {
         parent_elem = parent_elem.parentElement;
     }
-    // p1にproject_tag_boardのElementを追加する
+
+    parent_elem.appendChild(get_project_tag_p_elem(project_tag_id, project_tags));
+}
+
+
+function get_project_tag_p_elem(project_tag_id, project_tags)
+{
+        // p1にproject_tag_boardのElementを追加する
     var p_elem = document.createElement('p');
 
     var select_elem = document.createElement('select')
-    select_elem.name = "project_tag_id" + String(appended_project_tag);
+    select_elem.name = "project_tag_id" + String(project_tag_id);
 
     project_tags.forEach(function(project_tag){
         var option_elem = document.createElement('option');
@@ -24,14 +31,16 @@ function append_project_tag(e, appended_project_tag, project_tags)
     // image
     a_elem = document.createElement('a');
     a_elem.setAttribute('href', '#');
-    alert('append_project_tag(this, ' + String(appended_project_tag + 1) + ',' + String(project_tags) + ')');
-    a_elem.onclick = new Function('append_project_tag(this, ' + String(appended_project_tag + 1) + ',' + JSON.stringify(project_tags) + ')');
-    alert(appended_project_tag);
+    alert('stu');
+    alert(project_tag_id);
+    alert(JSON.stringify(project_tags));
+    a_elem.onclick = new Function('append_project_tag(this, ' + String(project_tag_id + 1) + ',' + JSON.stringify(project_tags) + ')');
+    alert('ttt');
 
     img_elem = document.createElement('img');
     img_elem.setAttribute('src', '/images/plus.png');
     a_elem.appendChild(img_elem);
     p_elem.appendChild(a_elem);
-
-    parent_elem.appendChild(p_elem);
+    
+    return p_elem;
 }
