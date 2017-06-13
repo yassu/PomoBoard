@@ -5,8 +5,7 @@ class User extends CI_Controller
         {
                 $header_data['page_title'] = 'SignUp | PomoBoard';
 
-                $this->form_validation->set_rules('name', 'Name', 'trim|required|min_length[6]|max_length[12]');
-                $this->form_validation->set_rules('name', 'Name', 'callback_duplication_user_id_check');
+                $this->form_validation->set_rules('name', 'Name', 'trim|required|min_length[6]|max_length[12]|callback_duplication_user_id_check');
                 $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]|max_length[60]');
                 $this->form_validation->set_rules('confirmed_password', 'Confirmation password', 'trim|required|matches[password]');
 
