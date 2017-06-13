@@ -41,9 +41,11 @@ if (! empty($list)):
 		<?php
 		foreach ($list as $project_tag):
 		?>
-			<td> <a href="<?php echo site_url('project_tag/edit'.'/'.$project_tag['project_tag_id']); ?>">#<?php echo $project_tag['project_tag_id']; ?> </a> </td>
-			<td> <?php echo $project_tag['project_tag_name']; ?> </td>
-			<td> <a href="<?php echo site_url('project_tag/delete') . '/' . $project_tag['project_tag_id']; ?>">Delete</a> </td>
+			<tr>
+				<td> <a href="<?php echo site_url('project_tag/edit'.'/'.$project_tag['project_tag_id']); ?>">#<?php echo $project_tag['project_tag_id']; ?> </a> </td>
+				<td> <?php echo $project_tag['project_tag_name']; ?> </td>
+				<td> <a href="<?php echo site_url('project_tag/delete') . '/' . $project_tag['project_tag_id']; ?>">Delete</a> </td>
+			</tr>
 		<?php
 		endforeach;
 		?>
