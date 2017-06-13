@@ -13,11 +13,16 @@ function append_project_tag(e, appended_project_tag, project_tags)
     var select_elem = document.createElement('select')
     select_elem.name = "project_tag_id" + String(appended_project_tag);
 
-    var option_elem = document.createElement('option');
-    option_elem.value = '""';
-    select_elem.appendChild(option_elem);
+    Object.keys(project_tags).forEach(function (key) {
+        var option_elem = document.createElement('option');
+        option_elem.value = key;
+        option_elem.text = project_tags[key];
+        select_elem.appendChild(option_elem);
+        console.log(key + "は" + project_tags[key] + "と鳴いた！");
+    });
     p_elem.appendChild(select_elem);
 
+    /*
     // image
     a_elem = document.createElement('a');
     a_elem.setAttribute('href', '#');
@@ -28,6 +33,7 @@ function append_project_tag(e, appended_project_tag, project_tags)
     img_elem.setAttribute('src', '/images/plus.png');
     a_elem.appendChild(img_elem);
     p_elem.appendChild(a_elem);
+    */
 
     parent_elem.appendChild(p_elem);
 }
