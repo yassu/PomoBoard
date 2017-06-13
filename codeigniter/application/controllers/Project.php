@@ -41,9 +41,32 @@ class Project extends CI_Controller {
             }
             else
             {
+                /*
+                $project_tags = array();
+                foreach($_POST as $order => $project_tag_id)
+                {
+                        if (substr($order, 0, strlen("project_tag_id")) === "project_tag_id" && $project_tag_id !== "")
+                        {
+                                $tag_id = intval(substr($order, strlen("project_tag_id")));
+                                $this->ProjectDetail->insert();
+                        }
+                }
+                */
+
+                $inserted_id = null;
                 if ( $project_id === "new" )
                 {
-                        $this->Project->insert($this->User->logined(), $_POST['project_name']);
+                        $inserted_id = $this->Project->insert($this->User->logined(), $_POST['project_name']);
+
+                        foreach($_POST as $order => $project_tag_id)
+                        {
+                                if (substr($order, 0, strlen("project_tag_id")) === "project_tag_id" && $project_tag_id !== "")
+                                {
+                                        $project_tag_id = intval(substr($order, strlen("project_tag_id")));
+                                        $this->ProjectDetail->insert($this->User->logined(), $inserted_id, $project_tag_id);
+                                }
+                        }
+
                         set_flash_message($this, 'Inserted new Project.');
                 }
                 else
@@ -51,6 +74,7 @@ class Project extends CI_Controller {
                         $this->Project->update($this->User->logined(), intval($project_id), $_POST['project_name']);
                         set_flash_message($this, 'Updated the Project.');
                 }
+
                 redirect('project/explore');
             }
         }

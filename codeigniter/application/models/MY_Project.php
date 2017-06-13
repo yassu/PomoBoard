@@ -97,6 +97,7 @@ class MY_Project extends CI_Model
             'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
             )
         );
+        return $this->db->insert_id();
     }
 
 
