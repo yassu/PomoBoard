@@ -1,6 +1,5 @@
 function append_project_tag(e, project_tag_id, project_tags)
 {
-    alert(project_tags);
     // dropdown
     var parent_elem = e.parentElement;
     while (parent_elem.className != "project_tag_board")
@@ -31,11 +30,7 @@ function get_project_tag_p_elem(project_tag_id, project_tags)
     // image
     a_elem = document.createElement('a');
     a_elem.setAttribute('href', '#');
-    alert('stu');
-    alert(project_tag_id);
-    alert(JSON.stringify(project_tags));
     a_elem.onclick = new Function('append_project_tag(this, ' + String(project_tag_id + 1) + ',' + JSON.stringify(project_tags) + ')');
-    alert('ttt');
 
     img_elem = document.createElement('img');
     img_elem.setAttribute('src', '/images/plus.png');
