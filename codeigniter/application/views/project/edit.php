@@ -12,6 +12,7 @@
                         <?php
                             echo form_dropdown("project_tag_id1",
                                 $this->ProjectTag->get_dropdown_array($this->User->logined()));
+                            echo img('/images/plus.png');
                         ?>
                     </td>
                 </tr>
