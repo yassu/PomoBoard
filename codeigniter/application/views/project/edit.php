@@ -1,8 +1,8 @@
 <script type="text/javascript">
 window.onload = function()
 {
-    var stu = document.getElementsByClassName('project_tag_board');
-    stu[0].appendChild(get_project_tag_p_elem(1, <?php echo json_safe_encode($this->ProjectTag->get_dropdown_array($this->User->logined()));?>));
+    var project_tag_board = document.getElementsByClassName('project_tag_board')[0];
+    project_tag_board.appendChild(get_project_tag_p_elem(1, <?php echo json_safe_encode($this->ProjectTag->get_dropdown_array($this->User->logined()));?>));
 }
 </script>
 
