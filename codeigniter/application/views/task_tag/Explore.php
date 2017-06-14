@@ -26,3 +26,33 @@
 		</button>
     </fieldset>
 </form>
+
+
+<?php
+if (!empty($list)):
+?>
+	<table border="1">
+		<tr>
+			<td> ID </td>
+			<td> Name </td>
+			<td> Created Date </td>
+			<td> Updated Date </td>
+			<td> Delete </td>
+		</tr>
+		<?php
+		foreach($list as $task_tag):
+		?>
+			<tr>
+				<td> #<?php echo $task_tag['task_tag_id']; ?> </td>
+                <td> <?php echo $task_tag['task_tag_name']; ?> </td>
+                <td> <?php echo display_date_str($task_tag['created_date']); ?> </td>
+                <td> <?php echo display_date_str($task_tag['updated_date']); ?> </td>
+                <td> Delete </td>
+			</tr>
+		<?php
+		endforeach;
+		?>
+	</table>
+<?php
+endif;
+?>

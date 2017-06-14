@@ -25,4 +25,41 @@ class MY_TaskTag extends CI_Model
             )
         );
     }
+
+
+    public function get_list($user_id, $task_tag_name,
+        $begin_created_date, $end_created_date,
+        $begin_updated_date, $end_updated_date)
+    {
+        $this->db
+            ->where('user_id', $user_id)
+            ->where('is_deleted', 0);
+
+        if ($task_tag_name !== "")
+        {
+            $this->db->like('task_tag_name', $task_tag_name);
+        }
+
+        if ($begin_created_date !== "")
+        {
+            $this->db->where('created_date >= ', $begin_created_date);
+        }
+
+        if ($end_created_date !== "")
+        {
+            $this->db->where('created_date < ', get_next_date_str($end_created_date));
+        }
+
+        if ($begin_updated_date !== "")
+        {
+            $this->db->where('updated_date >= ', $begin_updated_date);
+        }
+
+        if ($end_updated_date !== "")
+        {
+            $this->db->where('updated_date < ', $end_updated_date);
+        }
+
+        return $this->db->get('TaskTag')->result_array();
+    }
 }
