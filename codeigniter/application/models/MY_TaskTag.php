@@ -15,6 +15,20 @@ class MY_TaskTag extends CI_Model
     }
 
 
+    public function update($user_id, $task_tag_id, $task_tag_name)
+    {
+        $this->db
+            ->where(array(
+                'user_id' => $user_id,
+                'task_tag_id' => $task_tag_id
+            ))
+            ->update('TaskTag', array(
+                'task_tag_name' => $task_tag_name,
+                'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
+            ));
+    }
+
+
     public function insert($user_id, $task_tag_name)
     {
         $this->db->insert('TaskTag', array(
