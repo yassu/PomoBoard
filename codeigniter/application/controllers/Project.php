@@ -71,11 +71,20 @@ class Project extends CI_Controller {
                 }
                 else
                 {
-                        $this->Project->update($this->User->logined(), intval($project_id), $_POST['project_name']);
+                        $updated_id = $this->Project->update($this->User->logined(), intval($project_id), $_POST['project_name']);
+                        $project_tag_ids = array();
+                        foreach ($_POST as $key => $project_tag_id)
+                        {
+                                if (substr($key, 0, strlen("project_tag_id")) === "project_tag_id")
+                                {
+                                        array_push($project_tag_ids, intval($project_tag_id));
+                                }
+                        }
+                        $this->ProjectDetail->update_by_project_id($this->User->logined(), $updated_id, $project_tag_ids);
                         set_flash_message($this, 'Updated the Project.');
                 }
 
-                redirect('project/explore');
+                // redirect('project/explore');
             }
         }
 

@@ -108,6 +108,11 @@ class MY_Project extends CI_Model
             return false;
         }
 
+        $updated_record = $this->db
+            ->where('user_id', $user_id)
+            ->where('project_id', $project_id)
+            ->get('Project')->result_array();
+
         $this->db
             ->where('user_id', $user_id)
             ->where('project_id', $project_id)
@@ -116,7 +121,7 @@ class MY_Project extends CI_Model
                 'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
             ));
 
-        return true;
+        return empty($updated_record)? null: $updated_record[0]["project_id"];
     }
 
 
