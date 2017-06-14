@@ -3,6 +3,9 @@
 
 yum -y update
 
+# system
+yum -y install git
+
 # Apache
 yum -y install httpd
 
@@ -45,6 +48,19 @@ if [ ! -L /var/www/html ]; then
     rm -rf /var/www/html/
     ln -s /vagrant/codeigniter /var/www/html
 fi
+
+# CodeSniffer
+(
+    cd /var/www/html/
+    composer.phar install
+)
+(
+    cd /tmp/
+    git clone https://github.com/thomas-ernest/CodeIgniter-for-PHP_CodeSniffer.git
+    cd /var/www/html/vendor/squizlabs/php_codesniffer/src/Standards/
+    mkdir CodeIgniter
+     cp -R /tmp/CodeIgniter-for-PHP_CodeSniffer/src/* CodeIgniter/
+)
 
 # mysql
 mysqladmin -u root password password
