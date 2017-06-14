@@ -28,12 +28,17 @@ class Task_Tag extends CI_Controller {
         $header_data['page_title'] = 'New Project Tag | PomoBoard';
         $header_data['headline'] = 'New Project Tag';
 
+        $data = array();
+        $task_tag = ($task_tag_id === "new")? null: $this->TaskTag->get_task_tag_from_task_tag_id($this->User->logined(), $task_tag_id);
+        $data['task_tag'] = $task_tag;
+        $data['task_tag_id'] = $task_tag_id;
+
         $this->form_validation->set_rules('task_tag_name', 'Task Tag name', 'trim|required');
 
         if ($this->form_validation->run() == FALSE)
         {
             $this->load->view('statics/header', $header_data);
-            $this->load->view('task_tag/edit');
+            $this->load->view('task_tag/edit', $data);
             $this->load->view('statics/footer');
         }
         else

@@ -1,4 +1,4 @@
-<?php echo form_open("task_tag/edit/new"); ?>
+<?php echo form_open("task_tag/edit/" . $task_tag_id); ?>
     <fieldset>
         <table>
             <tbody>
@@ -6,7 +6,7 @@
                     <th style="text-align: left"> Task Tag Name </th>
                     <td>
                         <input type="text" id="task_tag_name" name="task_tag_name"
-                            value="">
+                            value="<?php echo (is_null($task_tag))? '': $task_tag['task_tag_name'];?>">
                     </td>
                 </tr>
             </tbody>
