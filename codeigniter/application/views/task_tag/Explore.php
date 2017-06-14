@@ -43,7 +43,7 @@ if (!empty($list)):
 		foreach($list as $task_tag):
 		?>
 			<tr>
-				<td> #<?php echo $task_tag['task_tag_id']; ?> </td>
+				<td> <a href="<?php echo site_url('task_tag/edit').'/'.$task_tag['task_tag_id']; ?>">#<?php echo $task_tag['task_tag_id']; ?> </td>
                 <td> <?php echo $task_tag['task_tag_name']; ?> </td>
                 <td> <?php echo display_date_str($task_tag['created_date']); ?> </td>
                 <td> <?php echo display_date_str($task_tag['updated_date']); ?> </td>
