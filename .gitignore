@@ -1,1 +1,3 @@
-.vagrant
+.vagrant/
+codeigniter/composer.lock
+codeigniter/vendor/
