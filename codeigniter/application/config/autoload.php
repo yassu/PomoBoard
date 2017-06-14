@@ -129,6 +129,7 @@ $autoload['language'] = array();
 $autoload['model'] = array(
     'MY_User' => 'User',
     'MY_Task' => 'Task',
+    'MY_TaskTag' => 'TaskTag',
     'MY_Project' => 'Project',
     'MY_ProjectTag' => 'ProjectTag',
     'MY_ProjectDetail' => 'ProjectDetail'
