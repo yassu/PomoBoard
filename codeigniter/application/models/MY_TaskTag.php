@@ -41,6 +41,20 @@ class MY_TaskTag extends CI_Model
     }
 
 
+    public function delete($user_id, $task_tag_id)
+    {
+        $this->db
+            ->where(array(
+                'user_id' => $user_id,
+                'task_tag_id' => $task_tag_id
+            ))
+            ->update('TaskTag', array(
+                'is_deleted' => 1,
+                'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
+            ));
+    }
+
+
     public function get_list($user_id, $task_tag_name,
         $begin_created_date, $end_created_date,
         $begin_updated_date, $end_updated_date)

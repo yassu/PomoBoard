@@ -56,4 +56,13 @@ class Task_Tag extends CI_Controller {
             redirect('task_tag/explore');
         }
     }
+
+
+    public function delete($task_tag_id)
+    {
+        $this->TaskTag->delete($this->User->logined(), intval($task_tag_id));
+        set_flash_message($this, 'Deleted the task tag');
+
+        redirect(site_url('task_tag/explore'));
+    }
 }
