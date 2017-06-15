@@ -35,7 +35,7 @@ function get_project_tag_p_elem(project_tag_id, project_tags)
     a_elem.onclick = new Function('append_project_tag(this, ' + String(project_tag_id + 1) + ',' + JSON.stringify(project_tags) + ')');
 
     img_elem = document.createElement('img');
-    img_elem.setAttribute('src', '/images/plus.png');
+    img_elem.setAttribute('src', '/images/plus-circle.png');
     a_elem.appendChild(img_elem);
     p_elem.appendChild(a_elem);
     
