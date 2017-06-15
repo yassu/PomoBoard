@@ -21,10 +21,12 @@ class Indicated_Point extends CI_Controller
         {
             $list = array();
         }
-        echo var_dump($list);
+        $data = array(
+            'list' => $list
+        );
 
         $this->load->view('statics/header', $header_data);
-        $this->load->view('indicated_point/explore');
+        $this->load->view('indicated_point/explore', $data);
         $this->load->view('statics/footer');
     }
 

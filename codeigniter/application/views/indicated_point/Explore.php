@@ -31,3 +31,33 @@
         </button>
     </fieldset>
 </form>
+
+
+<?php
+if (! empty($list)):
+?>
+    <table border="1">
+        <tr>
+            <td> Id </td>
+            <td> Title </td>
+            <td> Created Date </td>
+            <td> Updated Date </td>
+            <td> Delete </td>
+        </tr>
+        <?php
+        foreach($list as $indicated_point):
+        ?>
+            <tr>
+                <td> #<?php echo $indicated_point['indicated_point_id']; ?> </td>
+                <td> <?php echo $indicated_point['title']; ?> </td>
+                <td> <?php echo display_date_str($indicated_point['created_date']); ?> </td>
+                <td> <?php echo display_date_str($indicated_point['updated_date']); ?></td>
+                <td> Delete </td>
+            </tr>
+        <?php
+        endforeach;
+        ?>
+    </table>
+<?php
+endif;
+?>
