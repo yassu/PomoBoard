@@ -7,8 +7,6 @@ class Indicated_Point extends CI_Controller
         $header_data['page_title'] = 'IndicatedPoint | Pomoboard';
         $header_data['headline'] = 'Explore Indicated Point';
 
-        // echo var_dump($_POST);
-        echo var_dump($_POST);
         if (array_key_exists('submit', $_POST) && $_POST['submit'] === 'explore')
         {
             echo "get_list";
