@@ -24,8 +24,8 @@ class MY_IndicatedPoint extends CI_Model
                 'user_id' => $user_id,
                 'title' => $title,
                 'memo' => $memo,
-                'created_date' => (new DateTime())->format('Y-m-d H:i:s'),
-                'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
+                'created_date' => datetime_now_str(),
+                'updated_date' => datetime_now_str()
             )
         );
     }
@@ -44,7 +44,7 @@ class MY_IndicatedPoint extends CI_Model
             ->update('IndicatedPoint', array(
                 'title' => $title,
                 'memo' => $memo,
-                'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
+                'updated_date' => datetime_now_str()
             ));
     }
 
@@ -60,7 +60,7 @@ class MY_IndicatedPoint extends CI_Model
                 'IndicatedPoint',
                 array(
                     'is_deleted' => 1,
-                    'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
+                    'updated_date' => datetime_now_str()
                 )
             );
     }

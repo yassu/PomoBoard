@@ -21,8 +21,8 @@ class MY_ProjectTag extends CI_Model
             'ProjectTag', array(
             'user_id' => $user_id,
             'project_tag_name' => $project_tag_name,
-            'created_date' => (new DateTime())->format('Y-m-d H:i:s'),
-            'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
+            'created_date' => datetime_now_str(),
+            'updated_date' => datetime_now_str()
             )
         );
     }
@@ -41,7 +41,7 @@ class MY_ProjectTag extends CI_Model
                 'ProjectTag',
                 array(
                     'project_tag_name' => $project_tag_name,
-                    'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
+                    'updated_date' => datetime_now_str()
                 )
             );
     }
@@ -121,7 +121,7 @@ class MY_ProjectTag extends CI_Model
                 'ProjectTag',
                 array(
                     'is_deleted' => 1,
-                    'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
+                    'updated_date' => datetime_now_str()
                 )
             );
     }

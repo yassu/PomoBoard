@@ -30,8 +30,8 @@ class MY_Task extends CI_Model
                 'user_id' => $user_id,
                 'title' => $title,
                 'memo' => $memo,
-                'created_date' => (new DateTime())->format('Y-m-d H:i:s'),
-                'updated_date' => (new DateTime())->format('Y-m-d H:i:s'),
+                'created_date' => datetime_now_str(),
+                'updated_date' => datetime_now_str(),
                 'project_id' => $project_id
                 )
             );
@@ -51,7 +51,7 @@ class MY_Task extends CI_Model
                 'Task', array(
                 'title' => $title,
                 'memo' => $memo,
-                'updated_date' => (new DateTime())->format('Y-m-d H:i:s'),
+                'updated_date' => datetime_now_str(),
                 'project_id' => intval($project_id)
                 )
             );
@@ -72,7 +72,7 @@ class MY_Task extends CI_Model
                 'Task',
                 array(
                     'is_deleted' => 1,
-                    'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
+                    'updated_date' => datetime_now_str()
                 )
             );
     }

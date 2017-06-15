@@ -19,8 +19,8 @@ class MY_user extends CI_Model
             'User', array(
             'user_id' => $user_id,
             'user_hashed_pass' => $hashed_password,
-            'created_date' => (new DateTime())->format('Y-m-d H:i:s'),
-            'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
+            'created_date' => datetime_now_str(),
+            'updated_date' => datetime_now_str()
             )
         );
     }

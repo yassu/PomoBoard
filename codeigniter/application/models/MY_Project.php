@@ -97,8 +97,8 @@ class MY_Project extends CI_Model
             'Project', array(
             'user_id' => $user_id,
             'project_name' => $project_name,
-            'created_date' => (new DateTime())->format('Y-m-d H:i:s'),
-            'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
+            'created_date' => datetime_now_str(),
+            'updated_date' => datetime_now_str()
             )
         );
         return $this->db->insert_id();
@@ -122,7 +122,7 @@ class MY_Project extends CI_Model
             ->update(
                 'Project', array(
                 'project_name' => $project_name,
-                'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
+                'updated_date' => datetime_now_str()
                 )
             );
 
@@ -147,7 +147,7 @@ class MY_Project extends CI_Model
                 'Project',
                 array(
                     'is_deleted' => 1,
-                    'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
+                    'updated_date' => datetime_now_str()
                 )
             );
     }

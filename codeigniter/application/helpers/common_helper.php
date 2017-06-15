@@ -1,5 +1,11 @@
 <?php
 
+function datetime_now_str()
+{
+    return (new DateTime())->format('Y-m-d H:i:s');
+}
+
+
 function display_date_str($date_str)
 {
     return (new DateTime($date_str))->format('Y/m/d');

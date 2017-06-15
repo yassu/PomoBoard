@@ -27,7 +27,7 @@ class MY_TaskTag extends CI_Model
             ->update(
                 'TaskTag', array(
                 'task_tag_name' => $task_tag_name,
-                'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
+                'updated_date' => datetime_now_str()
                 )
             );
     }
@@ -39,8 +39,8 @@ class MY_TaskTag extends CI_Model
             'TaskTag', array(
                 'user_id' => $user_id,
                 'task_tag_name' => $task_tag_name,
-                'created_date' => (new DateTime())->format('Y-m-d H:i:s'),
-                'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
+                'created_date' => datetime_now_str(),
+                'updated_date' => datetime_now_str()
             )
         );
     }
@@ -58,7 +58,7 @@ class MY_TaskTag extends CI_Model
             ->update(
                 'TaskTag', array(
                 'is_deleted' => 1,
-                'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
+                'updated_date' => datetime_now_str()
                 )
             );
     }

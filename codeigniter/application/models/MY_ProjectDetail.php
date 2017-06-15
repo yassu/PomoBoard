@@ -23,8 +23,8 @@ class MY_ProjectDetail extends CI_Model
             'user_id' => $user_id,
             'project_id' => $project_id,
             'project_tag_id' => $project_tag_id,
-            'created_date' => (new DateTime())->format('Y-m-d H:i:s'),
-            'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
+            'created_date' => datetime_now_str(),
+            'updated_date' => datetime_now_str()
             )
         );
         return $this->db->insert_id();
