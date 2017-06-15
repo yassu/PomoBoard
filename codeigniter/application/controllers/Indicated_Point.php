@@ -37,8 +37,6 @@ class Indicated_Point extends CI_Controller
         $header_data['page_title'] = 'New Indicated Point | PomoBoard';
         $header_data['headline'] = 'New Indicated Point';
 
-        echo var_dump($_POST);
-
         if ($this->form_validation->run() == false)
         {
             $this->load->view('statics/header', $header_data);
