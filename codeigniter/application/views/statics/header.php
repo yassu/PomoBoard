@@ -53,6 +53,15 @@
 			<?php
 			}
 			?>
+			<?php
+			if($this->User->logined()):
+			?>
+				<td class="header_cell">
+					<a href="<?php echo site_url('indicated_point/explore'); ?>"> Indicated Point </a>
+				</td>
+			<?php
+			endif;
+			?>
 			<?php if(! $this->User->logined())
 			{
 			?>
