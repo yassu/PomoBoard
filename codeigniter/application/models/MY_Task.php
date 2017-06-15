@@ -59,7 +59,7 @@ class MY_Task extends CI_Model
         return true;
     }
 
-    public function remove($user_id, $task_id)
+    public function delete($user_id, $task_id)
     {
         $this->db
             ->where(

@@ -65,9 +65,9 @@ class Task extends CI_Controller
     }
 
 
-    public function remove($task_id)
+    public function delete($task_id)
     {
-        $this->Task->remove($this->User->logined(), $task_id);
+        $this->Task->delete($this->User->logined(), $task_id);
         set_flash_message($this, 'Deleted the task.');
 
         redirect(site_url('task/explore'));
