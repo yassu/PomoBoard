@@ -19,12 +19,14 @@ function get_project_tag_p_elem(project_tag_id, project_tags)
     var select_elem = document.createElement('select')
     select_elem.name = "project_tag_id" + String(project_tag_id);
 
-    project_tags.forEach(function(project_tag){
-        var option_elem = document.createElement('option');
-        option_elem.value = project_tag['project_tag_id'];
-        option_elem.text = project_tag['project_tag_name'];
-        select_elem.appendChild(option_elem);
-    });
+    project_tags.forEach(
+        function (project_tag) {
+            var option_elem = document.createElement('option');
+            option_elem.value = project_tag['project_tag_id'];
+            option_elem.text = project_tag['project_tag_name'];
+            select_elem.appendChild(option_elem);
+        }
+    );
     p_elem.appendChild(select_elem);
 
     // image

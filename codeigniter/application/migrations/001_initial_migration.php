@@ -1,5 +1,6 @@
 <?php
-class Migration_Initial_migration extends CI_Migration {
+class Migration_Initial_migration extends CI_Migration
+{
 
     public function __construct()
     {   
@@ -10,11 +11,12 @@ class Migration_Initial_migration extends CI_Migration {
     public function up()
     {
         // Create User Table
-        $this->dbforge->add_field(array(
+        $this->dbforge->add_field(
+            array(
             'id' => array(
                 'type' => 'INT',
                 'constraint' => 10,
-                'auto_increment' => TRUE
+                'auto_increment' => true
             ),
             'user_id' => array(
                 'type' => 'VARCHAR',
@@ -30,16 +32,18 @@ class Migration_Initial_migration extends CI_Migration {
             'updated_date' => array(
                 'type' => 'DATETIME'
             )
-        ));
-        $this->dbforge->add_key('id', TRUE);
+            )
+        );
+        $this->dbforge->add_key('id', true);
         $this->dbforge->create_table('User');
 
         // Create Task Table
-        $this->dbforge->add_field(array(
+        $this->dbforge->add_field(
+            array(
             'task_id' => array(
                 'type' => 'INT',
                 'constraint' => 10,
-                'auto_increment' => TRUE
+                'auto_increment' => true
             ),
             'user_id' => array(
                 'type' => 'VARCHAR',
@@ -63,8 +67,9 @@ class Migration_Initial_migration extends CI_Migration {
                 'default' => 0
             )   
 
-        ));
-        $this->dbforge->add_key('task_id', TRUE);
+            )
+        );
+        $this->dbforge->add_key('task_id', true);
         $this->dbforge->create_table('Task');
     }
 

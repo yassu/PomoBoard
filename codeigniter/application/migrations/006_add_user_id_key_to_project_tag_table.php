@@ -1,5 +1,6 @@
 <?php
-class Migration_Add_user_id_key_to_project_tag_table extends CI_Migration {
+class Migration_Add_user_id_key_to_project_tag_table extends CI_Migration
+{
 
     public function __construct()
     {   

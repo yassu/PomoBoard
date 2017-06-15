@@ -1,5 +1,6 @@
 <?php
-class Migration_Add_unique_keys extends CI_Migration {
+class Migration_Add_unique_keys extends CI_Migration
+{
 
     public function __construct()
     {   
@@ -15,7 +16,7 @@ class Migration_Add_unique_keys extends CI_Migration {
                 'user_id' => array(
                     'type' => 'VARCHAR',
                     'constraint' => 64,
-                    'unique' => TRUE
+                    'unique' => true
                 )
             )
         );

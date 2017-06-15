@@ -13,8 +13,10 @@
                 <tr>
                     <th style='text-align: left'>Project</th>
                     <td>
-                        <?php echo form_dropdown('project_id',
-                            $this->Project->get_dropdown_array($this->User->logined()),$task['project_id']); ?>
+                        <?php echo form_dropdown(
+                            'project_id',
+                            $this->Project->get_dropdown_array($this->User->logined()), $task['project_id']
+                        ); ?>
                     </td>
                 </tr>
             </tbody>

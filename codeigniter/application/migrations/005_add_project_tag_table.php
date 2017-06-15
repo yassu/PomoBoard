@@ -1,5 +1,6 @@
 <?php
-class Migration_Add_project_tag_table extends CI_Migration {
+class Migration_Add_project_tag_table extends CI_Migration
+{
 
     public function __construct()
     {   
@@ -9,11 +10,12 @@ class Migration_Add_project_tag_table extends CI_Migration {
 
     public function up()
     {
-        $this->dbforge->add_field(array(
+        $this->dbforge->add_field(
+            array(
                 'project_tag_id' => array(
                     'type' => 'INT',
                     'constraint' => 10,
-                    'auto_increment' => TRUE
+                    'auto_increment' => true
                 ),
                 'project_tag_name' => array(
                     'type' => 'TEXT'
@@ -31,7 +33,7 @@ class Migration_Add_project_tag_table extends CI_Migration {
                 )
             )
         );
-        $this->dbforge->add_key('project_tag_id', TRUE);
+        $this->dbforge->add_key('project_tag_id', true);
         $this->dbforge->create_table('ProjectTag');
     }
 

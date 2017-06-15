@@ -1,75 +1,75 @@
 <?php
-class Task extends CI_Controller {
+class Task extends CI_Controller
+{
 
-        public function explore()
-        {
-                $header_data['page_title'] = 'Explore | PomoBoard';
-                $header_data['headline'] = 'Task Board';
+    public function explore()
+    {
+        $header_data['page_title'] = 'Explore | PomoBoard';
+        $header_data['headline'] = 'Task Board';
 
-                // echo var_dump($_REQUEST);
-                if (array_key_exists('task_id', $_REQUEST))
-                {
-                        $this->Task->remove($this->User->logined(), intval($_REQUEST['task_id']));
-                }
-
-                $data['list'] = (array_key_exists('submit', $_POST) && $_POST['submit'] === 'explore')?
-                        $this->Task->get_list($this->User->logined(), $_POST['title'], $_POST['memo'], $_POST['keyword'],
-                                $_POST['begin_created_date'], $_POST['end_created_date'],
-                                $_POST['begin_updated_date'], $_POST['end_updated_date'])
-                                        : array();
-
-                $this->load->view('statics/header', $header_data);
-                $this->load->view('task/explore', $data);
-                $this->load->view('statics/footer');
+        // echo var_dump($_REQUEST);
+        if (array_key_exists('task_id', $_REQUEST)) {
+            $this->Task->remove($this->User->logined(), intval($_REQUEST['task_id']));
         }
 
+        $data['list'] = (array_key_exists('submit', $_POST) && $_POST['submit'] === 'explore')?
+                $this->Task->get_list(
+                    $this->User->logined(), $_POST['title'], $_POST['memo'], $_POST['keyword'],
+                    $_POST['begin_created_date'], $_POST['end_created_date'],
+                    $_POST['begin_updated_date'], $_POST['end_updated_date']
+                )
+                                : array();
 
-        public function edit($task_id)
-        {
-                $this->form_validation->set_rules('task_title', 'Task Title', 'trim|required');
-                $this->form_validation->set_rules('task_memo', 'Task Name', 'trim');
-                $this->form_validation->set_rules('project_id', 'Project Id', 'trim|required');
+        $this->load->view('statics/header', $header_data);
+        $this->load->view('task/explore', $data);
+        $this->load->view('statics/footer');
+    }
 
-                $task = ($task_id === 'new')? null: $this->Task->get_task_from_task_id($this->User->logined(), $task_id);
 
-                if ($this->form_validation->run() == False)
-                {
-                        $data = array(
-                                'task' => $task,
-                                'projects' => $this->Project->get_all($this->User->logined())
-                        );
+    public function edit($task_id)
+    {
+        $this->form_validation->set_rules('task_title', 'Task Title', 'trim|required');
+        $this->form_validation->set_rules('task_memo', 'Task Name', 'trim');
+        $this->form_validation->set_rules('project_id', 'Project Id', 'trim|required');
 
-                        $type = ($task_id === 'new')? 'New': 'Edit';
-                        $header_data['page_title'] = $type.' Task | PomoBoard';
-                        $header_data['headline'] = ($task === null)? "New Task": "Edit Task";
+        $task = ($task_id === 'new')? null: $this->Task->get_task_from_task_id($this->User->logined(), $task_id);
 
-                        $this->load->view('statics/header', $header_data);
-                        $this->load->view('task/edit', $data);
-                        $this->load->view('statics/footer');
-                }
-                else
-                {
-                        if ($task_id === 'new')
-                        {
-                                // echo var_dump($_POST);
-                                $this->Task->insert($this->User->logined(), $_POST['task_title'], $_POST['task_memo'], $_POST['project_id']);
-                                set_flash_message($this, 'Inserted new task.');
-                        }
-                        else
-                        {
-                                $this->Task->update($this->User->logined(), intval($task['task_id']), $_POST['task_title'], $_POST['task_memo'], $_POST['project_id']);
-                                set_flash_message($this, 'Updated the task.');
-                        }
-                        redirect('task/explore');
-                }
+        if ($this->form_validation->run() == false) {
+            $data = array(
+                    'task' => $task,
+                    'projects' => $this->Project->get_all($this->User->logined())
+            );
+
+            $type = ($task_id === 'new')? 'New': 'Edit';
+            $header_data['page_title'] = $type.' Task | PomoBoard';
+            $header_data['headline'] = ($task === null)? "New Task": "Edit Task";
+
+            $this->load->view('statics/header', $header_data);
+            $this->load->view('task/edit', $data);
+            $this->load->view('statics/footer');
         }
-
-
-        public function remove($task_id)
+        else
         {
-                $this->Task->remove($this->User->logined(), $task_id);
-                set_flash_message($this, 'Deleted the task.');
-
-                redirect(site_url('task/explore'));
+            if ($task_id === 'new') {
+                // echo var_dump($_POST);
+                $this->Task->insert($this->User->logined(), $_POST['task_title'], $_POST['task_memo'], $_POST['project_id']);
+                set_flash_message($this, 'Inserted new task.');
+            }
+            else
+            {
+                $this->Task->update($this->User->logined(), intval($task['task_id']), $_POST['task_title'], $_POST['task_memo'], $_POST['project_id']);
+                set_flash_message($this, 'Updated the task.');
+            }
+            redirect('task/explore');
         }
+    }
+
+
+    public function remove($task_id)
+    {
+        $this->Task->remove($this->User->logined(), $task_id);
+        set_flash_message($this, 'Deleted the task.');
+
+        redirect(site_url('task/explore'));
+    }
 }

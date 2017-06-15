@@ -15,7 +15,8 @@ class MY_user extends CI_Model
 
     public function insert($user_id, $hashed_password)
     {
-        $this->db->insert('User', array(
+        $this->db->insert(
+            'User', array(
             'user_id' => $user_id,
             'user_hashed_pass' => $hashed_password,
             'created_date' => (new DateTime())->format('Y-m-d H:i:s'),
@@ -29,34 +30,31 @@ class MY_user extends CI_Model
     // そうでなければ False を返す
     public function authorize($user_id, $hashed_password)
     {
-        if ($user_id === "" || $user_id === null)
-        {
-            return False;
+        if ($user_id === "" || $user_id === null) {
+            return false;
         }
 
         $this->db->where('user_id', $user_id)
-                  ->where('is_deleted', 0);
+            ->where('is_deleted', 0);
         $results = $this->db->get('User')->result_array();
 
-        if (empty($results))
-        {
-            return False;
+        if (empty($results)) {
+            return false;
         }
 
         $correct_hashed_pass = $results[0]['user_hashed_pass'];
-        return ($hashed_password === $correct_hashed_pass)? $user_id: False ;
+        return ($hashed_password === $correct_hashed_pass)? $user_id: false ;
     }
 
 
     public function exists($user_id)
     {
-        if ($user_id === "" || $user_id == null)
-        {
+        if ($user_id === "" || $user_id == null) {
             return false;
         }
 
         $result = $this->db->where('user_id', $user_id)
-                            ->get('User')->result_array();
+            ->get('User')->result_array();
 
         return !empty($result);
     }

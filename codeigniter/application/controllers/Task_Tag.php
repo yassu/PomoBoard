@@ -1,13 +1,13 @@
 <?php
-class Task_Tag extends CI_Controller {
+class Task_Tag extends CI_Controller
+{
 
     public function explore()
     {
         $header_data['page_title'] = 'TaskTagExplore | PomoBoard';
         $header_data['headline'] = 'TaskTag Explore';
 
-        if (array_key_exists('submit', $_POST) && $_POST['submit'] === "explore")
-        {
+        if (array_key_exists('submit', $_POST) && $_POST['submit'] === "explore") {
             $list = $this->TaskTag->get_list($this->User->logined(), $_POST['name'], $_POST['begin_created_date'], $_POST['end_created_date'], $_POST['begin_updated_date'], $_POST['end_updated_date']);
         }
         else
@@ -35,16 +35,14 @@ class Task_Tag extends CI_Controller {
 
         $this->form_validation->set_rules('task_tag_name', 'Task Tag name', 'trim|required');
 
-        if ($this->form_validation->run() == FALSE)
-        {
+        if ($this->form_validation->run() == false) {
             $this->load->view('statics/header', $header_data);
             $this->load->view('task_tag/edit', $data);
             $this->load->view('statics/footer');
         }
         else
         {
-            if ($task_tag_id === "new")
-            {
+            if ($task_tag_id === "new") {
                 $this->TaskTag->insert($this->User->logined(), $_POST['task_tag_name']);
                 set_flash_message($this, 'Inserted new task tag.');
             }
