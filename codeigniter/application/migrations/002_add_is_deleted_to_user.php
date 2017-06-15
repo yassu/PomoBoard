@@ -1,5 +1,6 @@
 <?php
-class Migration_Add_is_deleted_to_user extends CI_Migration {
+class Migration_Add_is_deleted_to_user extends CI_Migration
+{
 
     public function __construct()
     {   

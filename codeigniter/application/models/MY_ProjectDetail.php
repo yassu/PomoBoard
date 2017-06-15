@@ -18,7 +18,8 @@ class MY_ProjectDetail extends CI_Model
 
     public function insert($user_id, $project_id, $project_tag_id)
     {
-        $this->db->insert('ProjectDetail', array(
+        $this->db->insert(
+            'ProjectDetail', array(
             'user_id' => $user_id,
             'project_id' => $project_id,
             'project_tag_id' => $project_tag_id,
@@ -47,8 +48,7 @@ class MY_ProjectDetail extends CI_Model
         $created_tags = array();
         foreach($project_tag_ids as $project_tag_id)
         {
-            if (! in_array($project_tag_id, $details_at_sql))
-            {
+            if (! in_array($project_tag_id, $details_at_sql)) {
                 array_push($created_tags, $project_tag_id);
             }
         }

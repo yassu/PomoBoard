@@ -10,10 +10,10 @@
                     <th style='text-align: left'>Password</th>
                     <td><input type="password" id="password" name="password" value="" /></td>
                 </tr>
-				<tr>
-				    <th style='text-align: left'> Password (Confirm) </th>
-					<td><input type="password" id="confirmed_password" name="confirmed_password" value=""></td>
-				</tr>
+                <tr>
+                    <th style='text-align: left'> Password (Confirm) </th>
+                    <td><input type="password" id="confirmed_password" name="confirmed_password" value=""></td>
+                </tr>
             </tbody>
         </table>
     </fieldset>

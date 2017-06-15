@@ -18,20 +18,25 @@ class MY_TaskTag extends CI_Model
     public function update($user_id, $task_tag_id, $task_tag_name)
     {
         $this->db
-            ->where(array(
+            ->where(
+                array(
                 'user_id' => $user_id,
                 'task_tag_id' => $task_tag_id
-            ))
-            ->update('TaskTag', array(
+                )
+            )
+            ->update(
+                'TaskTag', array(
                 'task_tag_name' => $task_tag_name,
                 'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
-            ));
+                )
+            );
     }
 
 
     public function insert($user_id, $task_tag_name)
     {
-        $this->db->insert('TaskTag', array(
+        $this->db->insert(
+            'TaskTag', array(
                 'user_id' => $user_id,
                 'task_tag_name' => $task_tag_name,
                 'created_date' => (new DateTime())->format('Y-m-d H:i:s'),
@@ -44,47 +49,47 @@ class MY_TaskTag extends CI_Model
     public function delete($user_id, $task_tag_id)
     {
         $this->db
-            ->where(array(
+            ->where(
+                array(
                 'user_id' => $user_id,
                 'task_tag_id' => $task_tag_id
-            ))
-            ->update('TaskTag', array(
+                )
+            )
+            ->update(
+                'TaskTag', array(
                 'is_deleted' => 1,
                 'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
-            ));
+                )
+            );
     }
 
 
     public function get_list($user_id, $task_tag_name,
         $begin_created_date, $end_created_date,
-        $begin_updated_date, $end_updated_date)
-    {
+        $begin_updated_date, $end_updated_date
+    ) {
+    
         $this->db
             ->where('user_id', $user_id)
             ->where('is_deleted', 0);
 
-        if ($task_tag_name !== "")
-        {
+        if ($task_tag_name !== "") {
             $this->db->like('task_tag_name', $task_tag_name);
         }
 
-        if ($begin_created_date !== "")
-        {
+        if ($begin_created_date !== "") {
             $this->db->where('created_date >= ', $begin_created_date);
         }
 
-        if ($end_created_date !== "")
-        {
+        if ($end_created_date !== "") {
             $this->db->where('created_date < ', get_next_date_str($end_created_date));
         }
 
-        if ($begin_updated_date !== "")
-        {
+        if ($begin_updated_date !== "") {
             $this->db->where('updated_date >= ', $begin_updated_date);
         }
 
-        if ($end_updated_date !== "")
-        {
+        if ($end_updated_date !== "") {
             $this->db->where('updated_date < ', $end_updated_date);
         }
 

@@ -1,5 +1,6 @@
 <?php
-class Migration_Add_user_id_key_to_project_detail_table extends CI_Migration {
+class Migration_Add_user_id_key_to_project_detail_table extends CI_Migration
+{
 
     public function __construct()
     {   
@@ -10,11 +11,12 @@ class Migration_Add_user_id_key_to_project_detail_table extends CI_Migration {
     public function up()
     {
         echo "update table";
-        $this->dbforge->add_field(array(
+        $this->dbforge->add_field(
+            array(
             'project_detail_id' => array(
                 'type' => 'INT',
                 'constraint' => 10,
-                'auto_increment' => TRUE
+                'auto_increment' => true
             ),
             'user_id' => array(    
                 'type' => 'VARCHAR',
@@ -39,8 +41,9 @@ class Migration_Add_user_id_key_to_project_detail_table extends CI_Migration {
                 'constraint' => '1',
                 'default' => 0
             )
-        ));
-        $this->dbforge->add_key('project_detail_id', TRUE);
+            )
+        );
+        $this->dbforge->add_key('project_detail_id', true);
         $this->dbforge->create_table('ProjectDetail');
     }
 
