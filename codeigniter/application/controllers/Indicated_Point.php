@@ -64,4 +64,13 @@ class Indicated_Point extends CI_Controller
             redirect('indicated_point/explore');
         }
     }
+
+
+    public function delete($indicated_point_id)
+    {
+        $this->IndicatedPoint->delete($this->User->logined(), intval($indicated_point_id));
+        set_flash_message($this, 'Delete the Indicated Point');
+
+        redirect('indicated_point/explore');
+    }
 }

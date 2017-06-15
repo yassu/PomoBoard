@@ -49,6 +49,23 @@ class MY_IndicatedPoint extends CI_Model
     }
 
 
+    public function delete($user_id, $indicated_point_id)
+    {
+        $this->db
+            ->where(array(
+                'user_id' => $user_id,
+                'indicated_point_id' => $indicated_point_id
+            ))
+            ->update(
+                'IndicatedPoint',
+                array(
+                    'is_deleted' => 1,
+                    'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
+                )
+            );
+    }
+
+
     public function get_by_indicated_point_id($user_id, $indicated_point_id)
     {
         $res = $this->db
