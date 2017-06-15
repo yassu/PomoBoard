@@ -9,7 +9,6 @@ class Indicated_Point extends CI_Controller
 
         if (array_key_exists('submit', $_POST) && $_POST['submit'] === 'explore')
         {
-            echo "get_list";
             $list = $this->IndicatedPoint->get_list($this->User->logined(),
                 $_POST['title'], $_POST['memo'], $_POST['keyword'],
                 $_POST['begin_created_date'], $_POST['end_created_date'],
