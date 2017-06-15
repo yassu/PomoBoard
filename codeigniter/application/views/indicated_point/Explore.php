@@ -48,7 +48,11 @@ if (! empty($list)):
         foreach($list as $indicated_point):
         ?>
             <tr>
-                <td> #<?php echo $indicated_point['indicated_point_id']; ?> </td>
+                <td>
+                    <a href="<?php echo site_url('indicated_point/edit').'/'.$indicated_point['indicated_point_id'];?>">
+                        #<?php echo $indicated_point['indicated_point_id']; ?>
+                    </a>
+                </td>
                 <td> <?php echo $indicated_point['title']; ?> </td>
                 <td> <?php echo display_date_str($indicated_point['created_date']); ?> </td>
                 <td> <?php echo display_date_str($indicated_point['updated_date']); ?></td>
