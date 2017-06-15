@@ -56,7 +56,11 @@ if (! empty($list)):
                 <td> <?php echo $indicated_point['title']; ?> </td>
                 <td> <?php echo display_date_str($indicated_point['created_date']); ?> </td>
                 <td> <?php echo display_date_str($indicated_point['updated_date']); ?></td>
-                <td> Delete </td>
+                <td>
+                    <a href="<?php echo site_url('indicated_point/delete').'/'.$indicated_point['indicated_point_id'] ?>">
+                        Delete
+                    </a>
+                </td>
             </tr>
         <?php
         endforeach;
