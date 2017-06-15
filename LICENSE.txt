@@ -205,3 +205,9 @@ APPENDIX: How to apply the Apache License to your work
         WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
         or implied. See the License for the specific language governing
         permissions and limitations under the License.
+
+And some images are provided by feather under the MIT license:
+
+        Copyright (c) 2013-2017 Cole Bemis
+        Released under the MIT license
+        https://github.com/colebemis/feather/blob/master/LICENSE
