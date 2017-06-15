@@ -132,5 +132,6 @@ $autoload['model'] = array(
     'MY_TaskTag' => 'TaskTag',
     'MY_Project' => 'Project',
     'MY_ProjectTag' => 'ProjectTag',
-    'MY_ProjectDetail' => 'ProjectDetail'
+    'MY_ProjectDetail' => 'ProjectDetail',
+    'MY_IndicatedPoint' => 'IndicatedPoint'
 );
