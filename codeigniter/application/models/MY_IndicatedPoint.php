@@ -31,6 +31,18 @@ class MY_IndicatedPoint extends CI_Model
     }
 
 
+    public function get_by_indicated_point_id($user_id, $indicated_point_id)
+    {
+        $res = $this->db
+            ->where('user_id', $user_id)
+            ->where('is_deleted', 0)
+            ->where('indicated_point_id', $indicated_point_id)
+            ->get('IndicatedPoint')->result_array();
+
+        return (empty($res))? null: $res[0];
+    }
+
+
     public function get_list($user_id, $title, $memo, $keyword,
         $begin_created_date, $end_created_date,
         $begin_updated_date, $end_updated_date)

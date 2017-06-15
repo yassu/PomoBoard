@@ -39,8 +39,13 @@ class Indicated_Point extends CI_Controller
 
         if ($this->form_validation->run() == false)
         {
+            $data = array(
+                'indicated_point_id' => $indicated_point_id
+            );
+            $data['indicated_point'] = ($indicated_point_id === "new")? null: $this->IndicatedPoint->get_by_indicated_point_id($this->User->logined(), intval($indicated_point_id));
+
             $this->load->view('statics/header', $header_data);
-            $this->load->view('indicated_point/edit');
+            $this->load->view('indicated_point/edit', $data);
             $this->load->view('statics/footer');
         }
         else
