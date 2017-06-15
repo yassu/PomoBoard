@@ -50,17 +50,19 @@ if [ ! -L /var/www/html ]; then
 fi
 
 # CodeSniffer
-(
-    cd /var/www/html/
-    composer.phar install
-)
-(
-    cd /tmp/
-    git clone https://github.com/thomas-ernest/CodeIgniter-for-PHP_CodeSniffer.git
-    cd /var/www/html/vendor/squizlabs/php_codesniffer/src/Standards/
-    mkdir CodeIgniter
-    cp -R /tmp/CodeIgniter-for-PHP_CodeSniffer/src/* CodeIgniter/
-)
+if [ ! -e /var/www/html/vendor/ ]; then
+    (
+        cd /var/www/html/
+        composer.phar install
+    )
+    (
+        cd /tmp/
+        git clone https://github.com/thomas-ernest/CodeIgniter-for-PHP_CodeSniffer.git
+        cd /var/www/html/vendor/squizlabs/php_codesniffer/src/Standards/
+        mkdir CodeIgniter
+        cp -R /tmp/CodeIgniter-for-PHP_CodeSniffer/src/* CodeIgniter/
+    )
+fi
 
 # mysql
 mysqladmin -u root password password
