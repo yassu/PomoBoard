@@ -8,6 +8,7 @@ class Indicated_Point extends CI_Controller
         $header_data['headline'] = 'Explore Indicated Point';
 
         $this->load->view('statics/header', $header_data);
+        $this->load->view('indicated_point/explore');
         $this->load->view('statics/footer');
     }
 }
