@@ -31,6 +31,24 @@ class MY_IndicatedPoint extends CI_Model
     }
 
 
+    public function update($user_id, $indicated_point_id, $title, $memo)
+    {
+        $this->db
+            ->where(
+                array(
+                    'user_id' => $user_id,
+                    'is_deleted' => 0,
+                    'indicated_point_id' => $indicated_point_id
+                )
+            )
+            ->update('IndicatedPoint', array(
+                'title' => $title,
+                'memo' => $memo,
+                'updated_date' => (new DateTime())->format('Y-m-d H:i:s')
+            ));
+    }
+
+
     public function get_by_indicated_point_id($user_id, $indicated_point_id)
     {
         $res = $this->db

@@ -50,9 +50,18 @@ class Indicated_Point extends CI_Controller
         }
         else
         {
-            $this->IndicatedPoint->insert($this->User->logined(),
-                $_POST['indicated_point_title'], $_POST['indicated_point_memo']);
-            set_flash_message($this, 'Inserted the indicated point.');
+            if ($indicated_point_id === "new")
+            {
+                $this->IndicatedPoint->insert($this->User->logined(),
+                    $_POST['indicated_point_title'], $_POST['indicated_point_memo']);
+                set_flash_message($this, 'Inserted the indicated point.');
+            }
+            else
+            {
+                $this->IndicatedPoint->update($this->User->logined(), $indicated_point_id,
+                    $_POST['indicated_point_title'], $_POST['indicated_point_memo']);
+                set_flash_message($this, 'Updated the indicated point.');
+            }
             redirect('indicated_point/explore');
         }
     }
