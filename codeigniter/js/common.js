@@ -13,7 +13,7 @@ function append_project_tag(e, project_tag_id, project_tags)
 
 function get_project_tag_p_elem(project_tag_id, project_tags)
 {
-        // p1にproject_tag_boardのElementを追加する
+    // p1にproject_tag_boardのElementを追加する
     var p_elem = document.createElement('p');
 
     var select_elem = document.createElement('select')
