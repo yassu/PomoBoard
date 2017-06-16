@@ -22,7 +22,6 @@ class Project_Tag extends CI_Controller
         
     public function edit($project_tag_id)
     {
-        // とりあえずproject_tag_id === newの場合だけ
         $this->form_validation->set_rules('project_tag_name', 'Project Tag name', 'trim|required');
 
         if ($this->form_validation->run() == false) {
