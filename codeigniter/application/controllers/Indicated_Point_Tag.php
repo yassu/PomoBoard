@@ -29,7 +29,7 @@ class Indicated_Point_Tag extends CI_Controller
     }
 
 
-    public function edit()
+    public function edit($indicated_point_tag_id)
     {
         $this->form_validation->set_rules('indicated_point_tag_name', 'Indicated Point Tag name', 'trim|required');
 
@@ -38,14 +38,26 @@ class Indicated_Point_Tag extends CI_Controller
 
         if ($this->form_validation->run() === false)
         {
+            $data = array(
+                'indicated_point_tag' => ($indicated_point_tag_id === "new")? null: $this->IndicatedPointTag->get_by_indicated_point_tag_id($this->User->logined(), $indicated_point_tag_id)
+            );
             $this->load->view('statics/header', $header_data);
-            $this->load->view('indicated_point_tag/edit');
+            $this->load->view('indicated_point_tag/edit', $data);
             $this->load->view('statics/footer');
         }
         else
         {
-            $this->IndicatedPointTag->insert($this->User->logined(), $_POST['indicated_point_tag_name']);
-            set_flash_message($this, 'Inserted new indicated point tag');
+            if ($indicated_point_tag_id === "new")
+            {
+                $this->IndicatedPointTag->insert($this->User->logined(), $_POST['indicated_point_tag_name']);
+                set_flash_message($this, 'Inserted new indicated point tag');
+            }
+            else
+            {
+                $this->IndicatedPointTag->update($this->User->logined(),
+                    intval($indicated_point_tag_id), $_POST['indicated_point_tag_name']);
+                set_flash_message($this, 'Updated new indicated point tag');
+            }
             redirect('indicated_point_tag/explore');
         }
     }

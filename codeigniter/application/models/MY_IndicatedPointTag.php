@@ -32,6 +32,44 @@ class MY_IndicatedPointTag extends CI_Model
     }
 
 
+
+    public function update($user_id, $indicated_point_tag_id, $name)
+    {
+        if ( ! $user_id )
+        {
+            return array();
+        }
+
+        $this->db
+            ->where(array(
+                'user_id' => $user_id,
+                'is_deleted' => 0,
+                'indicated_point_tag_id' => $indicated_point_tag_id
+            ))
+            ->update('IndicatedPointTag', array(
+                    'indicated_point_tag_name' => $name,
+                    'updated_date' => datetime_now_str()
+                )
+            );
+    }
+
+
+    public function get_by_indicated_point_tag_id($user_id, $indicated_point_tag_id)
+    {
+        if (! $user_id)
+        {
+            return array();
+        }
+
+        $res = $this->db
+            ->where('user_id', $user_id)
+            ->where('is_deleted', 0)
+            ->where('indicated_point_tag_id', $indicated_point_tag_id)
+            ->get('IndicatedPointTag')->result_array();
+        return (empty($res))? null: $res[0];
+    }
+
+
     public function get_list($user_id, $name,
         $begin_created_date, $end_created_date,
         $begin_updated_date, $end_updated_date)
