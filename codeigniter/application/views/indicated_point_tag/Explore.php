@@ -31,7 +31,6 @@
 
 <?php
 if (! empty($list)):
-echo var_dump($list);
 ?>
     <table border="1">
         <tr>
