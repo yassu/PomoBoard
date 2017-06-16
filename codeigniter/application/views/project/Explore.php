@@ -19,11 +19,11 @@
                 </tr>
             </tbody>
         </table>
-        <button type="submit" name="submit" value="explore">
-            <div style="font-size: 19px;"> Execution </div>
+        <button type="submit" name="submit" value="explore" class="btn btn-success">
+            Execution
         </button>
-        <button type="button" name="submit" value="create" onClick="location.href = '<?php echo site_url('project/edit'); ?>/new'">
-            <div style="font-size: 19px;"> New Project </div>
+        <button type="button" name="submit" value="create" onClick="location.href = '<?php echo site_url('project/edit'); ?>/new'" class="btn btn-success">
+            New Project
         </button>
     </fieldset>
 </form>

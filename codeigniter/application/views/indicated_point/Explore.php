@@ -23,11 +23,11 @@
                 </tr>
             </tbody>
         </table>
-        <button type="submit" name="submit" value="explore">
-            <div style="font-size: 19px;"> Execution </div>
+        <button type="submit" class="btn btn-success" value="explore">
+            Execution        
         </button>
-        <button type="button" name="submit" value="create" onClick="location.href = '<?php echo site_url('indicated_point/edit').'/new';?>';">
-            <div style="font-size: 19px;"> New Indicated Point </div>
+        <button type="button" name="submit" value="create" class="btn btn-success" onClick="location.href = '<?php echo site_url('indicated_point/edit').'/new';?>';">
+            New Indicated Point
         </button>
     </fieldset>
 </form>
