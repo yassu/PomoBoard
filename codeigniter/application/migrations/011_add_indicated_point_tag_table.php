@@ -16,10 +16,6 @@ class Migration_Add_Indicated_Point_Tag_Table extends CI_Migration
                     'constraint' => 10,
                     'auto_increment' => true
                 ),
-                'indicated_point_id' => array(
-                    'type' => 'INT',
-                    'constraint' => 10
-                ),
                 'user_id' => array(
                     'type' => 'VARCHAR',
                     'constraint' => 64
