@@ -27,3 +27,34 @@
         </button>
     </fieldset>
 </form>
+
+
+<?php
+if (! empty($list)):
+echo var_dump($list);
+?>
+    <table border="1">
+        <tr>
+            <td> ID </td>
+            <td> Name </td>
+            <td> Created Date </td>
+            <td> Updated Date </td>
+            <td> Delete </td>
+        </tr>
+        <?php
+        foreach($list as $indicated_point_tag) :
+        ?>
+            <tr>
+                <td> # <?php echo $indicated_point_tag['indicated_point_tag_id']; ?> </td>
+                <td> <?php echo $indicated_point_tag['indicated_point_tag_name']; ?> </td>
+                <td> <?php echo display_date_str($indicated_point_tag['created_date']); ?> </td>
+                <td> <?php echo display_date_str($indicated_point_tag['updated_date']); ?> </td>
+                <td> Delete </td>
+            </tr>
+        <?php
+        endforeach;
+        ?>
+    </table>
+<?php
+endif;
+?>

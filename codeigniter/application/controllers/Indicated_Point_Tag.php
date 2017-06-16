@@ -18,7 +18,6 @@ class Indicated_Point_Tag extends CI_Controller
         {
             $list = array();
         }
-        echo var_dump($list);
 
         $data = array(
             'list' => $list
