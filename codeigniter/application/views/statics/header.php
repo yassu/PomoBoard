@@ -62,6 +62,15 @@
 			<?php
 			endif;
 			?>
+			<?php
+			if ($this->User->logined()):
+			?>
+				<td class="header_cell">
+					<a href="<?php echo site_url('indicated_point_tag/explore'); ?>"> Indicated Point Tag </a>
+				</td>
+			<?php
+			endif;
+			?>
 			<?php if(! $this->User->logined())
 			{
 			?>
