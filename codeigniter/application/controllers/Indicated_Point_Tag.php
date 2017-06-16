@@ -8,6 +8,7 @@ class Indicated_Point_Tag extends CI_Controller
         $header_data['headline'] = 'IndicatedPointTag Expore';
 
         $this->load->view('statics/header', $header_data);
+        $this->load->view('indicated_point_tag/explore');
         $this->load->view('statics/footer');
     }
 }
