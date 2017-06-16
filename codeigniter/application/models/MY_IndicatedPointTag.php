@@ -54,6 +54,26 @@ class MY_IndicatedPointTag extends CI_Model
     }
 
 
+    public function delete($user_id, $indicated_point_tag_id)
+    {
+        if (! $user_id)
+        {
+            return;
+        }
+
+        $this->db
+            ->where(array(
+                'user_id' => $user_id,
+                'is_deleted' => 0,
+                'indicated_point_tag_id' => $indicated_point_tag_id
+            ))
+            ->update('IndicatedPointTag', array(
+                'is_deleted' => 1,
+                'updated_date' => datetime_now_str()
+            ));
+    }
+
+
     public function get_by_indicated_point_tag_id($user_id, $indicated_point_tag_id)
     {
         if (! $user_id)
