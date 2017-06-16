@@ -7,8 +7,24 @@ class Indicated_Point_Tag extends CI_Controller
         $header_data['page_title'] = 'IndicatedPointTag | PomoBoard';
         $header_data['headline'] = 'IndicatedPointTag Expore';
 
+        if (array_key_exists('submit', $_POST) && $_POST['submit'] === 'explore')
+        {
+            $list = $this->IndicatedPointTag->get_list($this->User->logined(),
+                $_POST['indicated_point_tag_name'],
+                $_POST['begin_created_date'], $_POST['end_created_date'],
+                $_POST['begin_updated_date'], $_POST['end_updated_date']);
+        }
+        else
+        {
+            $list = array();
+        }
+
+        $data = array(
+            'list' => $list
+        );
+
         $this->load->view('statics/header', $header_data);
-        $this->load->view('indicated_point_tag/explore');
+        $this->load->view('indicated_point_tag/explore', $data);
         $this->load->view('statics/footer');
     }
 
