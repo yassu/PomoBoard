@@ -53,9 +53,12 @@ if (! empty($list)):
                 <td> <?php echo display_date_str($indicated_point_tag['created_date']); ?> </td>
                 <td> <?php echo display_date_str($indicated_point_tag['updated_date']); ?> </td>
                 <td>
-                    <a href="<?php echo site_url('indicated_point_tag/delete').'/'.$indicated_point_tag['indicated_point_tag_id']; ?>">
-                        Delete
-                    </a>
+                  <button type="button" name="submit" class="btn btn-success"
+                    onClick="location.href='<?php
+                      echo site_url('indicated_point_tag/delete').'/'.$indicated_point_tag['indicated_point_tag_id'];
+                    ?>'">
+                      Delete
+                  </button>
                 </td>
             </tr>
         <?php
