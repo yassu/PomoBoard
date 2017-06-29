@@ -23,8 +23,8 @@
                 </tr>
             </tbody>
         </table>
-        <button type="submit" class="btn btn-success" value="explore">
-            Execution        
+        <button type="submit" name="submit" class="btn btn-success" value="explore">
+            Execution
         </button>
         <button type="button" name="submit" value="create" class="btn btn-success" onClick="location.href = '<?php echo site_url('indicated_point/edit').'/new';?>';">
             New Indicated Point
