@@ -47,7 +47,14 @@ if (!empty($list)) :
                 <td> <?php echo $task_tag['task_tag_name']; ?> </td>
                 <td> <?php echo display_date_str($task_tag['created_date']); ?> </td>
                 <td> <?php echo display_date_str($task_tag['updated_date']); ?> </td>
-                <td><a href="<?php echo site_url('task_tag/delete').'/'.$task_tag['task_tag_id']; ?>"> Delete  </a></td>
+                <td>
+                  <button type="button" name="submit" class="btn btn-success"
+                    onClick="location.href='<?php
+                      echo site_url('task_tag/delete').'/'.$task_tag['task_tag_id'];
+                    ?>'">
+                      Delete
+                  </button>
+                </td>
      </tr>
     <?php
     endforeach;

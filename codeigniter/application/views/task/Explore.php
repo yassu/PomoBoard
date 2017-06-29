@@ -53,7 +53,14 @@ if (!empty($list)) { ?>
                 <td> <?php echo $task['memo']; ?> </td>
                 <td> <?php echo display_date_str($task['created_date']); ?> </td>
                 <td> <?php echo display_date_str($task['updated_date']); ?> </td>
-                <td> <a href="<?php echo site_url('/task/delete'); ?>/<?php echo $task['task_id']; ?>"> Delete </a> </td>
+                <td>
+                  <button type="button" name="submit" class="btn btn-success"
+                    onClick="location.href='<?php
+                      echo site_url('task/delete') . '/' . $task['task_id'];
+                    ?>'">
+                    Delete
+                  </button>
+                </td>
      </tr>
     <?php
     }
