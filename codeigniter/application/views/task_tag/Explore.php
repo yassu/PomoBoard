@@ -18,11 +18,11 @@
                 </tr>
             </tbody>
         </table>
-        <button type="submit" name="submit" value="explore">
-            <div style="font-size: 19px;"> Execution </div>
+        <button type="submit" name="submit" value="explore" class="btn btn-success">
+            Execution
         </button>
-        <button type="button" name="submit" value="create" onClick="location.href = '<?php echo site_url('task_tag/edit').'/new';?>';">
-            <div style="font-size: 19px;"> New Task Tag </div>
+        <button type="button" name="submit" value="create" onClick="location.href = '<?php echo site_url('task_tag/edit').'/new';?>';" class="btn btn-success">
+            New Task Tag
         </button>
     </fieldset>
 </form>
@@ -47,7 +47,14 @@ if (!empty($list)) :
                 <td> <?php echo $task_tag['task_tag_name']; ?> </td>
                 <td> <?php echo display_date_str($task_tag['created_date']); ?> </td>
                 <td> <?php echo display_date_str($task_tag['updated_date']); ?> </td>
-                <td><a href="<?php echo site_url('task_tag/delete').'/'.$task_tag['task_tag_id']; ?>"> Delete  </a></td>
+                <td>
+                  <button type="button" name="submit" class="btn btn-success"
+                    onClick="location.href='<?php
+                      echo site_url('task_tag/delete').'/'.$task_tag['task_tag_id'];
+                    ?>'">
+                      Delete
+                  </button>
+                </td>
      </tr>
     <?php
     endforeach;

@@ -19,11 +19,11 @@
                 </tr>
             </tbody>
         </table>
-        <button type="submit" name="submit" value="explore">
-            <div style="font-size: 19px;"> Execution </div>
+        <button type="submit" name="submit" value="explore" class="btn btn-success">
+            Execution
         </button>
-        <button type="button" name="submit" value="create" onClick="location.href = '<?php echo site_url('project/edit'); ?>/new'">
-            <div style="font-size: 19px;"> New Project </div>
+        <button type="button" name="submit" value="create" onClick="location.href = '<?php echo site_url('project/edit'); ?>/new'" class="btn btn-success">
+            New Project
         </button>
     </fieldset>
 </form>
@@ -46,7 +46,15 @@ if (!empty($list)) { ?>
       <td> <a href="<?php echo site_url('project/edit'); ?>/<?php echo $project['project_id']; ?>"> <?php echo $project['project_name']; ?> </a></td>
                 <td> <?php echo display_date_str($project['created_date']); ?> </td>
                 <td> <?php echo display_date_str($project['updated_date']); ?> </td>
-                <td> <a href="<?php echo site_url('project/delete').'/'.$project['project_id']; ?>/<?php echo ''; ?>"> Delete </a> </td>
+                <td>
+                  <button type="button" name="submit" class="btn btn-success"
+                    onClick="location.href='<?php
+                      echo site_url('project/delete')
+                        .'/'.$project['project_id'];
+                    ?>'">
+                    Delete
+                  </button>
+                </td>
      </tr>
     <?php
     }

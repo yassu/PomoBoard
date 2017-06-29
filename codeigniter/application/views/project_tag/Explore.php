@@ -19,11 +19,11 @@
                 </tr>
             </tbody>
         </table>
-        <button type="submit" name="submit" value="explore">
-            <div style="font-size: 19px;"> Execution </div>
+        <button type="submit" name="submit" value="explore" class="btn btn-success">
+            Execution
         </button>
-        <button type="button" name="submit" value="create" onClick="location.href = '<?php echo site_url('project_tag/edit').'/new';?>';">
-            <div style="font-size: 19px;"> New Project Tag </div>
+        <button type="button" name="submit" value="create" onClick="location.href = '<?php echo site_url('project_tag/edit').'/new';?>';" class="btn btn-success">
+            New Project Tag
         </button>
     </fieldset>
 </form>
@@ -44,7 +44,13 @@ if (! empty($list)) :
        <tr>
       <td> <a href="<?php echo site_url('project_tag/edit'.'/'.$project_tag['project_tag_id']); ?>">#<?php echo $project_tag['project_tag_id']; ?> </a> </td>
                 <td> <?php echo $project_tag['project_tag_name']; ?> </td>
-                <td> <a href="<?php echo site_url('project_tag/delete') . '/' . $project_tag['project_tag_id']; ?>">Delete</a> </td>
+                <td>
+                  <button type="button" name="submit" class="btn btn-success" onClick="location.href='<?php
+                    echo site_url('project_tag/delete') . '/' . $project_tag['project_tag_id'];
+                  ?>'">
+                    Delete
+                  </button>
+                </td>
      </tr>
     <?php
     endforeach;

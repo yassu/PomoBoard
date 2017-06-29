@@ -23,5 +23,7 @@ window.onload = function()
             </tbody>
         </table>
     </fieldset>
-    <p class="submit"><input type="submit" value="submit"/></p>
+    <p class="submit">
+        <button type="submit" class="btn btn-success" value="submit"> Submit </button>
+    </p>
 </form>
