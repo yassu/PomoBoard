@@ -53,12 +53,12 @@ class Task extends CI_Controller
             if ($task_id === 'new') {
                 // echo var_dump($_POST);
                 $this->Task->insert($this->User->logined(), $_POST['task_title'], $_POST['task_memo'], $_POST['project_id']);
-                set_flash_message($this, 'Inserted new task.');
+                set_flash_message('Inserted new task.');
             }
             else
             {
                 $this->Task->update($this->User->logined(), intval($task['task_id']), $_POST['task_title'], $_POST['task_memo'], $_POST['project_id']);
-                set_flash_message($this, 'Updated the task.');
+                set_flash_message('Updated the task.');
             }
             redirect('task/explore');
         }
@@ -68,7 +68,7 @@ class Task extends CI_Controller
     public function delete($task_id)
     {
         $this->Task->delete($this->User->logined(), $task_id);
-        set_flash_message($this, 'Deleted the task.');
+        set_flash_message('Deleted the task.');
 
         redirect(site_url('task/explore'));
     }

@@ -67,7 +67,7 @@ class Project extends CI_Controller
                     }
                 }
 
-                    set_flash_message($this, 'Inserted new Project.');
+                    set_flash_message('Inserted new Project.');
             }
             else
             {
@@ -80,7 +80,7 @@ class Project extends CI_Controller
                     }
                 }
                     $this->ProjectDetail->update_by_project_id($this->User->logined(), $updated_id, $project_tag_ids);
-                    set_flash_message($this, 'Updated the Project.');
+                    set_flash_message('Updated the Project.');
             }
 
             // redirect('project/explore');
@@ -90,7 +90,7 @@ class Project extends CI_Controller
     public function delete($project_id)
     {
         $this->Project->delete($this->User->logined(), $project_id);
-        set_flash_message($this, 'Deleted the Project.');
+        set_flash_message('Deleted the Project.');
 
         redirect('project/explore');
     }

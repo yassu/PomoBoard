@@ -26,7 +26,7 @@ class User extends CI_Controller
 
             $this->User->insert($name, $hashed_password);
 
-            set_flash_message($this, 'Success in signing up');
+            set_flash_message('Success in signing up');
 
             $this->load->view('statics/header', $header_data);
             $this->load->view('user/sign_up_success', $data);
@@ -70,12 +70,12 @@ class User extends CI_Controller
             {
                 $this->session->user_id = $_POST['id'];
                 $this->session->hashed_password = crypt($_POST['password'], "$6$");
-                set_flash_message($this, 'Login is successed.');
+                set_flash_message('Login is successed.');
                 redirect('pomoboard');
             }
             else
             {
-                set_flash_message($this, 'User id and password combination is invalid.');
+                set_flash_message('User id and password combination is invalid.');
                 redirect('user/login');
             }
         }

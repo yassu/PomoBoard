@@ -50,13 +50,13 @@ class Indicated_Point_Tag extends CI_Controller
             if ($indicated_point_tag_id === "new")
             {
                 $this->IndicatedPointTag->insert($this->User->logined(), $_POST['indicated_point_tag_name']);
-                set_flash_message($this, 'Inserted new indicated point tag');
+                set_flash_message('Inserted new indicated point tag');
             }
             else
             {
                 $this->IndicatedPointTag->update($this->User->logined(),
                     intval($indicated_point_tag_id), $_POST['indicated_point_tag_name']);
-                set_flash_message($this, 'Updated new indicated point tag');
+                set_flash_message('Updated new indicated point tag');
             }
             redirect('indicated_point_tag/explore');
         }
@@ -66,7 +66,7 @@ class Indicated_Point_Tag extends CI_Controller
     public function delete($indicated_point_tag_id)
     {
         $this->IndicatedPointTag->delete($this->User->logined(), $indicated_point_tag_id);
-        set_flash_message($this, 'Deleted the indicated point');
+        set_flash_message('Deleted the indicated point');
 
         redirect(site_url('indicated_point_tag/explore'));
     }

@@ -20,21 +20,24 @@ function get_next_date_str($date_str)
 }
 
 
-function set_flash_message($instance, $str)
+function set_flash_message($str)
 {
-    $instance->session->set_flashdata('message', $str);
+    $CI =& get_instance();
+    $CI->session->set_flashdata('message', $str);
 }
 
 
-function pop_flash_message($instance)
+function pop_flash_message()
 {
     if (! array_key_exists('message', $_SESSION)) {
         return '';
     }
 
-    $str = $instance->config->item('success_prefix');
-    $str .= $instance->session->message;
-    $str .= $instance->config->item('success_suffix');
+    $CI =& get_instance();
+
+    $str = $CI->config->item('success_prefix');
+    $str .= $CI->session->message;
+    $str .= $CI->config->item('success_suffix');
     return $str;
 }
 

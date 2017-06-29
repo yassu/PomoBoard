@@ -44,12 +44,12 @@ class Task_Tag extends CI_Controller
         {
             if ($task_tag_id === "new") {
                 $this->TaskTag->insert($this->User->logined(), $_POST['task_tag_name']);
-                set_flash_message($this, 'Inserted new task tag.');
+                set_flash_message('Inserted new task tag.');
             }
             else
             {
                 $this->TaskTag->update($this->User->logined(), intval($task_tag_id), $_POST['task_tag_name']);
-                set_flash_message($this, 'Updated the task tag.');
+                set_flash_message('Updated the task tag.');
             }
             redirect('task_tag/explore');
         }
@@ -59,7 +59,7 @@ class Task_Tag extends CI_Controller
     public function delete($task_tag_id)
     {
         $this->TaskTag->delete($this->User->logined(), intval($task_tag_id));
-        set_flash_message($this, 'Deleted the task tag');
+        set_flash_message('Deleted the task tag');
 
         redirect(site_url('task_tag/explore'));
     }

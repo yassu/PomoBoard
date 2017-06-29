@@ -19,7 +19,6 @@ class Project_Tag extends CI_Controller
         $this->load->view('statics/footer');
     }
 
-        
     public function edit($project_tag_id)
     {
         $this->form_validation->set_rules('project_tag_name', 'Project Tag name', 'trim|required');
@@ -43,12 +42,12 @@ class Project_Tag extends CI_Controller
         {
             if ($project_tag_id === "new") {
                 $this->ProjectTag->insert($this->User->logined(), $_POST['project_tag_name']);
-                set_flash_message($this, 'Inserted new project tag.');
+                set_flash_message('Inserted new project tag.');
             }
             else
             {
                 $this->ProjectTag->update($this->User->logined(), intval($project_tag_id), $_POST['project_tag_name']);
-                set_flash_message($this, 'Updated new project tag.');
+                set_flash_message('Updated new project tag.');
             }
             redirect('project_tag/explore');
         }
@@ -58,7 +57,7 @@ class Project_Tag extends CI_Controller
     public function delete($project_tag_id)
     {
         $this->ProjectTag->delete($this->User->logined(), $project_tag_id);
-        set_flash_message($this, 'Deleted the project tag.');
+        set_flash_message('Deleted the project tag.');
 
         redirect(site_url('project_tag/explore'));
     }

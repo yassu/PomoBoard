@@ -53,13 +53,13 @@ class Indicated_Point extends CI_Controller
             {
                 $this->IndicatedPoint->insert($this->User->logined(),
                     $_POST['indicated_point_title'], $_POST['indicated_point_memo']);
-                set_flash_message($this, 'Inserted the indicated point.');
+                set_flash_message('Inserted the indicated point.');
             }
             else
             {
                 $this->IndicatedPoint->update($this->User->logined(), $indicated_point_id,
                     $_POST['indicated_point_title'], $_POST['indicated_point_memo']);
-                set_flash_message($this, 'Updated the indicated point.');
+                set_flash_message('Updated the indicated point.');
             }
             redirect('indicated_point/explore');
         }
@@ -69,7 +69,7 @@ class Indicated_Point extends CI_Controller
     public function delete($indicated_point_id)
     {
         $this->IndicatedPoint->delete($this->User->logined(), intval($indicated_point_id));
-        set_flash_message($this, 'Delete the Indicated Point');
+        set_flash_message('Delete the Indicated Point');
 
         redirect('indicated_point/explore');
     }
