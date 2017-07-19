@@ -125,4 +125,23 @@ class MY_ProjectTag extends CI_Model
                 )
             );
     }
+
+    public function get_dropdown_array($user_id)
+    {
+        if ($user_id === null || $user_id === "")
+        {
+            return array();
+        }
+
+        $dropdown_array = array(
+            '' => '--'
+        );
+        foreach ($this->get_all($user_id) as $project_tag)
+        {
+            $dropdown_array[$project_tag['project_tag_id']]
+                = $project_tag['project_tag_name'];
+        }
+
+        return $dropdown_array;
+    }
 }

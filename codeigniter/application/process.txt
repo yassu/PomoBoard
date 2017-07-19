@@ -1,0 +1,2 @@
+ProjectTagとProjectの結びつきのDropdownを作っているところ.
+selectedのidを取得するためにmodel/My_ProjectTagのget_from_project_idを定義しているところ.

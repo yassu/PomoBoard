@@ -8,6 +8,16 @@
                 </tr>
                 <tr>
                     <th style='text-align: left'>Project Tag</th>
+                    <td>
+                        <?php echo form_dropdown(
+                            'project_tag_id1',
+                            $this->ProjectTag->get_dropdown_array(
+                                $this->User->logined()
+                            ),
+                            '1'
+                        );
+                        ?>
+                    </td>
                 </tr>
             </tbody>
         </table>
