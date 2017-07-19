@@ -144,4 +144,13 @@ class MY_ProjectTag extends CI_Model
 
         return $dropdown_array;
     }
+
+    public function get_projecttag_from_project_id($user_id, $project_id)
+    {
+        select * from ProjectTag
+            inner join ProjectDetail on ProjectDetail.project_tag_id=ProjectTag.project_tag_id
+            where
+                ProjectTag.user_id=$user_id and
+                ProjectTag.is_deleted=0
+    }
 }

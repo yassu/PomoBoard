@@ -14,7 +14,8 @@
                             $this->ProjectTag->get_dropdown_array(
                                 $this->User->logined()
                             ),
-                            '1'
+                            $this->ProjectTag->get_projecttag_from_project_id
+                                ($this->User->logined(), $project['project_id'])
                         );
                         ?>
                     </td>
