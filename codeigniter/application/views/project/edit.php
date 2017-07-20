@@ -16,7 +16,7 @@ $project_tags = is_null($project)?
                         <td><input type="text" id="project_name" name="project_name" value="<?php echo ($project === null)? '': $project['project_name']; ?>" /></td>
                 </tr>
                 <tr>
-                    <th style='text-align: left'>Project Tag</th>
+                    <th style='text-align: left' style="vertical-align:top">Project Tag</th>
                     <td>
                         <?php echo form_dropdown(
                             'project_tag_id1',
@@ -25,9 +25,47 @@ $project_tags = is_null($project)?
                             ),
                             (count($project_tags) < 1)?
                                 '':
-                                $this->ProjectTag->get_projecttags_from_project_id
-                                    ($this->User->logined(),
-                                    $project['project_id'])[0]['project_tag_id']
+                                $project_tags[0]['project_tag_id']
+                            );
+                        ?> <br>
+                        <?php echo form_dropdown(
+                            'project_tag_id2',
+                            $this->ProjectTag->get_dropdown_array(
+                                $this->User->logined()
+                            ),
+                            (count($project_tags) < 2)?
+                                '':
+                                $project_tags[1]['project_tag_id']
+                            );
+                        ?> <br>
+                        <?php echo form_dropdown(
+                            'project_tag_id3',
+                            $this->ProjectTag->get_dropdown_array(
+                                $this->User->logined()
+                            ),
+                            (count($project_tags) < 3)?
+                                '':
+                                $project_tags[2]['project_tag_id']
+                            );
+                        ?> <br>
+                        <?php echo form_dropdown(
+                            'project_tag_id4',
+                            $this->ProjectTag->get_dropdown_array(
+                                $this->User->logined()
+                            ),
+                            (count($project_tags) < 4)?
+                                '':
+                                $project_tags[3]['project_tag_id']
+                            );
+                        ?> <br>
+                        <?php echo form_dropdown(
+                            'project_tag_id5',
+                            $this->ProjectTag->get_dropdown_array(
+                                $this->User->logined()
+                            ),
+                            (count($project_tags) < 5)?
+                                '':
+                                $project_tags[4]['project_tag_id']
                             );
                         ?>
                     </td>
