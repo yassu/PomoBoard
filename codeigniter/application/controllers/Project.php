@@ -43,8 +43,28 @@ class Project extends CI_Controller
         }
         else
         {
-            /*
-            $project_tags = array();
+            $project_tag_ids = array();
+            if ($_POST["project_tag_id1"] != "")
+            {
+                array_push($project_tag_ids, $_POST["project_tag_id1"]);
+            }
+            if ($_POST["project_tag_id2"] != "")
+            {
+                array_push($project_tag_ids, $_POST["project_tag_id2"]);
+            }
+            if ($_POST["project_tag_id3"] != "")
+            {
+                array_push($project_tag_ids, $_POST["project_tag_id3"]);
+            }
+            if ($_POST["project_tag_id4"] != "")
+            {
+                array_push($project_tag_ids, $_POST["project_tag_id4"]);
+            }
+            if ($_POST["project_tag_id5"] != "")
+            {
+                array_push($project_tag_ids, $_POST["project_tag_id5"]);
+            }
+
             foreach($_POST as $order => $project_tag_id)
             {
                     if (substr($order, 0, strlen("project_tag_id")) === "project_tag_id" && $project_tag_id !== "")
@@ -53,7 +73,6 @@ class Project extends CI_Controller
                             $this->ProjectDetail->insert();
                     }
             }
-            */
 
             $inserted_id = null;
             if ($project_id === "new" ) {
