@@ -33,7 +33,7 @@ class Project extends CI_Controller
         if ($this->form_validation->run() == false) {
                 $header_data['page_title'] = 'NewProject | PomoBoard';
                 $header_data['headline'] = 'Edit Project';
-                    
+
                 $this->load->view('statics/header', $header_data);
                 $data = array(
                         'project' => $this->Project->get_project($this->User->logined(), $project_id)
