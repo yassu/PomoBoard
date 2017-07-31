@@ -65,18 +65,38 @@ class Project extends CI_Controller
                 array_push($project_tag_ids, $_POST["project_tag_id5"]);
             }
 
-            foreach($_POST as $order => $project_tag_id)
+            if ($project_id !== "new")
             {
-                    if (substr($order, 0, strlen("project_tag_id")) === "project_tag_id" && $project_tag_id !== "")
-                    {
-                            $tag_id = intval(substr($order, strlen("project_tag_id")));
-                            $this->ProjectDetail->insert();
-                    }
+                echo var_dump('Case B');
+                # TODO: project_tag_idsに同じ要素があったらvalidation error
+                $this->ProjectDetail->delete_from_project_id(
+                    $this->User->logined(),
+                    $project_id);
+                foreach ($project_tag_ids as $tag_id)
+                {
+                    $tag_id = intval($tag_id);
+                    $this->ProjectDetail->insert(
+                        $this->User->logined(),
+                        $project_id,
+                        $tag_id
+                    );
+                }
             }
+
 
             $inserted_id = null;
             if ($project_id === "new" ) {
                     $inserted_id = $this->Project->insert($this->User->logined(), $_POST['project_name']);
+
+                    foreach ($project_tag_ids as $tag_id)
+                    {
+                        $tag_id = intval($tag_id);
+                        $this->ProjectDetail->insert(
+                            $this->User->logined(),
+                            $inserted_id,
+                            $tag_id
+                        );
+                    }
 
                 foreach($_POST as $order => $project_tag_id)
                     {
@@ -86,7 +106,7 @@ class Project extends CI_Controller
                     }
                 }
 
-                    set_flash_message('Inserted new Project.');
+                set_flash_message('Inserted new Project.');
             }
             else
             {
@@ -98,7 +118,6 @@ class Project extends CI_Controller
                         array_push($project_tag_ids, intval($project_tag_id));
                     }
                 }
-                    $this->ProjectDetail->update_by_project_id($this->User->logined(), $updated_id, $project_tag_ids);
                     set_flash_message('Updated the Project.');
             }
 
