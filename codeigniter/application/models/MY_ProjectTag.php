@@ -152,16 +152,18 @@ class MY_ProjectTag extends CI_Model
             return array();
         }
 
-        return $this->db
+        $res = $this->db
             ->select('*')
                 ->join('ProjectDetail',
                     'ProjectDetail.project_tag_id=ProjectTag.project_tag_id')
                 ->where(
                     array(
                         'ProjectTag.user_id' => $user_id,
-                        'ProjectTag.is_deleted' => 0
+                        'ProjectDetail.project_id' => $project_id,
+                        'ProjectDetail.is_deleted' => 0
                     )
                 )
             ->get('ProjectTag')->result_array();
+        return $res;
     }
 }
