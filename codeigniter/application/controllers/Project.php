@@ -121,7 +121,7 @@ class Project extends CI_Controller
                     set_flash_message('Updated the Project.');
             }
 
-            // redirect('project/explore');
+            redirect('project/explore');
         }
     }
 

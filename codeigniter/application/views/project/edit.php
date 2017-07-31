@@ -3,8 +3,6 @@ $project_tags = is_null($project)?
     array():
     $this->ProjectTag->get_projecttags_from_project_id
         ($this->User->logined(), $project['project_id']);
-    echo var_dump($project_tags);
-    echo var_dump(count($project_tags));
 ?>
 
 <?php echo form_open("project/edit/".(($project === null)? "new": $project["project_id"])); ?>
