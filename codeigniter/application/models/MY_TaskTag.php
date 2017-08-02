@@ -106,4 +106,38 @@ class MY_TaskTag extends CI_Model
             ->get('TaskTag')->result_array();
         return empty($res)? null: $res[0];
     }
+
+    public function get_all($user_id)
+    {
+        if ($user_id === null || $user_id === "")
+        {
+            return array();
+        }
+
+        return $this->db
+            ->where(array(
+                'user_id' => $user_id,
+                'is_deleted' => 0
+            ))
+            ->get('TaskTag')->result_array();
+    }
+
+    public function get_dropdown_array($user_id)
+    {
+        if ($user_id === null || $user_id === "")
+        {
+            return array();
+        }
+
+        $dropdown_array = array(
+            '' => '--'
+        );
+        foreach ($this->get_all($user_id) as $task_tag)
+        {
+            $dropdown_array[$task_tag['task_tag_id']] =
+                $task_tag['task_tag_name'];
+        }
+
+        return $dropdown_array;
+    }
 }

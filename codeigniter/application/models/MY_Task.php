@@ -99,7 +99,7 @@ class MY_Task extends CI_Model
     public function get_list($user_id, $title, $memo, $keyword,
         $begin_created_date, $end_created_date, $begin_updated_date, $end_updated_date
     ) {
-    
+
         if (! $user_id) {
             return array();
         }

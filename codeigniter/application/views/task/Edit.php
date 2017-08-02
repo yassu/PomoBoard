@@ -19,6 +19,22 @@
                         ); ?>
                     </td>
                 </tr>
+                <tr>
+                    <th style="text-align: left; vertical-align: top"> TaskTag </th>
+                    <td>
+                        <?php
+                            echo form_dropdown(
+                                'task_tag_id1',
+                                $this->TaskTag->get_dropdown_array(
+                                    $this->User->logined()
+                                ),
+                                (count($task_tags)<1)?
+                                    '':
+                                    $task_tags[0]['task_tag_id']
+                            );
+                        ?>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </fieldset>
