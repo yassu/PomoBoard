@@ -87,24 +87,13 @@ class Project extends CI_Controller
             $inserted_id = null;
             if ($project_id === "new" ) {
                     $inserted_id = $this->Project->insert($this->User->logined(), $_POST['project_name']);
-
-                    foreach ($project_tag_ids as $tag_id)
-                    {
-                        $tag_id = intval($tag_id);
-                        $this->ProjectDetail->insert(
-                            $this->User->logined(),
-                            $inserted_id,
-                            $tag_id
-                        );
+                    foreach($_POST as $order => $project_tag_id)
+                        {
+                        if (substr($order, 0, strlen("project_tag_id")) === "project_tag_id" && $project_tag_id !== "") {
+                            $project_tag_id = intval(substr($order, strlen("project_tag_id")));
+                            $this->ProjectDetail->insert($this->User->logined(), $inserted_id, $project_tag_id);
+                        }
                     }
-
-                foreach($_POST as $order => $project_tag_id)
-                    {
-                    if (substr($order, 0, strlen("project_tag_id")) === "project_tag_id" && $project_tag_id !== "") {
-                        $project_tag_id = intval(substr($order, strlen("project_tag_id")));
-                        $this->ProjectDetail->insert($this->User->logined(), $inserted_id, $project_tag_id);
-                    }
-                }
 
                 set_flash_message('Inserted new Project.');
             }
