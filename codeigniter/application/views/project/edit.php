@@ -14,7 +14,7 @@ $project_tags = is_null($project)?
                         <td><input type="text" id="project_name" name="project_name" value="<?php echo ($project === null)? '': $project['project_name']; ?>" /></td>
                 </tr>
                 <tr>
-                    <th style='text-align: left' style="vertical-align:top">Project Tag</th>
+                    <th style='text-align: left; vertical-align:top;'>Project Tag</th>
                     <td>
                         <?php echo form_dropdown(
                             'project_tag_id1',
