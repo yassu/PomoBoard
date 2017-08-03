@@ -50,8 +50,30 @@ class Task extends CI_Controller
         }
         else
         {
+            $task_tag_ids = array();
+            if ($_POST['task_tag_id1'] !== "")
+            {
+                array_push($task_tag_ids, $_POST['task_tag_id1']);
+            }
+            if ($_POST['task_tag_id2'] !== "")
+            {
+                array_push($task_tag_ids, $_POST['task_tag_id2']);
+            }
+            if ($_POST['task_tag_id3'] !== "")
+            {
+                array_push($task_tag_ids, $_POST['task_tag_id3']);
+            }
+            if ($_POST['task_tag_id4'] !== "")
+            {
+                array_push($task_tag_ids, $_POST['task_tag_id4']);
+            }
+            if ($_POST['task_tag_id5'] !== "")
+            {
+                array_push($task_tag_ids, $_POST['task_tag_id5']);
+            }
+            return;
+
             if ($task_id === 'new') {
-                // echo var_dump($_POST);
                 $this->Task->insert($this->User->logined(), $_POST['task_title'], $_POST['task_memo'], $_POST['project_id']);
                 set_flash_message('Inserted new task.');
             }

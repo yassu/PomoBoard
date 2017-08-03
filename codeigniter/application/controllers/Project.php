@@ -67,7 +67,6 @@ class Project extends CI_Controller
 
             if ($project_id !== "new")
             {
-                echo var_dump('Case B');
                 # TODO: project_tag_idsに同じ要素があったらvalidation error
                 $this->ProjectDetail->delete_from_project_id(
                     $this->User->logined(),
