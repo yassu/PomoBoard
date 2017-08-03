@@ -99,6 +99,11 @@ class MY_TaskTag extends CI_Model
 
     public function get_task_tag_from_task_tag_id($user_id, $task_tag_id)
     {
+        if ($user_id === null || $user_id === "")
+        {
+            return array();
+        }
+
         $res = $this->db
             ->where('user_id', $user_id)
             ->where('is_deleted', 0)

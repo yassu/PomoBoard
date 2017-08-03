@@ -1,3 +1,11 @@
+<?php
+$task_tags = is_null($task)?
+    array():
+    $this->TaskTag->get_task_tags_from_task_id(
+        $this->User->logined(), $task['task_id']
+    );
+?>
+
 <?php echo form_open("task/edit/".(($task === null)? "new": $task["task_id"])); ?>
     <fieldset>
         <table>
