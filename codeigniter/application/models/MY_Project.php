@@ -78,7 +78,6 @@ class MY_Project extends CI_Model
             $this->db->where('created_date < ', get_next_date_str($end_created_date));
         }
 
-        
         if ($begin_updated_date !== "") {
             $this->db->where('updated_date >= ', $begin_updated_date);
         }

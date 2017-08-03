@@ -35,7 +35,7 @@ class MY_Task extends CI_Model
                 'project_id' => $project_id
                 )
             );
-            return true;
+            return $this->db->insert_id();
         }
     }
 
