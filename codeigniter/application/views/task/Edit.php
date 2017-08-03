@@ -40,6 +40,50 @@ $task_tags = is_null($task)?
                                     '':
                                     $task_tags[0]['task_tag_id']
                             );
+                        ?> <br>
+                        <?php
+                            echo form_dropdown(
+                                'task_tag_id2',
+                                $this->TaskTag->get_dropdown_array(
+                                    $this->User->logined()
+                                ),
+                                (count($task_tags) < 2)?
+                                    '':
+                                    $task_tags[1]['task_tag_id']
+                            );
+                        ?> <br>
+                        <?php
+                            echo form_dropdown(
+                                'task_tag_id3',
+                                $this->TaskTag->get_dropdown_array(
+                                    $this->User->logined()
+                                ),
+                                (count($task_tags) < 3)?
+                                    '':
+                                    $task_tags[2]['task_tag_id']
+                            );
+                        ?> <br>
+                        <?php
+                            echo form_dropdown(
+                                'task_tag_id4',
+                                $this->TaskTag->get_dropdown_array(
+                                    $this->User->logined()
+                                ),
+                                (count($task_tags) < 4)?
+                                    '':
+                                    $task_tags[3]['task_tag_id']
+                            );
+                        ?> <br>
+                        <?php
+                            echo form_dropdown(
+                                'task_tag_id5',
+                                $this->TaskTag->get_dropdown_array(
+                                    $this->User->logined()
+                                ),
+                                (count($task_tags) < 5)?
+                                    '':
+                                    $task_tags[4]['task_tag_id']
+                            );
                         ?>
                     </td>
                 </tr>
