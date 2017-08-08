@@ -71,7 +71,23 @@ class Task extends CI_Controller
             {
                 array_push($task_tag_ids, $_POST['task_tag_id5']);
             }
-            return;
+
+            if ($task_id !== "new")
+            {
+                $this->TaskDetail->delete_from_id(
+                    $this->User->logined(),
+                    $task_id
+                );
+                foreach($task_tag_ids as $task_tag_id)
+                {
+                    $tag_id = intval($tag_id);
+                    $this->TaskDetail->insert(
+                        $this->User->logined(),
+                        $task_id,
+                        $tag_id
+                    );
+                }
+            }
 
             if ($task_id === 'new') {
                 $this->Task->insert($this->User->logined(), $_POST['task_title'], $_POST['task_memo'], $_POST['project_id']);
