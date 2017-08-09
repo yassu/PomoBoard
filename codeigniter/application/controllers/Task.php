@@ -80,7 +80,7 @@ class Task extends CI_Controller
                 );
                 foreach($task_tag_ids as $task_tag_id)
                 {
-                    $tag_id = intval($tag_id);
+                    $tag_id = intval($task_tag_id);
                     $this->TaskDetail->insert(
                         $this->User->logined(),
                         $task_id,

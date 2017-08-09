@@ -112,6 +112,26 @@ class MY_TaskTag extends CI_Model
         return empty($res)? null: $res[0];
     }
 
+    public function get_task_tags_from_task_id($user_id, $task_id)
+    {
+        if ($user_id === null || $user_id === "")
+        {
+            return array();
+        }
+
+        $res = $this->db
+            ->join('TaskDetail', 'TaskDetail.task_tag_id=TaskTag.task_tag_id')
+            ->where(
+                array(
+                    'TaskTag.user_id' => $user_id,
+                    'TaskDetail.task_id' => $task_id,
+                    'TaskDetail.is_deleted' => 0
+                )
+            )
+            ->get('TaskTag')->result_array();
+        return $res;
+    }
+
     public function get_all($user_id)
     {
         if ($user_id === null || $user_id === "")
