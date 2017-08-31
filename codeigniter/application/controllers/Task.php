@@ -91,7 +91,7 @@ class Task extends CI_Controller
 
             if ($task_id === 'new') {
                 $inserted_id = $this->Task->insert($this->User->logined(), $_POST['task_title'], $_POST['task_memo'], $_POST['project_id']);
-                foreach($_POST as $order => $project_tag_id)
+                foreach($_POST as $order => $task_tag_id)
                 {
                     if (
                         substr($order, 0, strlen('task_tag_id')) === "task_tag_id" &&
